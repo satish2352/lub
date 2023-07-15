@@ -68,7 +68,9 @@ Route::group(['middleware' => ['admin']], function () {
 
     Route::post('/otp-verification', ['as' => 'otp-verification', 'uses' => 'App\Http\Controllers\Admin\LoginRegister\RegisterController@updateEmailOtp']);
     
- 
+
+    Route::get('/students', ['as' => '/students', 'uses' => 'App\Http\Controllers\Admin\StudentController@add']);
+
 
 Route::get('/log-out', ['as' => 'log-out', 'uses' => 'App\Http\Controllers\Admin\LoginRegister\LoginController@logout']);
 
