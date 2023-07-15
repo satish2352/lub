@@ -498,6 +498,7 @@ class ComposerStaticInita2b39e4ee1606957090b3532d047b6e4
 
     public static $classMap = array (
         'App\\Exceptions\\Handler' => __DIR__ . '/../..' . '/app/Exceptions/Handler.php',
+        'App\\Http\\Controllers\\Admin\\Dashboard\\DashboardController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/Dashboard/DashboardController.php',
         'App\\Http\\Controllers\\Admin\\ErrorLogsController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/ErrorLogsController.php',
         'App\\Http\\Controllers\\Admin\\LoginRegister\\LoginController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/LoginRegister/LoginController.php',
         'App\\Http\\Controllers\\Admin\\LoginRegister\\RegisterController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/LoginRegister/RegisterController.php',

@@ -1,5 +1,10 @@
 @extends('website.layout.master')
 @section('content')
+    <style>
+        .form {
+            padding: 30px;
+        }
+    </style>
     <section id="inner-banner">
         <div class="overlay">
             <div class="container">
@@ -15,77 +20,77 @@
         </div>
     </section>
 
-
-
-    <div class="container">
-        <div class="col-8">
-            <form class="cmxform" id="signupForm" method="get" action="form-handler.html" autocomplete="off">
-                <h2>Talent search - College Students Registration form</h2>
-                {{-- <h6>
-                    Event organized by Laghu Udyog Bharti & Government Polytechnic,
-                    Nashik (DTE)
-                </h6> --}}
-
-                <fieldset>
-                    <p class="mt-4">
-                        <label for="email"><b>Email</b></label><br />
-                        <input id="email" name="email" type="email" />
-                    </p>
-
-                    <p>
-                        <label for="nameproject"><b>Name of project</b></label><br />
-                        <input id="nameproject" name="nameproject" type="text" />
-                    </p>
-
-                    <p>
-                        <label for="nameparticipants"><b>Name of participants</b></label><br />
-                        <input id="nameparticipants" name="nameparticipants" type="text" />
-                    </p>
-                    <p>
-                        <label for="Nameofyourcollege"><b>Name of your college</b></label><br />
-                        <input id="Nameofyourcollege" name="Nameofyourcollege" type="text" />
-                    </p>
-
-                    <div class="mb-3 mt-3 cc">
-                        <label for="registrationfees"><b>Registration fees Rs.750/- paid by</b></label>
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="neft" />
-                            <label class="form-check-label" for="neft">NEFT</label>
+    <div class="form_wrapper">
+        <div class="form_container">
+            <div class="title_container">
+                <h2>Registration Form</h2>
+            </div>
+            <div class="row clearfix">
+                <div class="">
+                    <form class="forms-sample" id="frm_register" name="frm_register" method="post" role="form"
+                        action="{{ route('add-users') }}" enctype="multipart/form-data">
+                        @csrf
+                        <div class="input_field"> <span><i aria-hidden="true" class="fa fa-envelope"></i></span>
+                            <input type="email" name="u_email" id="u_email" value="{{ old('u_email') }}"
+                                placeholder="Email" />
+                            @if ($errors->has('u_email'))
+                                <span class="red-text"><?php echo $errors->first('u_email', ':message'); ?></span>
+                            @endif
                         </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="neft" checked />
-                            <label class="form-check-label">QR code</label>
+                        <div class="input_field"> <span><i aria-hidden="true" class="fa fa-phone"></i></span>
+                            <input type="text" name="mobile_no" id="mobile_no" value="{{ old('mobile_n') }}"
+                                placeholder="Mobile no." />
+
                         </div>
-                    </div>
+                        @if ($errors->has('mobile_no'))
+                            <span class="red-text"><?php echo $errors->first('mobile_no', ':message'); ?></span>
+                        @endif
+                        <div class="input_field"> <span><i aria-hidden="true" class="fa fa-lock"></i></span>
+                            <input type="password" name="u_password" id="u_password" placeholder="Password" />
 
-                    <p>
-                        <label for="PaymentUTRCode"><b>Payment confirmation - UTR Code</b></label><br />
-                        <input id="PaymentUTRCode" name="PaymentUTRCode" type="text" />
-                    </p>
+                        </div>
+                        @if ($errors->has('u_password'))
+                            <span class="red-text"><?php echo $errors->first('u_password', ':message'); ?></span>
+                        @endif
+                        <div class="input_field"> <span><i aria-hidden="true" class="fa fa-lock"></i></span>
+                            <input type="password" name="password_confirmation" id="password_confirmation"
+                                placeholder="Re-type Password" />
 
-                    <p class="mt-3">
-                        <label for="bankdetails">
-                            <b>Bank details:</b><br />
-                            A/c Name: Laghu Udyog Bharati <br />
-                            Bank: TJSB Bank <br />
-                            Branch: Gangapur Rd. <br />
-                            A/c No.: 021110100000661 <br />
-                            IFS Code: TJSB0000021 <br />
-                        </label>
-                        <img src="../LUB PAYMENT QR.jpg" alt="" />
-                    </p>
-                    <p class="mt-3"><b>Add Payment Screenshot</b></p>
-                    <input name="imgupload" type="file" value="Add Screenshot" accept="image/*" />
-                    <p class="mt-4"></p>
-                    <b>Attach Your Project soft copy (Upload File)</b><br />
-                    <input name="projectupload" type="file" value="Add File" accept="pdf" />
+                        </div>
+                        @if ($errors->has('password_confirmation'))
+                            <span class="red-text"><?php echo $errors->first('password_confirmation', ':message'); ?></span>
+                        @endif
+                        <div class="input_field select_option">
+                            <select class="form-control" id="registration_type" name="registration_type"
+                                onchange="myFunction(this.value)">
+                                <option>Select Type Of Registration</option>
+                                <option value="0" selected>Student</option>
+                                <option value="1" hidden>Industry</option>
+                            </select>
+                            <div class="select_arrow"></div>
 
-                    <p class="mt-4">
-                        <input class="submit" type="submit" value="Submit" />
-                    </p>
-                </fieldset>
+                        </div>
+                        @if ($errors->has('registration_type'))
+                            <span class="red-text"><?php echo $errors->first('registration_type', ':message'); ?></span>
+                        @endif
+                        <div class="input_field select_option">
+                            <select class="form-control" id="institute_type" name="institute_type"
+                                onchange="myFunction(this.value)">
+                                <option value="">Select Type Of Course</option>
+                                <option value="0">Degree</option>
+                                <option value="1">Diploma</option>
+                                <option value="2">ITI</option>
+                            </select>
+                            <div class="select_arrow"></div>
 
-            </form>
+                        </div>
+                        @if ($errors->has('institute_type'))
+                            <span class="red-text"><?php echo $errors->first('institute_type', ':message'); ?></span>
+                        @endif
+                        <input class="button" type="submit" value="Register" />
+                    </form>
+                </div>
+            </div>
         </div>
     </div>
 
