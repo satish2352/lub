@@ -19,12 +19,14 @@ class RegisterRepository
 	
 	public function register($request)
 	{
-		$ipAddress = getIPAddress($request);
+		$ipAddress = '';//getIPAddress($request);
 		$user_data = new User();
 		$user_data->u_email = $request['u_email'];
 		$user_data->u_password = bcrypt($request['u_password']);
-		$user_data->number = $request['number'];
-		$user_data->ip_address = $ipAddress;
+		$user_data->mobile_no = $request['mobile_no'];
+		$user_data->registration_type = $request['registration_type'];
+		$user_data->institute_type = $request['institute_type'];
+		// $user_data->ip_address = $ipAddress;
 		$user_data->is_active = isset($request['is_active']) ? true : false;
 		$user_data->save();
 		$last_insert_id = $user_data->id;

@@ -33,12 +33,13 @@
                         <div class="input_field"> <span><i aria-hidden="true" class="fa fa-envelope"></i></span>
                             <input type="email" name="u_email" id="u_email" value="{{ old('u_email') }}"
                                 placeholder="Email" />
-                            @if ($errors->has('u_email'))
-                                <span class="red-text"><?php echo $errors->first('u_email', ':message'); ?></span>
-                            @endif
+
                         </div>
+                        @if ($errors->has('u_email'))
+                            <span class="red-text"><?php echo $errors->first('u_email', ':message'); ?></span>
+                        @endif
                         <div class="input_field"> <span><i aria-hidden="true" class="fa fa-phone"></i></span>
-                            <input type="text" name="mobile_no" id="mobile_no" value="{{ old('mobile_n') }}"
+                            <input type="text" name="mobile_no" id="mobile_no" value="{{ old('mobile_no') }}"
                                 placeholder="Mobile no." />
 
                         </div>
@@ -61,8 +62,7 @@
                             <span class="red-text"><?php echo $errors->first('password_confirmation', ':message'); ?></span>
                         @endif
                         <div class="input_field select_option">
-                            <select class="form-control" id="registration_type" name="registration_type"
-                                onchange="myFunction(this.value)">
+                            <select class="form-control" id="registration_type" name="registration_type">
                                 <option>Select Type Of Registration</option>
                                 <option value="0" selected>Student</option>
                                 <option value="1" hidden>Industry</option>
@@ -74,8 +74,7 @@
                             <span class="red-text"><?php echo $errors->first('registration_type', ':message'); ?></span>
                         @endif
                         <div class="input_field select_option">
-                            <select class="form-control" id="institute_type" name="institute_type"
-                                onchange="myFunction(this.value)">
+                            <select class="form-control" id="institute_type" name="institute_type">
                                 <option value="">Select Type Of Course</option>
                                 <option value="0">Degree</option>
                                 <option value="1">Diploma</option>
