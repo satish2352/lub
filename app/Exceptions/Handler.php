@@ -4,9 +4,9 @@ namespace App\Exceptions;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
 use Throwable;
-use App\Models\ {
-    ErrorLogs
-};
+// use App\Models\ {
+//     ErrorLogs
+// };
 
 class Handler extends ExceptionHandler
 {
@@ -44,6 +44,7 @@ class Handler extends ExceptionHandler
 
     public function render($request, Throwable $exception)
     {
+        return parent::render($request, $exception);
         // $email_data = [
         //     'exception' => $exception,
         // ];
@@ -58,18 +59,18 @@ class Handler extends ExceptionHandler
         //         ($senderSubject);
         //     $message->from($fromEmail, 'Disaster Management Page Error');
         // });
-        date_default_timezone_set("Asia/Kolkata");
-        $subject = 'Disaster Management Page Error '.date('d-m-Y H:i:s');
-        try {
-            $data_insert = array();
-            $data_insert['subject'] =  $subject ;
-            $data_insert['messege'] = $exception ;
+        // date_default_timezone_set("Asia/Kolkata");
+        // $subject = 'Disaster Management Page Error '.date('d-m-Y H:i:s');
+        // try {
+        //     $data_insert = array();
+        //     $data_insert['subject'] =  $subject ;
+        //     $data_insert['messege'] = $exception ;
 
-            ErrorLogs::insert($data_insert);
-            // return redirect()->route('error-handling');
-            return parent::render($request, $exception);
-        } catch (\Exception $e) {
-            return $e;
-        }
+        //     ErrorLogs::insert($data_insert);
+        //     // return redirect()->route('error-handling');
+        //     return parent::render($request, $exception);
+        // } catch (\Exception $e) {
+        //     return $e;
+        // }
     }
 }

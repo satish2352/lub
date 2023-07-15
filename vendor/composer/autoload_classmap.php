@@ -7,6 +7,7 @@ $baseDir = dirname($vendorDir);
 
 return array(
     'App\\Exceptions\\Handler' => $baseDir . '/app/Exceptions/Handler.php',
+    'App\\Http\\Controllers\\Admin\\Dashboard\\DashboardController' => $baseDir . '/app/Http/Controllers/Admin/Dashboard/DashboardController.php',
     'App\\Http\\Controllers\\Admin\\ErrorLogsController' => $baseDir . '/app/Http/Controllers/Admin/ErrorLogsController.php',
     'App\\Http\\Controllers\\Admin\\LoginRegister\\LoginController' => $baseDir . '/app/Http/Controllers/Admin/LoginRegister/LoginController.php',
     'App\\Http\\Controllers\\Admin\\LoginRegister\\RegisterController' => $baseDir . '/app/Http/Controllers/Admin/LoginRegister/RegisterController.php',
