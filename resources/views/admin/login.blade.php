@@ -47,7 +47,7 @@
                         <div class="auth-form-transparent text-left p-3">
                             <!--  Brand Logo -->
                             <div class="brand-logo d-flex justify-content-center">
-                                <img src="{{ asset('website_files/images/home/DMS.png') }}" alt="logo">
+                                <img src="{{ asset('website/assets/images/Logo.png') }}"  alt="logo" style="width: 150px">
                             </div>
                             <!--  Login Form -->
 
@@ -68,7 +68,9 @@
                                 </div>
                             @endif
 
-                            <form class="pt-3 login_wrap" method="post" action='{{ route('submitLogin') }}'>
+                            <form class="pt-3 login_wrap" method="post" 
+                            {{-- action='{{ route('submitLogin') }}' --}}
+                            >
                                 @csrf
                                 <div class="form-group">
                                     <div class="input-group">
@@ -106,7 +108,7 @@
                                     @endif
                                  
                                 </div>
-                                <div class="form-group">
+                                {{-- <div class="form-group">
                                     {!! NoCaptcha::renderJs() !!}
                                     {!! NoCaptcha::display() !!}
 
@@ -115,7 +117,7 @@
                                             <span class="red-text">{{ $errors->first('g-recaptcha-response') }}</span>
                                         </span>
                                     @endif
-                                </div>
+                                </div> --}}
 
 
                                 <div class="my-3">
