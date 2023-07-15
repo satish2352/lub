@@ -41,32 +41,12 @@ Route::get('/registration', function () {
 Route::get('/login', function () {
     return view('website.login');
 });
-Route::get('/dashboard', function () {
-    return view('admin.pages.dashboard');
-});
 // ===================
-Route::get('/login', function () {
-    return view('admin.login');
-});
-
-// Route::get('/', ['as' => '/', 'uses' => 'App\Http\Controllers\Website\IndexController@index']);
-// // Route::get('/index11', ['as' => '/index11', 'uses' => 'App\Http\Controllers\Website\IndexController@getTestMagnifier']);
-// Route::post('/change-language', ['as' => '/change-language', 'uses' => 'App\Http\Controllers\Website\IndexController@changeLanguage']);
-
-// Route::get('/error-handling', ['as' => 'error-handling', 'uses' => 'App\Http\Controllers\ErrorHandlingController@errorHandling']);
-
-// // Route::get('/add-users', function () {
-//     return view('admin.pages.users.add-users');
-// });
 
 Route::get('/login', ['as' => 'login', 'uses' => 'App\Http\Controllers\Admin\LoginRegister\LoginController@index']);
 Route::post('/submitLogin', ['as' => 'submitLogin', 'uses' => 'App\Http\Controllers\Admin\LoginRegister\LoginController@submitLogin']);
 
-// Route::get('/pages/{page}', ['as' => 'pages', 'uses' => 'App\Http\Controllers\Website\DynamicPages\DynamicPagesController@index']);
-// // Website
-// Route::get('/index', ['as' => 'index', 'uses' => 'App\Http\Controllers\Website\IndexController@index']);
 
-// ================================================
 Route::group(['middleware' => ['admin']], function () {
     Route::get('/dashboard', ['as' => '/dashboard', 'uses' => 'App\Http\Controllers\Admin\Dashboard\DashboardController@index']);
     Route::get('/list-users', ['as' => 'list-users', 'uses' => 'App\Http\Controllers\Admin\LoginRegister\RegisterController@index']);

@@ -14,9 +14,10 @@ class AdminMiddleware
      */
     public function handle($request, Closure $next)
     {
-        if (!$request->session()->exists('user_id')) {
-            return redirect(route("login"));
-        } else {
+        return $next($request);
+        // if (!$request->session()->exists('user_id')) {
+        //     return redirect(route("login"));
+        // } else {
             // $data_for_url = session('data_for_url');
             // $route_name  =\Request::route()->getName();
             // // if (strpos($route_name,'edit') !== false) { 
@@ -56,9 +57,9 @@ class AdminMiddleware
             //     return redirect()->route('error-handling');
             // }
            
-             return $next($request);
+        //      return $next($request);
 
-        }
+        // }
        
     }
 }

@@ -68,7 +68,7 @@
     </style>
 
 </head>
-<?php $profile = getProfileImage();
+<?php //$profile = getProfileImage();
  ?>
 
 <?php 
@@ -100,7 +100,7 @@
                     <li class="nav-item nav-profile dropdown mr-0">
                         <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" id="profileDropdown">
                             <img class="img-size" 
-                            src="{{ Config::get('DocumentConstant.USER_PROFILE_VIEW') }}{{ $profile->user_profile }}"
+                            src=""
                             />
                         </a>
                         <div class="dropdown-menu dropdown-menu-right navbar-dropdown"
@@ -109,7 +109,7 @@
                             <a 
                             {{-- data-id="{{ $user_data->id }}"  --}}
                             class="dropdown-item edit-user-btn"
-                                href="{{ route('edit-user-profile') }}">
+                                href="">
                                 <i class="fas fa-user text-primary"></i>
                                 Profile
                             </a>

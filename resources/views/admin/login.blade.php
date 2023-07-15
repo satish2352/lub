@@ -78,8 +78,8 @@
                                             </span>
                                         </div>
                                         <input class="form-control form-control-lg border-left-0" type="email"
-                                            name='email' value='{{ old('email') }}' placeholder="Email">
-
+                                            name='email'  placeholder="Email" value="abc@gmail.com">
+{{--value='{{ old('email') }}'--}}
                                     </div>
                                     @if ($errors->has('email'))
                                         <span class="red-text"><?php echo $errors->first('email', ':message'); ?></span>
@@ -93,7 +93,7 @@
                                             </span>
                                         </div>
                                         <input class="form-control form-control-lg border-left-0 password" id="passport"
-                                            type="password" name='password' placeholder='Password'>
+                                            type="password" name='password' placeholder='Password' value="abc@gmail.com">
 
                                             <span id="togglePassword" class="togglePpassword password-toggle"
                                             onclick="togglePasswordVisibility()">
@@ -107,7 +107,7 @@
                                  
                                 </div>
                                 <div class="form-group">
-                                    {!! NoCaptcha::renderJs() !!}
+                                {{--    {!! NoCaptcha::renderJs() !!}
                                     {!! NoCaptcha::display() !!}
 
                                     @if ($errors->has('g-recaptcha-response'))
@@ -115,6 +115,8 @@
                                             <span class="red-text">{{ $errors->first('g-recaptcha-response') }}</span>
                                         </span>
                                     @endif
+
+                                    --}}
                                 </div>
 
 
