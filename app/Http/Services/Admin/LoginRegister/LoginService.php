@@ -19,15 +19,10 @@ class LoginService
         $response = $this->repo->checkLogin($request);
    
         if($response['user_details']) {
-            // use bcrypt for login
             $password = $request['password'];
             if (Hash::check($password, $response['user_details']['u_password'])) {
                 $request->session()->put('user_id',$response['user_details']['id']);
-                $request->session()->put('role_id',$response['user_details']['role_id']);
                 $request->session()->put('u_email',$response['user_details']['u_email']);
-                $request->session()->put('permissions',$response['user_permission']);
-                getRouteDetailsPresentOrNot(session('permissions'));
-                $json = ['status'=>'success','msg'=>$response['user_details']];
             } else {
                 $json = ['status'=>'failed','msg'=>'These credentials do not match our records.'];
             }

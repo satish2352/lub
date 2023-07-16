@@ -24,18 +24,19 @@
     <link rel="shortcut icon" href="{{ asset('assets/images/favicon.png') }}" />
 </head>
 <style>
-     .password-toggle {
-            cursor: pointer;
-            position: absolute;
-            top: 50%;
-            right: 20px;
-            transform: translateY(-50%);
-        }
+    .password-toggle {
+        cursor: pointer;
+        position: absolute;
+        top: 50%;
+        right: 20px;
+        transform: translateY(-50%);
+    }
 
-        .fa-eye-slash {
-            /* display: none; */
-        }
-    </style>
+    .fa-eye-slash {
+        /* display: none; */
+    }
+</style>
+
 <body>
     <!--  header -->
     <!--Container Scroller Start-->
@@ -47,7 +48,8 @@
                         <div class="auth-form-transparent text-left p-3">
                             <!--  Brand Logo -->
                             <div class="brand-logo d-flex justify-content-center">
-                                <img src="{{ asset('website/assets/images/Logo.png') }}"  alt="logo" style="width: 150px">
+                                <img src="{{ asset('website/assets/images/Logo.png') }}" alt="logo"
+                                    style="width: 150px">
                             </div>
                             <!--  Login Form -->
 
@@ -68,9 +70,7 @@
                                 </div>
                             @endif
 
-                            <form class="pt-3 login_wrap" method="post" 
-                            {{-- action='{{ route('submitLogin') }}' --}}
-                            >
+                            <form class="pt-3 login_wrap" method="post" action="{{ route('submitLogin') }}">
                                 @csrf
                                 <div class="form-group">
                                     <div class="input-group">
@@ -80,8 +80,8 @@
                                             </span>
                                         </div>
                                         <input class="form-control form-control-lg border-left-0" type="email"
-                                            name='email'  placeholder="Email" value="abc@gmail.com">
-{{--value='{{ old('email') }}'--}}
+                                            name='email' placeholder="Email" value="abc@gmail.com">
+                                        {{-- value='{{ old('email') }}' --}}
                                     </div>
                                     @if ($errors->has('email'))
                                         <span class="red-text"><?php echo $errors->first('email', ':message'); ?></span>
@@ -94,10 +94,11 @@
                                                 <i class="fa fa-lock text-primary"></i>
                                             </span>
                                         </div>
-                                        <input class="form-control form-control-lg border-left-0 password" id="passport"
-                                            type="password" name='password' placeholder='Password' value="abc@gmail.com">
+                                        <input class="form-control form-control-lg border-left-0 password"
+                                            id="passport" type="password" name='password' placeholder='Password'
+                                            value="abc@gmail.com">
 
-                                            <span id="togglePassword" class="togglePpassword password-toggle"
+                                        <span id="togglePassword" class="togglePpassword password-toggle"
                                             onclick="togglePasswordVisibility()">
                                             <i class="fa fa-eye-slash"></i>
                                         </span>
@@ -106,10 +107,10 @@
                                     @if ($errors->has('password'))
                                         <span class="red-text"><?php echo $errors->first('password', ':message'); ?></span>
                                     @endif
-                                 
+
                                 </div>
                                 <div class="form-group">
-                                {{--    {!! NoCaptcha::renderJs() !!}
+                                    {{--    {!! NoCaptcha::renderJs() !!}
                                     {!! NoCaptcha::display() !!}
 
                                     @if ($errors->has('g-recaptcha-response'))
@@ -233,22 +234,22 @@
         });
     </script>
 
-<script>
-    function togglePasswordVisibility() {
-        var passwordInput = document.getElementsByClassName("password")[0];
-        var toggleIcon = document.querySelector(".togglePpassword i");
+    <script>
+        function togglePasswordVisibility() {
+            var passwordInput = document.getElementsByClassName("password")[0];
+            var toggleIcon = document.querySelector(".togglePpassword i");
 
-        if (passwordInput.type === "password") {
-            passwordInput.type = "text";
-            toggleIcon.classList.remove("fa-eye-slash");
-            toggleIcon.classList.add("fa-eye");
-        } else {
-            passwordInput.type = "password";
-            toggleIcon.classList.remove("fa-eye");
-            toggleIcon.classList.add("fa-eye-slash");
+            if (passwordInput.type === "password") {
+                passwordInput.type = "text";
+                toggleIcon.classList.remove("fa-eye-slash");
+                toggleIcon.classList.add("fa-eye");
+            } else {
+                passwordInput.type = "password";
+                toggleIcon.classList.remove("fa-eye");
+                toggleIcon.classList.add("fa-eye-slash");
+            }
         }
-    }
-</script>
+    </script>
 </body>
 
 </html>

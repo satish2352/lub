@@ -21,6 +21,7 @@ class CreateUsersTable extends Migration
             $table->string('mobile_no');
             $table->unsignedBigInteger('registration_type')->default(0);
             $table->unsignedBigInteger('institute_type')->default(0);
+            $table->string('ip_address')->default('null');
             $table->boolean('is_active')->default(true);
             $table->boolean('is_deleted')->default(false);
             $table->timestamps();
