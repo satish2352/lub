@@ -31,7 +31,13 @@
                  <span class="menu-title">Dashboard</span>
              </a>
          </li>
-
+         <li class="{{ request()->is('list-user-details*') ? 'nav-item active' : 'nav-item' }}">
+            <a class="nav-link active" href="{{ route('/list-user-details') }}">
+                <i class="fas fa-user menu-icon"></i>
+                <span class="menu-title">User</span>
+            </a>
+        </li>
+        
          <li class="nav-item">
              <a class="nav-link active" data-toggle="collapse" href="#master" aria-expanded="false"
                  aria-controls="master">

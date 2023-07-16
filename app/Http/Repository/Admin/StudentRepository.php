@@ -6,67 +6,54 @@ use DB;
 use Illuminate\Support\Carbon;
 // use Session;
 use App\Models\ {
-	Slider
+	UserDetails
 };
 use Config;
 
 class StudentRepository  {
 	public function getAll(){
         try {
-            return Slider::all();
+            return UserDetails::all();
         } catch (\Exception $e) {
             return $e;
         }
     }
 
-	public function addAll($request){
+
+    public function addAll($request){
         try {
-            $slides = new Slider();
-            $slides->english_title = $request['english_title'];
-            $slides->marathi_title = $request['marathi_title'];
-            $slides->english_description = $request['english_description'];
-            $slides->marathi_description = $request['marathi_description'];
-            $slides->url = $request['url'];
-            // $slides->english_scrolltime = $request['english_scrolltime'];
-        
-            $slides->save(); 
-            $last_insert_id = $slides->id;
+           
+            $user_details = new UserDetails();
+            // $user_details->email = $request->input('email');
+            $user_details->project_name = $request->input('project_name');
+            $user_details->participants_name = $request->input('participants_name');
+            $user_details->education = $request->input('education');
+            $user_details->branch = $request->input('branch');
+            $user_details->college_name = $request->input('college_name');
+            $user_details->company_name = $request->input('company_name');
+            $user_details->transaction_id = $request->input('transaction_id');
+            $user_details->designation = $request->input('designation');
+            $user_details->registration_fees = $request->input('registration_fees');
 
-            $englishImageName = $last_insert_id . '_english.' . $request->english_image->extension();
-            $marathiImageName = $last_insert_id . '_marathi.' . $request->marathi_image->extension();
-            
-            $slide = Slider::find($last_insert_id); // Assuming $request directly contains the ID
-            $slide->english_image = $englishImageName; // Save the image filename to the database
-            $slide->marathi_image = $marathiImageName; // Save the image filename to the database
-            $slide->save();
-            
-            return $last_insert_id;
-
-        } catch (\Exception $e) {
-            return [
-                'msg' => $e,
-                'status' => 'error'
-            ];
-        }
-    }
-
-    public function getById($id){
-        try {
-            $slider = Slider::find($id);
-            if ($slider) {
-                return $slider;
-            } else {
-                return null;
-            }
-        } catch (\Exception $e) {
-            return $e;
-            return [
-                'msg' => 'Failed to get by id slide.',
-                'status' => 'error'
-            ];
-        }
-    }
+            $user_details->save(); 
+            $last_insert_id = $user_details->id;
     
-   
+            //  $userimage = $last_insert_id . '_image.' . $request->passport_size->extension();
+            //  $userpdf = $last_insert_id . '_pdf.' . $request->soft_copy->extension();
+            
+            // $user = UserDetails::find($last_insert_id); // Assuming $request directly contains the ID
+            // $user->passport_size = $userimage; // Save the image filename to the database
+            // $user->soft_copy = $userpdf; // Save the image filename to the database
+            // $user->save();    
+            return $last_insert_id;
+    
+        } catch (\Exception $e) {
+            return [
+                'msg' => $e->getMessage(),
+                'status' => 'error'
+            ];
+        }
+    }
 
+    
 }

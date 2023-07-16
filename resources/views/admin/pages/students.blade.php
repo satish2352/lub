@@ -4,174 +4,217 @@
     <div class="main-panel">
         <div class="content-wrapper mt-6">
             <div class="page-header">
-                <h3 class="page-title">
-                    Student Form
+                <h3 class="page-title">User Details
                 </h3>
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="#">Master</a></li>
-                        <li class="breadcrumb-item active" aria-current="page"> Student Form</li>
+                        <li class="breadcrumb-item"><a href="#">Home</a></li>
+                        <li class="breadcrumb-item active" aria-current="page"> User Details </li>
                     </ol>
                 </nav>
             </div>
             <div class="row">
                 <div class="col-12 grid-margin">
                     <div class="card">
-                        <div class="card-body">                         
-                            <script>
-                              $().ready(function () {
-                                $("#signupForm").validate({
-                                  rules: {
-                                    nameproject: "required",
-                                    Nameofyourcollege: "required",
-                                    nameparticipants: "required",
-                                    PaymentUTRCode: "required",
-                                    email: {
-                                      required: true,
-                                      email: true,
-                                    },
-                                    paymentconfirm: "required",
-                                    paymentcode: "required",
-                                    attchcopy: "required",
-                                    imgupload:"required",
-                                    projectupload:"required"
-                                  },
-                                  // In 'messages', users have to specify messages as per rules
-                                  messages: {
-                                    nameproject: "This field is required.*",
-                                    nameparticipants: "This field is required.*",
-                                    Nameofyourcollege: "This field is required.*",
-                                    PaymentUTRCode: "This field is required*.",
-                                    imgupload:"This field is required.*",
-                                    projectupload:"This field is required.*"
-                                  },
-                                });
-                              });
-                            </script>
-                          {{-- </head> --}}
-                        
-                          {{-- <body>
-                            <div class="container"> --}}
-                              <div class="col-8">
-                                <form
-                                  class="cmxform"
-                                  id="signupForm"
-                                  method="get"
-                                  action="form-handler.html"
-                                  autocomplete="off"
-                                >
+                        <div class="card-body">
+                            <h2 class="page-title">Talent search - College Students Registration form</h2>
+                            <h6 class="page-title mb-4">
+                                Event organized by Laghu Udyog Bharti & Government Polytechnic,
+                                Nashik (DTE)
+                            </h6>
+                            <form class="forms-sample" action="{{ route('add-user-details') }}" method="POST"
+                                enctype="multipart/form-data" id="regForm">
                                 @csrf
-                                <h3 class="page-title">
-                                  Talent search - College Students Registration form
-                              </h3>
-                              <h4 class="page-title">
-                                <b>Event organized by Laghu Udyog Bharti & Government Polytechnic,
-                                Nashik (DTE)</b>
-                              </h4>
-                              
-                                  <h2></h2>
-                                  <h6>
-                                   
-                                  </h6>
-                        
-                                  <fieldset>
-                                    <p class="mt-4">
-                                      <label for="email"><b>Email</b></label
-                                      ><br />
-                                      <input id="email" name="email" type="email" class="form-control" />
-                                    </p>
-                        
-                                    <p>
-                                      <label for="nameproject"><b>Name of project</b></label
-                                      ><br />
-                                      <input id="nameproject" name="nameproject" type="text" class="form-control"/>
-                                    </p>
-                        
-                                    <p>
-                                      <label for="nameparticipants"><b>Name of participants</b></label
-                                      ><br />
-                                      <input
-                                        id="nameparticipants"
-                                        name="nameparticipants"
-                                        type="text"
-                                        class="form-control"
-                                      />
-                                    </p>
-                                    <p>
-                                      <label for="Nameofyourcollege"><b>Name of your college</b></label
-                                      ><br />
-                                      <input
-                                        id="Nameofyourcollege"
-                                        name="Nameofyourcollege"
-                                        type="text"
-                                        class="form-control"
-                                      />
-                                    </p>
-                        
-                                    <div class="mb-3 mt-3 cc">
-                                      <label for="registrationfees"
-                                        ><b>Registration fees Rs.750/- paid by</b></label
-                                      >
-                                      <div class="form-check">
-                                        <input class="form-check-input" type="radio" name="neft" class="form-control"/>
-                                        <label class="form-check-label" for="neft">NEFT</label>
-                                      </div>
-                                      <div class="form-check">
-                                        <input
-                                          class="form-check-input"
-                                          type="radio"
-                                          name="neft"
-                                          checked
-                                        />
-                                        <label class="form-check-label">QR code</label>
-                                      </div>
-                                    </div>
-                        
-                                    <p>
-                                      <label for="PaymentUTRCode"
-                                        ><b>Payment confirmation - UTR Code</b></label
-                                      ><br />
-                                      <input id="PaymentUTRCode" name="PaymentUTRCode" type="text" class="form-control"/>
-                                    </p>
-                        
-                                    <p class="mt-3">
-                                      <label for="bankdetails">
-                                        <b>Bank details:</b><br />
-                                        A/c Name: Laghu Udyog Bharati <br />
-                                        Bank: TJSB Bank <br />
-                                        Branch: Gangapur Rd. <br />
-                                        A/c No.: 021110100000661 <br />
-                                        IFS Code: TJSB0000021 <br />
-                                      </label>
-                                      <img src="../LUB PAYMENT QR.jpg" alt="" />
-                                    </p>
-                                    <p class="mt-3"><b>Add Payment Screenshot</b></p>
-                                    <input name="imgupload" type="file" value="Add Screenshot" accept="image/*"/>
-                                    <p class="mt-4"></p>
-                                    <b>Attach Your Project soft copy (Upload File)</b><br />
-                                    <input  name="projectupload"  type="file" value="Add File" accept="pdf"/>
-                        
-                                    {{-- <p class="mt-4">
-                                      <input class="submit" type="submit" value="Submit" />
-                                    </p> --}}
-                                    <div class="col-md-12 col-sm-12 text-center">
-                                      <button type="submit" class="btn btn-success">Save &amp; Submit</button>
-                                      {{-- <button type="reset" class="btn btn-danger">Cancel</button> --}}
-                                      <span><a href=""
-                                              class="btn btn-sm btn-primary">Back</a></span>
-                                  </div>
-                                  </fieldset>
-                                  <script
-                                    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
-                                    integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
-                                    crossorigin="anonymous"
-                                  ></script>
-                                </form>
-                              </div>
-                          
+                                <div class="row">
 
-                          {{-- ======================================== --}}
-                         
+                                    <div class="col-lg-6 col-md-6 col-sm-6">
+                                        <div class="form-group">
+                                            <label for="project_name">Project Name</label>&nbsp<span
+                                                class="red-text">*</span>
+                                            <input class="form-control" name="project_name" id="project_name"
+                                                placeholder="Enter the Project Name" name="project_name"
+                                                value="{{ old('project_name') }}">
+                                            @if ($errors->has('project_name'))
+                                                <span class="red-text"><?php echo $errors->first('project_name', ':message'); ?></span>
+                                            @endif
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="participants_name">Participants Name </label>&nbsp<span
+                                                class="red-text">*</span>
+                                            <input class="form-control" name="participants_name" id="participants_name"
+                                                placeholder="Enter the Project Name" name="participants_name"
+                                                value="{{ old('participants_name') }}">
+                                            @if ($errors->has('participants_name'))
+                                                <span class="red-text"><?php echo $errors->first('participants_name', ':message'); ?></span>
+                                            @endif
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="education">Education</label>
+                                        <span class="red-text">*</span>
+                                        <select class="form-control" name="education" id="education">
+                                            <option value="">Select</option>
+                                            <option value="ITI" {{ old('education') == 'ITI' ? 'selected' : '' }}>
+                                                ITI
+                                            </option>
+                                            <option value="Diploma" {{ old('education') == 'Diploma' ? 'selected' : '' }}>
+                                                Diploma
+                                            </option>
+                                            <option value="Degree" {{ old('education') == 'Degree' ? 'selected' : '' }}>
+                                                Degree
+                                            </option>
+                                        </select>
+                                        @if ($errors->has('education'))
+                                            <span class="red-text">{{ $errors->first('education') }}</span>
+                                        @endif
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="branch">Branch</label>
+                                        <span class="red-text">*</span>
+                                        <select class="form-control" name="branch" id="branch">
+                                            <option value="">Select</option>
+                                            <option value="E&TC" {{ old('branch') == 'E&TC' ? 'selected' : '' }}>
+                                                E&TC
+                                            </option>
+                                            <option value="Computer" {{ old('branch') == 'Computer' ? 'selected' : '' }}>
+                                                Computer
+                                            </option>
+                                            <option value="IT" {{ old('branch') == 'IT' ? 'selected' : '' }}>
+                                                IT
+                                            </option>
+                                        </select>
+                                        @if ($errors->has('branch'))
+                                            <span class="red-text">{{ $errors->first('branch') }}</span>
+                                        @endif
+                                    </div>
+                                    <div class="col-md-6 pt-2">
+                                        <label for="college_name">College Name</label>
+                                        <span class="red-text">*</span>
+                                        <select class="form-control" name="college_name" id="college_name">
+                                            <option value="">Select</option>
+                                            <option value="ITI" {{ old('college_name') == 'ITI' ? 'selected' : '' }}>
+                                                ITI Society’s
+                                            </option>
+                                            <option value="Sandip Foundation"
+                                                {{ old('college_name') == 'Sandip Foundation' ? 'selected' : '' }}>
+                                                Sandip Foundation
+                                            </option>
+                                            <option value="K. K. Wagh Institute"
+                                                {{ old('college_name') == 'K. K. Wagh Institute' ? 'selected' : '' }}>
+                                                K. K. Wagh Institute
+                                            </option>
+                                        </select>
+                                        @if ($errors->has('college_name'))
+                                            <span class="red-text">{{ $errors->first('college_name') }}</span>
+                                        @endif
+                                    </div>
+                                    <div class="col-md-6 pt-2">
+                                        <div class="form-group">
+                                            <label for="company_name">Company Name </label>&nbsp<span
+                                                class="red-text">*</span>
+                                            <input class="form-control" name="company_name" id="company_name"
+                                                placeholder="Enter the Company Name" name="company_name"
+                                                value="{{ old('company_name') }}">
+                                            @if ($errors->has('company_name'))
+                                                <span class="red-text"><?php echo $errors->first('company_name', ':message'); ?></span>
+                                            @endif
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="transaction_id">Transaction Id </label>&nbsp<span
+                                                class="red-text">*</span>
+                                            <input class="form-control" name="transaction_id" id="transaction_id"
+                                                placeholder="Enter the Transaction Id" name="transaction_id"
+                                                value="{{ old('transaction_id') }}">
+                                            @if ($errors->has('transaction_id'))
+                                                <span class="red-text"><?php echo $errors->first('transaction_id', ':message'); ?></span>
+                                            @endif
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="designation">Designation </label>&nbsp<span
+                                                class="red-text">*</span>
+                                            <input class="form-control" name="designation" id="designation"
+                                                placeholder="Enter the Designation" name="designation"
+                                                value="{{ old('designation') }}">
+                                            @if ($errors->has('designation'))
+                                                <span class="red-text"><?php echo $errors->first('designation', ':message'); ?></span>
+                                            @endif
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="registrationfees"><b>Registration fees Rs.750/- paid by</b></label>
+                                        <div class="form-check d-flex align-items-center">
+                                            <input class="form-check-input" type="radio" name="registration_fees"
+                                                id="neft" value="neft" />
+                                            <label class="form-check-label" for="neft">NEFT</label>
+                                        </div>
+                                        <div class="form-check d-flex align-items-center">
+                                            <input class="form-check-input" type="radio" name="registration_fees"
+                                                id="qrcode" value="qrcode" checked />
+                                            <label class="form-check-label" for="qrcode">QR code</label>
+                                        </div>
+                                        @if ($errors->has('registration_fees'))
+                                            <span class="red-text">{{ $errors->first('registration_fees') }}</span>
+                                        @endif
+                                    </div>
+                                    {{-- <div class="col-lg-6 col-md-6 col-sm-6">
+                                        <div class="form-group">
+                                            <label for="passport_size">Add Payment Screenshot </label>&nbsp<span
+                                                class="red-text">*</span><br>
+                                            <input type="file" name="passport_size" id="passport_size"
+                                                accept="image/*" value="{{ old('passport_size') }}"><br>
+                                            @if ($errors->has('passport_size'))
+                                                <span class="red-text"><?php //echo $errors->first('passport_size', ':message');
+                                                ?></span>
+                                            @endif
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6 col-md-6 col-sm-6">
+                                        <div class="form-group">
+                                            <label for="soft_copy">Attach Your Project soft copy (Upload
+                                                File)</label>&nbsp<span class="red-text">*</span><br>
+                                            <input type="file" name="soft_copy" id="soft_copy" accept="pdf/*"
+                                                value="{{ old('soft_copy') }}"><br>
+                                            @if ($errors->has('soft_copy'))
+                                                <span class="red-text"><?php//echo $errors->first('soft_copy', ':message'); ?> ?></span>
+                                            @endif
+                                        </div>
+                                    </div> --}}
+                                    {{-- <div class="col-md-6">
+                                        <p>
+                                            <label for="PaymentUTRCode"><b>Payment confirmation - UTR
+                                                    Code</b></label><br />
+                                            <input id="PaymentUTRCode" name="PaymentUTRCode" type="text" />
+                                        </p>
+                                        <div>
+                                            <p class="mt-3">
+                                                <label for="bankdetails">
+                                                    <b>Bank details:</b><br />
+                                                    A/c Name: Laghu Udyog Bharati <br />
+                                                    Bank: TJSB Bank <br />
+                                                    Branch: Gangapur Rd. <br />
+                                                    A/c No.: 021110100000661 <br />
+                                                    IFS Code: TJSB0000021 <br />
+                                                </label>
+                                                <img src="../LUB PAYMENT QR.jpg" alt="" />
+                                            </p>
+                                        </div>
+                                    </div> --}}
+
+
+
+                                    <div class="col-md-12 col-sm-12 text-center">
+                                        <button type="submit" class="btn btn-success">Save &amp; Submit</button>
+                                        {{-- <button type="reset" class="btn btn-danger">Cancel</button> --}}
+                                        <span><a href="" class="btn btn-sm btn-primary ">Back</a></span>
+                                    </div>
+                                </div>
+                            </form>
                         </div>
                     </div>
                 </div>

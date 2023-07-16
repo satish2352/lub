@@ -8,6 +8,12 @@ use App\Models\ {
 };
 use Illuminate\Support\Facades\Storage;
 
+
+
+
+
+
+
 function uploadImage($request, $image_name, $path, $name) {
 
     // if (!file_exists(storage_path().$path)) {

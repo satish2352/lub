@@ -70,8 +70,12 @@ Route::group(['middleware' => ['admin']], function () {
     Route::post('/otp-verification', ['as' => 'otp-verification', 'uses' => 'App\Http\Controllers\Admin\LoginRegister\RegisterController@updateEmailOtp']);
     
 
-    Route::get('/students', ['as' => '/students', 'uses' => 'App\Http\Controllers\Admin\StudentController@add']);
+    Route::get('/list-user-details', ['as' => '/list-user-details', 'uses' => 'App\Http\Controllers\Admin\StudentController@index']);
+    Route::get('/add-user-details', ['as' => 'add-user-details', 'uses' => 'App\Http\Controllers\Admin\StudentController@add']);
+    Route::post('/add-user-details', ['as' => 'add-user-details', 'uses' => 'App\Http\Controllers\Admin\StudentController@store']);
 
+
+   
 
 Route::get('/log-out', ['as' => 'log-out', 'uses' => 'App\Http\Controllers\Admin\LoginRegister\LoginController@logout']);
 
