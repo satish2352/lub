@@ -352,7 +352,7 @@
             });
 
             $("#name_of_institute").change(function(e) {
-                if ($("#name_of_institute").val() == '0') {
+                if ($("#name_of_institute").val() == '21' || $("#name_of_institute").val() == '93' || $("#name_of_institute").val() == '94' ) {
                     $("#other_name_of_school").show();
                 } else {
                     $("#other_name_of_school").attr("style", "display:none");
