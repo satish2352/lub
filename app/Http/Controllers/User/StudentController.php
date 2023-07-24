@@ -96,7 +96,7 @@ class StudentController extends Controller
             $messages['institute_other_name.required'] = "Enter name";
         }
 
-        if ($request->name_of_institute == '0') {
+        if ($request->name_of_institute == '21' || $request->name_of_institute == '93' || $request->name_of_institute == '94') {
             $rules['name_of_institute_other'] = "required";
             $messages['name_of_institute_other.required'] = "Enter name";
         }
@@ -151,25 +151,22 @@ class StudentController extends Controller
                     ->withInput()
                     ->withErrors($validation);
             } else {
-                
+                ProjectDetails::insert(
+                    [
+                        'user_id' => $request->session()->get('user_id'),
+                        'academic_year' => $request->academic_year,
+                        'project_title' => $request->project_title,
+                        'education_type' => $request->education_type,
+                        'institute_other_name' => isset($request->institute_other_name) ? $request->institute_other_name : 'null',
+                        'name_of_institute' => $request->name_of_institute,
+                        'name_of_institute_other' => isset($request->name_of_institute_other) ? $request->name_of_institute_other : 'null',
+                        'branch_details' => $request->branch_details,
+                        'payment_type' => $request->payment_type,
+                        'transaction_details' => $request->transaction_details,
 
-                $data_array =  [
-                    'user_id' => $request->session()->get('user_id'),
-                    'academic_year' => $request->academic_year,
-                    'project_title' => $request->project_title,
-                    'education_type' => $request->education_type,
-                    'institute_other_name' => isset($request->institute_other_name) ? $request->institute_other_name : 'null',
-                    'name_of_institute' => $request->name_of_institute,
-                    'branch_details' => $request->branch_details,
-                    'payment_type' => $request->payment_type,
-                    'transaction_details' => $request->transaction_details,
-                ];
 
-                if($request->name_of_institute_other != '' || $request->name_of_institute_other != null) {
-                    $data_array['name_of_institute_other'] =  $request->name_of_institute_other;
-                }
-                
-                ProjectDetails::insert($data_array);
+                    ]
+                );
 
 
                 for ($i = 1; $i <= 5; $i++) {
