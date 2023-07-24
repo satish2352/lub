@@ -81,7 +81,6 @@
                                         </div>
                                         <input class="form-control form-control-lg border-left-0" type="email"
                                             name='email' placeholder="Email" value='{{ old('email') }}'>
-                                        {{--  --}}
                                     </div>
                                     @if ($errors->has('email'))
                                         <span class="red-text"><?php echo $errors->first('email', ':message'); ?></span>
@@ -109,7 +108,7 @@
 
                                 </div>
                                 <div class="form-group">
-                                    {{--    {!! NoCaptcha::renderJs() !!}
+                                   {!! NoCaptcha::renderJs() !!}
                                     {!! NoCaptcha::display() !!}
 
                                     @if ($errors->has('g-recaptcha-response'))
@@ -118,7 +117,7 @@
                                         </span>
                                     @endif
 
-                                    --}}
+                                  
                                 </div>
 
 

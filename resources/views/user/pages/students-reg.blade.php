@@ -1,4 +1,4 @@
-@extends('admin.layout.master')
+@extends('user.layout.master')
 @section('content')
     <meta name="csrf-token" content="{{ csrf_token() }}">
 

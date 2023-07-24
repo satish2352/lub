@@ -19,7 +19,7 @@ class LoginController extends Controller
 
     public function index(){
         
-        return view('admin.login');
+        return view('user.login');
     }
 
     public function submitLogin(Request $request) {

@@ -132,6 +132,6 @@
         </form>
 
         <div class="container-fluid page-body-wrapper">
-            @include('admin.layout.sidebar')
+            @include('user.layout.sidebar')
             @yield('content')
-            @extends('admin.layout.footer')
+            @extends('user.layout.footer')
