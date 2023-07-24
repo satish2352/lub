@@ -447,7 +447,7 @@
 
                             $('#name_of_institute').val('{{ old('name_of_institute') }}');
                             //$('#name_of_institute').append(
-                                '<option value="0">Other</option>');
+                             //   '<option value="0">Other</option>');
                         }
                     }
                 });
