@@ -129,7 +129,7 @@
 
                                 <div class="col-lg-6 col-md-6 col-sm-6" id="other_institute" style="display:none">
                                     <div class="form-group">
-                                        <label for="institute_other_name">Enter Education Details</label>&nbsp<span
+                                        <label for="institute_other_name">Institute Details</label>&nbsp<span
                                             class="red-text">*</span>
                                         <input type="text" class="form-control" name="institute_other_name"
                                             id="institute_other_name" placeholder=""
