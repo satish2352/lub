@@ -446,7 +446,7 @@
                             });
 
                             $('#name_of_institute').val('{{ old('name_of_institute') }}');
-                            $('#name_of_institute').append(
+                            //$('#name_of_institute').append(
                                 '<option value="0">Other</option>');
                         }
                     }
@@ -457,48 +457,5 @@
 
         }
 
-
-        // old() {
-
-        //     e.preventDefault();
-        //         $('#name_of_institute').empty();
-        //         var education_type = $('#education_type').val();
-
-        //         $('#name_of_institute').html(
-        //             '<option value="">Select Name Of Institute</option>');
-        //         $('#name_of_institute').append(
-        //             '<option value="4">Other</option>');
-        //         if (education_type !== '2' || education_type !== '3') {
-        //             $.ajax({
-        //                 url: '{{ route('get-college-list') }}',
-        //                 type: 'POST',
-        //                 data: {
-        //                     education_type: education_type
-        //                 },
-        //                 headers: {
-        //                     'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-        //                 },
-        //                 success: function(response) {
-
-        //                     if (response.institute_list.length > 0) {
-        //                         $('#name_of_institute').html(
-        //                             '<option value="">Select Name Of Institute</option>');
-        //                         $.each(response.institute_list, function(index,
-        //                             institute_list) {
-        //                             $('#name_of_institute').append('<option value="' +
-        //                                 institute_list
-        //                                 .id +
-        //                                 '">' + institute_list.institute_name +
-        //                                 '</option>');
-        //                         });
-        //                         $('#name_of_institute').append(
-        //                             '<option value="4">Other</option>');
-        //                     }
-        //                 }
-        //             });
-        //         } else {
-
-        //         }
-        // }
     </script>
 @endsection

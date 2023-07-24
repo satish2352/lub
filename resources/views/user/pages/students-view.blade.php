@@ -391,7 +391,7 @@
                             });
 
                             
-                            $('#name_of_institute').append(
+                            //$('#name_of_institute').append(
                                 '<option value="0">Other</option>');
                             $('#name_of_institute').val('{{ $project_data['name_of_institute'] }}');
                         }

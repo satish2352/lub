@@ -20,6 +20,7 @@ VALUES ("3","5108","Maratha Vidya Prasarak Samaj's Karmaveer Adv. Baburao Ganpat
  ("3","5401","Jawahar Education Society's Institute of Technology, Management & Research, Nashik."),
  ("3","5411","Maulana Mukhtar Ahmad Nadvi Technical Campus, Malegaon."),
  ("3","5418","Guru Gobind Singh College of Engineering & Research Centre, Nashik."),
+ ("3","5418","Other"),
 
 
 ("2","5010","Government Polytechnic, Nashik"),
@@ -47,4 +48,7 @@ VALUES ("3","5108","Maratha Vidya Prasarak Samaj's Karmaveer Adv. Baburao Ganpat
 ("2","5404","Gurukul Education Society's Institute of Engineering & Technology, Nandgaon"),
 ("2","5411","Maulana Mukhtar Ahmad Nadvi Technical Campus, Malegaon."),
 ("2","5434","Gokhale Education Society's Sir Dr.M.S.Gosavi Polytechnic Institute, Nashik Road");
+("2","5434","Other");
+
+("1","1111","Other");
 
