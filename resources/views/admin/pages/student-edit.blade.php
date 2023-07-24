@@ -307,6 +307,20 @@
                                 </div>
                             </div>
 
+                              <form method="POST" action="{{ url('/admin/update') }}">
+                                @csrf
+                                <input type="hidden" name="id" id="id" class="form-control"
+                                    value="{{ $user_id }}" placeholder="">
+                                <div class="p-2">
+                                    <input type="checkbox" name="is_payment_done" value="1"
+                                        @if ($user_data['is_payment_done']) {{ 'checked' }} @endif>
+                                    Is Payment Done
+                                </div>
+                                <div class="row d-flex justify-content-center">
+                                    <button type="submit" class="btn btn-success">Submit</button>
+                                </div>
+                            </form>
+
                             <input type="hidden" name="id" id="id" class="form-control"
                                 value="{{ $user_data['id'] }}" placeholder="">
                         </div>

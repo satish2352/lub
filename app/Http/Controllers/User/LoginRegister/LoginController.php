@@ -52,7 +52,7 @@ class LoginController extends Controller
                     return redirect('/user/project-registration');
                     
                 } else {
-                    return redirect('/user/login')->with('error', $resp['msg']);
+                    return redirect('login')->with('error', $resp['msg']);
                 }
 
             }

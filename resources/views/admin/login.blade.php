@@ -70,7 +70,7 @@
                                 </div>
                             @endif
 
-                            <form class="pt-3 login_wrap" method="post" action="{{ route('submitLogin') }}">
+                            <form class="pt-3 login_wrap" method="post" action="{{ route('submitLoginAdmin') }}">
                                 @csrf
                                 <div class="form-group">
                                     <div class="input-group">
@@ -108,7 +108,7 @@
 
                                 </div>
                                 <div class="form-group">
-                                    {!! NoCaptcha::renderJs() !!}
+                                   {!! NoCaptcha::renderJs() !!}
                                     {!! NoCaptcha::display() !!}
 
                                     @if ($errors->has('g-recaptcha-response'))
@@ -116,7 +116,10 @@
                                             <span class="red-text">{{ $errors->first('g-recaptcha-response') }}</span>
                                         </span>
                                     @endif
+
+                                  
                                 </div>
+
 
                                 <div class="my-3">
                                     <button type="submit"

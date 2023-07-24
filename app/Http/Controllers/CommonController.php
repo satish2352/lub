@@ -23,11 +23,20 @@ class CommonController extends Controller {
 
 
     
-    public function logout(Request $request)
+    public function logoutUser(Request $request)
     {
         $request->session()->flush();
         $request->session()->regenerate();
         return redirect('/login');
+    }
+
+
+    
+    public function logoutAdmin(Request $request)
+    {
+        $request->session()->flush();
+        $request->session()->regenerate();
+        return redirect('/admin');
     }
 
    

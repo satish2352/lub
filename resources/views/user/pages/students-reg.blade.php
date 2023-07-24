@@ -77,7 +77,7 @@
                                             <select class="form-control" id="academic_year" name="academic_year">
                                                 <option value="">Select</option>
                                                 <option value="1"
-                                                    @if (old('academic_year') == '1')  {{ 'selected' }} @endif>2020-21
+                                                    @if (old('academic_year') == '1') {{ 'selected' }} @endif>2020-21
                                                 </option>
                                                 <option value="2"
                                                     @if (old('academic_year') == '2') {{ 'selected' }} @endif>2021-22
@@ -292,54 +292,60 @@
                                                         upto 10 Kb to 500 Kb)</th>
                                                 </thead>
                                                 <tbody>
-                                                    @for($index = 1; $index <=5; $index++)
+                                                    @for ($index = 1; $index <= 5; $index++)
                                                         <tr>
-                                                            <td>{{$index}}
-                                                            <input type="hidden" class="form-control"
-                                                                        name="sr_no_{{$index}}" id="sr_no_{{$index}}" placeholder=""
-                                                                        value="{{$index}}">
+                                                            <td>{{ $index }}
+                                                                <input type="hidden" class="form-control"
+                                                                    name="sr_no_{{ $index }}"
+                                                                    id="sr_no_{{ $index }}" placeholder=""
+                                                                    value="{{ $index }}">
                                                             </td>
                                                             <td>
                                                                 <div class="form-group width-input">
                                                                     <input type="text" class="form-control"
-                                                                        name="{{'f_name_'.$index}}" id="{{'f_name_'.$index}}" placeholder=""
-                                                                        value="{{ old('f_name_'.$index) }}"
+                                                                        name="{{ 'f_name_' . $index }}"
+                                                                        id="{{ 'f_name_' . $index }}" placeholder=""
+                                                                        value="{{ old('f_name_' . $index) }}"
                                                                         oninput="this.value = this.value.replace(/[^a-zA-Z\s.]/g, '').replace(/(\..*)\./g, '$1');">
-                                                                    @if ($errors->has('f_name_'.$index))
-                                                                        <span class="red-text"><?php echo $errors->first('f_name_'.$index, ':message'); ?></span>
+                                                                    @if ($errors->has('f_name_' . $index))
+                                                                        <span class="red-text"><?php echo $errors->first('f_name_' . $index, ':message'); ?></span>
                                                                     @endif
                                                                 </div>
                                                             </td>
-                                                        
+
                                                             <td>
                                                                 <div class="form-group width-input">
                                                                     <input type="text" class="form-control"
-                                                                        name="{{'m_name_'.$index}}" id="{{'m_name_'.$index}}" placeholder=""
-                                                                        value="{{ old('m_name_'.$index) }}"
+                                                                        name="{{ 'm_name_' . $index }}"
+                                                                        id="{{ 'm_name_' . $index }}" placeholder=""
+                                                                        value="{{ old('m_name_' . $index) }}"
                                                                         oninput="this.value = this.value.replace(/[^a-zA-Z\s.]/g, '').replace(/(\..*)\./g, '$1');">
-                                                                    @if ($errors->has('m_name_'.$index))
-                                                                        <span class="red-text"><?php echo $errors->first('m_name_'.$index, ':message'); ?></span>
+                                                                    @if ($errors->has('m_name_' . $index))
+                                                                        <span class="red-text"><?php echo $errors->first('m_name_' . $index, ':message'); ?></span>
                                                                     @endif
                                                                 </div>
                                                             </td>
                                                             <td>
                                                                 <div class="form-group width-input">
                                                                     <input type="text" class="form-control"
-                                                                        name="{{'l_name_'.$index}}" id="{{'l_name_'.$index}}" placeholder=""
-                                                                        value="{{ old('l_name_'.$index) }}"
+                                                                        name="{{ 'l_name_' . $index }}"
+                                                                        id="{{ 'l_name_' . $index }}" placeholder=""
+                                                                        value="{{ old('l_name_' . $index) }}"
                                                                         oninput="this.value = this.value.replace(/[^a-zA-Z\s.]/g, '').replace(/(\..*)\./g, '$1');">
-                                                                    @if ($errors->has('l_name_'.$index))
-                                                                        <span class="red-text"><?php echo $errors->first('l_name_'.$index, ':message'); ?></span>
+                                                                    @if ($errors->has('l_name_' . $index))
+                                                                        <span class="red-text"><?php echo $errors->first('l_name_' . $index, ':message'); ?></span>
                                                                     @endif
                                                                 </div>
                                                             </td>
                                                             <td>
                                                                 <div class="form-group">
-                                                                    <input type="file" name="passport_photo_{{$index}}"
-                                                                        id="passport_photo_{{$index}}" accept="image/*"
-                                                                        value="{{ old('passport_photo_'.$index) }}"><br>
-                                                                    @if ($errors->has('passport_photo_'.$index))
-                                                                        <span class="red-text"><?php echo $errors->first('passport_photo_'.$index, ':message'); ?></span>
+                                                                    <input type="file"
+                                                                        name="passport_photo_{{ $index }}"
+                                                                        id="passport_photo_{{ $index }}"
+                                                                        accept="image/*"
+                                                                        value="{{ old('passport_photo_' . $index) }}"><br>
+                                                                    @if ($errors->has('passport_photo_' . $index))
+                                                                        <span class="red-text"><?php echo $errors->first('passport_photo_' . $index, ':message'); ?></span>
                                                                     @endif
                                                                 </div>
                                                             </td>
@@ -398,8 +404,8 @@
                 getEducationDetails(education_type);
             });
 
-            if("{{old('education_type')}}") {
-                getEducationDetails("{{old('education_type')}}");
+            if ("{{ old('education_type') }}") {
+                getEducationDetails("{{ old('education_type') }}");
             }
 
         });
@@ -407,49 +413,49 @@
 
         function getEducationDetails(education_type) {
 
-$('#name_of_institute').empty();
+            $('#name_of_institute').empty();
 
 
-$('#name_of_institute').html(
-    '<option value="">Select Name Of Institute</option>');
-$('#name_of_institute').append(
-    '<option value="0">Other</option>');
+            $('#name_of_institute').html(
+                '<option value="">Select Name Of Institute</option>');
+            $('#name_of_institute').append(
+                '<option value="0">Other</option>');
 
-if (education_type == '2' || education_type == '3') {
-    $.ajax({
-        url: '{{ route('get-college-list') }}',
-        type: 'POST',
-        data: {
-            education_type: education_type
-        },
-        headers: {
-            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-        },
-        success: function(response) {
+            if (education_type == '2' || education_type == '3') {
+                $.ajax({
+                    url: '{{ route('get-college-list') }}',
+                    type: 'POST',
+                    data: {
+                        education_type: education_type
+                    },
+                    headers: {
+                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                    },
+                    success: function(response) {
 
-            if (response.institute_list.length > 0) {
-                $('#name_of_institute').html(
-                    '<option value="">Select Name Of Institute</option>');
-                $.each(response.institute_list, function(index,
-                    institute_list) {
-                    $('#name_of_institute').append('<option value="' +
-                        institute_list
-                        .id +
-                        '">' + institute_list.institute_name +
-                        '</option>');
+                        if (response.institute_list.length > 0) {
+                            $('#name_of_institute').html(
+                                '<option value="">Select Name Of Institute</option>');
+                            $.each(response.institute_list, function(index,
+                                institute_list) {
+                                $('#name_of_institute').append('<option value="' +
+                                    institute_list
+                                    .id +
+                                    '">' + institute_list.institute_name +
+                                    '</option>');
+                            });
+
+                            $('#name_of_institute').val('{{ old('name_of_institute') }}');
+                            $('#name_of_institute').append(
+                                '<option value="0">Other</option>');
+                        }
+                    }
                 });
+            } else {
 
-                $('#name_of_institute').val('{{ old('name_of_institute') }}');
-                $('#name_of_institute').append(
-                    '<option value="0">Other</option>');
             }
+
         }
-    });
-} else {
-
-}
-
-}
 
 
         // old() {

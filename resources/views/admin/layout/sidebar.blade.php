@@ -25,8 +25,7 @@
                  </div>
              </div>
          </li>
-         {{--
-         <li class="{{ request()->is('dashboard*') ? 'nav-item active' : 'nav-item' }}">
+        {{-- <li class="{{ request()->is('dashboard*') ? 'nav-item active' : 'nav-item' }}">
              <a class="nav-link active" href="{{ route('dashboard') }}">
                  <i class="fa fa-home menu-icon"></i>
                  <span class="menu-title">Dashboard</span>
@@ -34,13 +33,13 @@
          </li>
          --}}
 
-         <li class="nav-item">
-             <a class="nav-link active" href="{{ route('project-registration') }}">
-                 <i class="fa fa-th-large menu-icon"></i>
-                 <span class="menu-title">Update Project Details</span>
-                 <i class="menu-arrow"></i>
-             </a>
-         </li>
+       <li class="nav-item">
+                 <a class="nav-link active" href="{{ route('register-users') }}">
+                     <i class="fa fa-th-large menu-icon"></i>
+                     <span class="menu-title">Registered Users</span>
+                     <i class="menu-arrow"></i>
+                 </a>
+             </li>
      </ul>
  </nav>
  <!-- partial -->

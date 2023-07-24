@@ -235,7 +235,7 @@ class StudentController extends Controller
                     $base64_encoded = base64_encode(file_get_contents($request->project_presentation));
 
                     $base64_decoded_content = base64_decode($base64_encoded);
-                    $path2 = storage_path() . $path . $project_presentation_file_name;
+                    $path2 = storage_path() . $path_project_presentation . $project_presentation_file_name;
                     file_put_contents($path2, $base64_decoded_content);
                 }
 
@@ -342,7 +342,13 @@ class StudentController extends Controller
                 $rules[$fname] = "required";
                 $rules[$mname] = "required";
                 $rules[$lname] = "required";
-                $rules[$photo] = "required|image|mimes:jpeg,png,jpg,JPEG,PNG,JPG|max:250|min:1"; //dimensions:min_width=100,min_height=100,max_width=800,max_height=800";
+                //$rules[$photo] = "required|image|mimes:jpeg,png,jpg,JPEG,PNG,JPG|max:250|min:1"; //dimensions:min_width=100,min_height=100,max_width=800,max_height=800";
+                if($request->$old_passport_photo){
+                    $rules[$photo] = 'sometimes|image|mimes:jpeg,png,jpg,JPEG,PNG,JPG|max:250|min:1';
+                }
+                else{
+                    $rules[$photo] = 'required|image|mimes:jpeg,png,jpg,JPEG,PNG,JPG|max:250|min:1';
+                }
 
                 $messages[$fname . ".required"] = "Please enter first name ";
                 $messages[$mname . ".required"] = "Please enter middle name ";

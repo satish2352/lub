@@ -110,7 +110,7 @@
                             </a>
                           --}}
                             <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="{{ url('log-out-user') }}">
+                            <a class="dropdown-item" href="{{ url('log-out-admin') }}">
                                 <i class="fas fa-power-off text-primary"></i>
                                 Logout
                             </a>
@@ -132,6 +132,6 @@
         </form>
 
         <div class="container-fluid page-body-wrapper">
-            @include('user.layout.sidebar')
+            @include('admin.layout.sidebar')
             @yield('content')
-            @extends('user.layout.footer')
+            @extends('admin.layout.footer')

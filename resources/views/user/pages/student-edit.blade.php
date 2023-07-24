@@ -302,10 +302,10 @@
                                             </div>
                                         </div>
                                         <!-- <div class="form-group">
-                                                            <img style="width: 250px;height: 260px;"
-                                                                src="{{ env('APP_URL') . '/storage/all_web_data/images/payment_proof/' . $user_data['payment_proof'] }}">
+                                                                <img style="width: 250px;height: 260px;"
+                                                                    src="{{ env('APP_URL') . '/storage/all_web_data/images/payment_proof/' . $user_data['payment_proof'] }}">
 
-                                                        </div> -->
+                                                            </div> -->
                                     </div>
 
                                     <div class="col-lg-6 col-md-6 col-sm-6">
@@ -325,7 +325,8 @@
                                     <div class="col-lg-6 col-md-6 col-sm-6">
                                         <div class="form-group">
                                             <a class="btn btn-primary mb-3" target="_blank"
-                                                href="{{ env('APP_URL') . '/storage/all_web_data/project_docs/' . $user_data['project_presentation'] }}"> View Presentation </a>
+                                                href="{{ env('APP_URL') . '/storage/all_web_data/project_docs/' . $user_data['project_presentation'] }}">
+                                                View Presentation </a>
                                         </div>
 
                                     </div>
@@ -348,14 +349,14 @@
                                                     <?php for($index =0; $index < 5; $index ++) { ?>
                                                     <tr>
                                                         <td><?php echo $index + 1; ?>
-                                                            <input type="text" class="form-control"
+                                                            <input type="hidden" class="form-control"
                                                                 name="participant_id_<?php echo $index + 1; ?>"
                                                                 id="participant_id_<?php echo $index + 1; ?>" placeholder=""
                                                                 value="<?php if (isset($participant_data[$index]['id'])) {
                                                                     echo $participant_data[$index]['id'];
                                                                 } ?>">
 
-                                                            <input type="text" class="form-control"
+                                                            <input type="hidden" class="form-control"
                                                                 name="old_passport_photo_<?php echo $index + 1; ?>"
                                                                 id="old_passport_photo_<?php echo $index + 1; ?>"
                                                                 placeholder="" value="<?php if (isset($participant_data[$index]['passport_photo'])) {

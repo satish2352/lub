@@ -17,7 +17,7 @@ class AdminMiddleware
         
 
          if (!$request->session()->exists('admin_id')) {
-            return redirect(route("login"));
+            return redirect(route("admin"));
         } else {
             return $next($request);
         }
