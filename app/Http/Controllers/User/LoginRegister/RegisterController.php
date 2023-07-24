@@ -43,6 +43,7 @@ class RegisterController extends Controller {
                     'mobile_no' =>  'required|regex:/^[0-9]{10}$/',
                     'registration_type' => 'required',
                     // 'education_type' => 'required',
+                    'g-recaptcha-response' => 'required|captcha',
                     
                  ];       
 
@@ -57,6 +58,8 @@ class RegisterController extends Controller {
                         'mobile_no.regex' => 'Please enter only numbers with 10-digit.',
                         'registration_type' => 'Please select type',
                         // 'education_type' => 'Please select type of course',
+                        'g-recaptcha-response.captcha' => 'Captcha error! try again later or contact site admin.',
+                        'g-recaptcha-response.required' =>'Please verify that you are not a robot.',
                        
                       ];
 
