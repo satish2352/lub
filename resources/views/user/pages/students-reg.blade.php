@@ -390,7 +390,8 @@
             });
 
             $("#name_of_institute").change(function(e) {
-                if ($("#name_of_institute").val() == '21' || $("#name_of_institute").val() == '93' || $("#name_of_institute").val() == '94' )  {
+                if ($("#name_of_institute").val() == '21' || $("#name_of_institute").val() == '93' || $(
+                        "#name_of_institute").val() == '94') {
                     $("#other_name_of_school").show();
                 } else {
                     $("#other_name_of_school").attr("style", "display:none");
@@ -447,7 +448,12 @@
 
                             $('#name_of_institute').val('{{ old('name_of_institute') }}');
                             //$('#name_of_institute').append(
-                             //   '<option value="0">Other</option>');
+                            //   '<option value="0">Other</option>');
+
+                            if ($project_data['name_of_institute'] == '21' || $project_data[
+                                'name_of_institute'] == '93' || $project_data['name_of_institute'] == '94') {
+                                $("#other_institute").show();
+                            }
                         }
                     }
                 });
@@ -456,6 +462,5 @@
             }
 
         }
-
     </script>
 @endsection
