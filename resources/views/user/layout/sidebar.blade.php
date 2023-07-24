@@ -17,7 +17,7 @@
                       </div> --}}
                  <div class="profile-name">
                      <p class="name">
-                         Welcome Admin
+                         Welcome {{session()->get('u_email')}}
                      </p>
                      {{-- <p class="designation">
                               Super Admin
