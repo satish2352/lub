@@ -379,10 +379,8 @@
 
             $('#name_of_institute').html(
                 '<option value="">Select Name Of Institute</option>');
-            $('#name_of_institute').append(
-                '<option value="0">Other</option>');
 
-            if (education_type == '2' || education_type == '3') {
+            if (education_type == '1' || education_type == '2' || education_type == '3') {
                 $.ajax({
                     url: '{{ route('get-college-list') }}',
                     type: 'POST',

@@ -481,7 +481,6 @@
             });
 
             $("#name_of_institute").change(function(e) {
-                alert($("#name_of_institute").val());
                 if ($("#name_of_institute").val() == '21' ||
                     $("#name_of_institute").val() == '47' ||
                     $("#name_of_institute").val() == '48') {
@@ -507,12 +506,7 @@
             $('#name_of_institute').empty();
             var education_type = $('#education_type').val();
 
-            $('#name_of_institute').html(
-                '<option value="">Select Name Of Institute</option>');
-            $('#name_of_institute').append(
-                '<option value="0">Other</option>');
-
-            if (education_type == '2' || education_type == '3') {
+            if (education_type == '1' || education_type == '2' || education_type == '3') {
                 $.ajax({
                     url: '{{ route('get-college-list') }}',
                     type: 'POST',
