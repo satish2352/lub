@@ -353,8 +353,8 @@
 
             $("#name_of_institute").change(function(e) {
                 if ($("#name_of_institute").val() == '21' || 
-                $("#name_of_institute").val() == '93' || 
-                $("#name_of_institute").val() == '94') {
+                $("#name_of_institute").val() == '47' || 
+                $("#name_of_institute").val() == '48') {
                     $("#other_name_of_school").show();
                 } else {
                     $("#other_name_of_school").attr("style", "display:none");
@@ -411,9 +411,9 @@
                             //    '<option value="0">Other</option>');
                             $('#name_of_institute').val('{{ $project_data['name_of_institute'] }}');
                             if ('{{ $project_data['name_of_institute'] }}' == '21' ||
-                                '{{ $project_data['name_of_institute'] }}' == '93' ||
+                                '{{ $project_data['name_of_institute'] }}' == '47' ||
                                 '{{ $project_data['name_of_institute'] }}' ==
-                                '94') {
+                                '48') {
                                 $("#other_institute").show();
                             } else {
                                 $("#other_institute").attr("style", "display:none");
