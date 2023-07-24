@@ -151,6 +151,7 @@ class StudentController extends Controller
                     ->withInput()
                     ->withErrors($validation);
             } else {
+                dd($request);
                 ProjectDetails::insert(
                     [
                         'user_id' => $request->session()->get('user_id'),
