@@ -376,9 +376,9 @@ class StudentController extends Controller
                         'project_title' => $request['project_title'],
                         'education_type' => $request['education_type'],
                         'academic_year' => $request['academic_year'],
-                        'institute_other_name' => $request['institute_other_name'],
+                        // 'institute_other_name' => $request['institute_other_name'],
                         'name_of_institute' => $request['name_of_institute'],
-                        'name_of_institute_other' => $request['name_of_institute_other'],
+                        'name_of_institute_other' => $request['institute_other_name'],
                         'branch_details' => $request['branch_details'],
                         'payment_type' => $request['payment_type'],
                         'transaction_details' => $request['transaction_details']
