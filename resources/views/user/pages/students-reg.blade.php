@@ -450,9 +450,13 @@
                             //$('#name_of_institute').append(
                             //   '<option value="0">Other</option>');
 
-                            if ($project_data['name_of_institute'] == '21' || $project_data[
-                                'name_of_institute'] == '93' || $project_data['name_of_institute'] == '94') {
+                            if ('{{ $project_data['name_of_institute'] }}' == '21' ||
+                                '{{ $project_data['name_of_institute'] }}' == '93' ||
+                                '{{ $project_data['name_of_institute'] }}' ==
+                                '94') {
                                 $("#other_institute").show();
+                            } else {
+                                $("#other_institute").attr("style", "display:none");
                             }
                         }
                     }

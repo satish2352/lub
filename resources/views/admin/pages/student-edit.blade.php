@@ -259,10 +259,10 @@
                                         </div>
                                     </div>
                                     <!-- <div class="form-group">
-                                                                        <img style="width: 250px;height: 260px;"
-                                                                            src="{{ env('APP_URL') . '/storage/all_web_data/images/payment_proof/' . $user_data['payment_proof'] }}">
+                                                                                <img style="width: 250px;height: 260px;"
+                                                                                    src="{{ env('APP_URL') . '/storage/all_web_data/images/payment_proof/' . $user_data['payment_proof'] }}">
 
-                                                                    </div> -->
+                                                                            </div> -->
                                 </div>
 
                                 <div class="col-lg-6 col-md-6 col-sm-6">
@@ -409,10 +409,13 @@
                             //$('#name_of_institute').append(
                             //    '<option value="0">Other</option>');
                             $('#name_of_institute').val('{{ $project_data['name_of_institute'] }}');
-                            if ($project_data['name_of_institute'] == '21' || $project_data[
-                                    'name_of_institute'] == '93' || $project_data['name_of_institute'] ==
+                            if ('{{ $project_data['name_of_institute'] }}' == '21' ||
+                                '{{ $project_data['name_of_institute'] }}' == '93' ||
+                                '{{ $project_data['name_of_institute'] }}' ==
                                 '94') {
                                 $("#other_institute").show();
+                            } else {
+                                $("#other_institute").attr("style", "display:none");
                             }
                         }
                     }
