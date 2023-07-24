@@ -133,7 +133,7 @@
                                             class="red-text">*</span>
                                         <input type="text" class="form-control" name="institute_other_name"
                                             id="institute_other_name" placeholder=""
-                                            value="{{ $project_data['institute_other_name'] }}" readonly>
+                                            value="{{ $project_data['name_of_institute_other'] }}" readonly>
                                         @if ($errors->has('institute_other_name'))
                                             <span class="red-text"><?php echo $errors->first('institute_other_name', ':message'); ?></span>
                                         @endif

@@ -137,7 +137,7 @@
                                                 class="red-text">*</span>
                                             <input type="text" class="form-control" name="institute_other_name"
                                                 id="institute_other_name" placeholder=""
-                                                value="{{ $project_data['institute_other_name'] }}">
+                                                value="{{ $project_data['name_of_institute_other'] }}">
                                             @if ($errors->has('institute_other_name'))
                                                 <span class="red-text"><?php echo $errors->first('institute_other_name', ':message'); ?></span>
                                             @endif
@@ -543,8 +543,7 @@
 
                             if ('{{ $project_data['name_of_institute'] }}' == '21' ||
                                 '{{ $project_data['name_of_institute'] }}' == '93' ||
-                                '{{ $project_data['name_of_institute'] }}' ==
-                                '94') {
+                                '{{ $project_data['name_of_institute'] }}' == '94') {
                                 $("#other_institute").show();
                             } else {
                                 $("#other_institute").attr("style", "display:none");
