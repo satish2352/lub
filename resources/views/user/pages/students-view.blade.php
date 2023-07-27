@@ -55,7 +55,7 @@
                         @if ($user_data['is_project_uploaded'] == 1 && $user_data['is_payment_done'] == 1)
                             <div class="verify_msg">
                                 <span class="closebtn">&times;</span>
-                                Payment verified.
+                                Payment verified
                             </div>
                         @endif
 
@@ -329,7 +329,17 @@
                                         @endif
                                     </div>
                                 </div>
-
+                                <div class="col-lg-6 col-md-6 col-sm-6" id="edit_branch" style="display:none">
+                                    <div class="form-group">
+                                        <label for="branch_other_name">Branch</label>&nbsp<span class="red-text">*</span>
+                                        <input type="text" class="form-control" name="branch_other_name"
+                                            id="branch_other_name" placeholder=""
+                                            value="{{ $project_data['other_branch_details'] }}" readonly>
+                                        @if ($errors->has('branch_other_name'))
+                                            <span class="red-text"><?php echo $errors->first('branch_other_name', ':message'); ?></span>
+                                        @endif
+                                    </div>
+                                </div>
 
                                 <div class="col-lg-6 col-md-6 col-sm-6">
                                     <div class="form-group">
@@ -408,10 +418,10 @@
                                         </div>
                                     </div>
                                     <!-- <div class="form-group">
-                                                                                                                        <img style="width: 250px;height: 260px;"
-                                                                                                                            src="{{ env('APP_URL') . '/storage/all_web_data/images/payment_proof/' . $user_data['payment_proof'] }}">
+                                                                                                                                            <img style="width: 250px;height: 260px;"
+                                                                                                                                                src="{{ env('APP_URL') . '/storage/all_web_data/images/payment_proof/' . $user_data['payment_proof'] }}">
 
-                                                                                                                    </div> -->
+                                                                                                                                        </div> -->
                                 </div>
 
                                 <div class="col-lg-6 col-md-6 col-sm-6">
@@ -432,7 +442,7 @@
                                             <th>First Name</th>
                                             <th>Middle Name</th>
                                             <th>Last Name</th>
-                                            <th>Passport Size Photo</th>
+                                            <th>Passport Photo</th>
                                         </thead>
                                         <tbody>
 
@@ -557,6 +567,13 @@
 
             }
 
+        }
+    </script>
+    <script>
+        if ($("#branch_details").val() == '18') {
+            $("#edit_branch").show();
+        } else {
+            $("#edit_branch").attr("style", "display:none");
         }
     </script>
 @endsection

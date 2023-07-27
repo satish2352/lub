@@ -374,7 +374,7 @@
                                 <div class="row">
                                     <div class="col-lg-6 col-md-6 col-sm-6">
                                         <div class="form-group">
-                                            <label for="payment_proof">Payment proof</label>&nbsp<span
+                                            <label for="payment_proof">Payment Acknowledgement / Receipt</label>&nbsp<span
                                                 class="red-text"><br>Upload Payment proof in
                                                 jpeg,png,jpg format with size 1 Mb*</span><br>
                                             <input type="file" name="payment_proof" id="payment_proof"
@@ -415,8 +415,7 @@
                                                     <th>First Name</th>
                                                     <th>Middle Name</th>
                                                     <th>Last Name</th>
-                                                    <th>Passport photo in jpeg,png,jpg format with size 800kb and with
-                                                        dimensions 800x800
+                                                    <th>Upload Passport photo in jpeg,png,jpg format with dimensions 800x800
                                                     </th>
                                                 </thead>
                                                 <tbody>
@@ -488,7 +487,8 @@
                                     <div class="form-group">
                                         <label for="agree_checkbox">
                                             <input type="checkbox" name="agree_checkbox" id="agree_checkbox">
-                                            I agree
+                                            By accessing this form, I agree to comply that what ever information I am
+                                            providing is true to my knowledge.
                                         </label>
                                     </div>
                                 </div>

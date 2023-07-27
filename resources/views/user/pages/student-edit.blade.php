@@ -55,7 +55,7 @@
                         @if ($user_data['is_project_uploaded'] == 1 && $user_data['is_payment_done'] == 0)
                             <div class="verify_msg">
                                 <span class="closebtn">&times;</span>
-                                Payment not verified.
+                                Payment not verified
                             </div>
                         @endif
                         <div class="card-body">
@@ -333,7 +333,18 @@
                                         </div>
                                     </div>
 
-
+                                    <div class="col-lg-6 col-md-6 col-sm-6" id="edit_branch" style="display:none">
+                                        <div class="form-group">
+                                            <label for="branch_other_name">Branch</label>&nbsp<span
+                                                class="red-text">*</span>
+                                            <input type="text" class="form-control" name="branch_other_name"
+                                                id="branch_other_name" placeholder=""
+                                                value="{{ $project_data['other_branch_details'] }}">
+                                            @if ($errors->has('branch_other_name'))
+                                                <span class="red-text"><?php echo $errors->first('branch_other_name', ':message'); ?></span>
+                                            @endif
+                                        </div>
+                                    </div>
 
                                     <div class="col-lg-6 col-md-6 col-sm-6">
                                         <div class="form-group">
@@ -450,10 +461,10 @@
                                             </div>
                                         </div>
                                         <!-- <div class="form-group">
-                                                                                                                                                                                                                                                            <img style="width: 250px;height: 260px;"
-                                                                                                                                                                                                                                                                src="{{ env('APP_URL') . '/storage/all_web_data/images/payment_proof/' . $user_data['payment_proof'] }}">
+                                                                                                                                                                                                                                                                                                    <img style="width: 250px;height: 260px;"
+                                                                                                                                                                                                                                                                                                        src="{{ env('APP_URL') . '/storage/all_web_data/images/payment_proof/' . $user_data['payment_proof'] }}">
 
-                                                                                                                                                                                                                                                        </div> -->
+                                                                                                                                                                                                                                                                                                </div> -->
                                     </div>
 
                                     <div class="col-lg-6 col-md-6 col-sm-6">
@@ -489,8 +500,8 @@
                                                     <th>First Name</th>
                                                     <th>Middle Name</th>
                                                     <th>Last Name</th>
-                                                    <th>Passport photo in jpeg,png,jpg format with size 800kb and with
-                                                        dimensions 800x800</th>
+                                                    <th>Upload Passport photo in jpeg,png,jpg format with dimensions 800x800
+                                                    </th>
                                                 </thead>
                                                 <tbody>
                                                     <?php for($index =0; $index < 5; $index ++) { ?>
@@ -597,7 +608,8 @@
                                         <label for="agree_checkbox">
                                             <input type="checkbox" name="update_agree_checkbox"
                                                 id="update_agree_checkbox">
-                                            I agree
+                                            By accessing this form, I agree to comply that what ever information I am
+                                            providing is true to my knowledge.
                                         </label>
                                     </div>
                                 </div>
@@ -713,6 +725,13 @@
 
             }
 
+        }
+    </script>
+    <script>
+        if ($("#branch_details").val() == '18') {
+            $("#edit_branch").show();
+        } else {
+            $("#edit_branch").attr("style", "display:none");
         }
     </script>
     <script>
