@@ -16,9 +16,9 @@
         }
 
         .verify_msg {
-            padding: 20px;
-            /* background-color: #f44336; */
-            color: green;
+            /* padding: 20px; */
+            background-color: green;
+            color: white;
             font-size: 18px;
             text-align: center;
         }
@@ -51,13 +51,32 @@
             <div class="row">
                 <div class="col-12 grid-margin">
                     <div class="card">
+                        <div class="row">
+                            <div class="col-lg-5 col-md-5 col-sm-5 p-3">
+                                <button type="button" class="btn btn-primary  float-left" data-toggle="modal"
+                                    data-target="#exampleModal" style="font-size: 18px;">
+                                    @if ($user_data['is_project_uploaded'] == 1 && $user_data['is_payment_done'] == 1)
+                                        Your Project Code is: {{ $projectCode }}
+                                    @endif
+                                </button>
 
-                        @if ($user_data['is_project_uploaded'] == 1 && $user_data['is_payment_done'] == 1)
-                            <div class="verify_msg">
-                                <span class="closebtn">&times;</span>
-                                Payment verified
                             </div>
-                        @endif
+                            <div class="col-lg-2 col-md-2 col-sm-2 ">
+
+                            </div>
+                            <div class="col-lg-5 col-md-5 col-sm-5 p-3">
+                                <button type="button" class="btn float-right verify_msg" data-toggle="modal"
+                                    data-target="#exampleModal">
+                                    @if ($user_data['is_project_uploaded'] == 1 && $user_data['is_payment_done'] == 1)
+                                        <div class="verify_msg">
+                                            Your Payment is verified
+                                        </div>
+                                    @endif
+                                </button>
+
+                            </div>
+                        </div>
+
 
 
                         <div class="card-body">
@@ -117,7 +136,7 @@
                                                 Fourth Year
                                             </option>
                                             <option value="5"
-                                                @if (old('academic_year') == '5' || $project_data['academic_year'] == '4') {{ 'selected' }} @endif>
+                                                @if (old('academic_year') == '5' || $project_data['academic_year'] == '5') {{ 'selected' }} @endif>
                                                 Other
                                             </option>
 
@@ -418,10 +437,10 @@
                                         </div>
                                     </div>
                                     <!-- <div class="form-group">
-                                                                                                                                            <img style="width: 250px;height: 260px;"
-                                                                                                                                                src="{{ env('APP_URL') . '/storage/all_web_data/images/payment_proof/' . $user_data['payment_proof'] }}">
+                                                                                                                                                                                                                                                <img style="width: 250px;height: 260px;"
+                                                                                                                                                                                                                                                    src="{{ env('APP_URL') . '/storage/all_web_data/images/payment_proof/' . $user_data['payment_proof'] }}">
 
-                                                                                                                                        </div> -->
+                                                                                                                                                                                                                                            </div> -->
                                 </div>
 
                                 <div class="col-lg-6 col-md-6 col-sm-6">

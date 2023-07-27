@@ -415,7 +415,10 @@
                                                     <th>First Name</th>
                                                     <th>Middle Name</th>
                                                     <th>Last Name</th>
-                                                    <th>Upload Passport photo in jpeg,png,jpg format with dimensions 800x800
+                                                    <th>Upload Passport Photo <br><span style="color: red";>(jpeg,png,jpg
+                                                            format
+                                                            with
+                                                            dimensions 800x800)
                                                     </th>
                                                 </thead>
                                                 <tbody>

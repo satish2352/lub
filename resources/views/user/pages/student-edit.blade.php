@@ -16,11 +16,15 @@
         }
 
         .verify_msg {
-            padding: 20px;
-            /* background-color: #f44336; */
-            color: red;
+            /* padding: 20px; */
+            background-color: #ec671f;
+            /* color: red; */
             font-size: 18px;
+            border-style: none;
             text-align: center;
+            display: flex;
+            justify-content: center;
+            text-wrap: balance;
         }
 
         .closebtn {
@@ -51,13 +55,18 @@
             <div class="row">
                 <div class="col-12 grid-margin">
                     <div class="card">
+                        <div class="text-center p-3">
+                            <button type="button" class="btn btn-primary mb-3 verify_msg" data-toggle="modal"
+                                data-target="#exampleModal">
 
-                        @if ($user_data['is_project_uploaded'] == 1 && $user_data['is_payment_done'] == 0)
-                            <div class="verify_msg">
-                                <span class="closebtn">&times;</span>
-                                Payment not verified
-                            </div>
-                        @endif
+                                @if ($user_data['is_project_uploaded'] == 1 && $user_data['is_payment_done'] == 0)
+                                    Data submitted successfully but payment is not verified by Admin
+                                @endif
+                            </button>
+
+
+                        </div>
+
                         <div class="card-body">
                             <form class="forms-sample" id="frm_register_update" name="frm_register_update" method="post"
                                 role="form" action="{{ route('project-registration-upadte') }} "
@@ -119,7 +128,7 @@
                                                     Fourth Year
                                                 </option>
                                                 <option value="5"
-                                                    @if (old('academic_year') == '5' || $project_data['academic_year'] == '4') {{ 'selected' }} @endif>
+                                                    @if (old('academic_year') == '5' || $project_data['academic_year'] == '5') {{ 'selected' }} @endif>
                                                     Other
                                                 </option>
 
@@ -461,10 +470,10 @@
                                             </div>
                                         </div>
                                         <!-- <div class="form-group">
-                                                                                                                                                                                                                                                                                                    <img style="width: 250px;height: 260px;"
-                                                                                                                                                                                                                                                                                                        src="{{ env('APP_URL') . '/storage/all_web_data/images/payment_proof/' . $user_data['payment_proof'] }}">
+                                                                                                                                                                                                                                                                                                                                                                                                <img style="width: 250px;height: 260px;"
+                                                                                                                                                                                                                                                                                                                                                                                                    src="{{ env('APP_URL') . '/storage/all_web_data/images/payment_proof/' . $user_data['payment_proof'] }}">
 
-                                                                                                                                                                                                                                                                                                </div> -->
+                                                                                                                                                                                                                                                                                                                                                                                            </div> -->
                                     </div>
 
                                     <div class="col-lg-6 col-md-6 col-sm-6">
@@ -500,7 +509,10 @@
                                                     <th>First Name</th>
                                                     <th>Middle Name</th>
                                                     <th>Last Name</th>
-                                                    <th>Upload Passport photo in jpeg,png,jpg format with dimensions 800x800
+                                                    <th>Upload Passport Photo <br><span style="color: red";>(jpeg,png,jpg
+                                                            format
+                                                            with
+                                                            dimensions 800x800)</span>
                                                     </th>
                                                 </thead>
                                                 <tbody>
@@ -582,6 +594,7 @@
                                                                     id="passport_photo_{{ $index + 1 }}"
                                                                     accept="image/*"
                                                                     value="{{ old('passport_photo_' . ($index + 1)) }}"><br>
+
                                                                 @if ($errors->has('passport_photo_' . ($index + 1)))
                                                                     <span
                                                                         class="red-text">{{ $errors->first('passport_photo_' . ($index + 1), ':message') }}</span>
