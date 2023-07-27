@@ -14,6 +14,25 @@
         .fa-eye-slash {
             /* display: none; */
         }
+
+        .verify_msg {
+            padding: 20px;
+            /* background-color: #f44336; */
+            color: red;
+            font-size: 18px;
+            text-align: center;
+        }
+
+        .closebtn {
+            margin-left: 15px;
+            color: white;
+            font-weight: bold;
+            float: right;
+            font-size: 22px;
+            line-height: 20px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
     </style>
     <div class="main-panel">
         <div class="content-wrapper mt-6">
@@ -32,10 +51,17 @@
             <div class="row">
                 <div class="col-12 grid-margin">
                     <div class="card">
+
+                        @if ($user_data['is_project_uploaded'] == 1 && $user_data['is_payment_done'] == 0)
+                            <div class="verify_msg">
+                                <span class="closebtn">&times;</span>
+                                Payment not verified.
+                            </div>
+                        @endif
                         <div class="card-body">
                             <form class="forms-sample" id="frm_register_update" name="frm_register_update" method="post"
-                                role="form" action="{{ route('project-registration-upadte') }}"
-                                enctype="multipart/form-data">
+                                role="form" action="{{ route('project-registration-upadte') }} "
+                                enctype="multipart/form-data" onsubmit="return validate_updateForm()">
                                 <div class="row">
                                     <input type="hidden" name="_token" id="csrf-token" value="{{ Session::token() }}" />
                                     <div class="col-lg-6 col-md-6 col-sm-6">
@@ -78,20 +104,25 @@
                                                 <option value="">Select</option>
                                                 <option value="1"
                                                     @if (old('academic_year') == '1' || $project_data['academic_year'] == '1') {{ 'selected' }} @endif>
-                                                    2020-21
+                                                    First Year
                                                 </option>
                                                 <option value="2"
                                                     @if (old('academic_year') == '2' || $project_data['academic_year'] == '2') {{ 'selected' }} @endif>
-                                                    2021-22
+                                                    Second Year
                                                 </option>
                                                 <option value="3"
                                                     @if (old('academic_year') == '3' || $project_data['academic_year'] == '3') {{ 'selected' }} @endif>
-                                                    2022-23
+                                                    Third Year
                                                 </option>
-                                                <option value="3"
+                                                <option value="4"
                                                     @if (old('academic_year') == '4' || $project_data['academic_year'] == '4') {{ 'selected' }} @endif>
-                                                    2023-24
+                                                    Fourth Year
                                                 </option>
+                                                <option value="5"
+                                                    @if (old('academic_year') == '5' || $project_data['academic_year'] == '4') {{ 'selected' }} @endif>
+                                                    Other
+                                                </option>
+
 
 
                                             </select>
@@ -176,16 +207,133 @@
                                         </div>
                                     </div>
 
-                                    <div class="col-lg-6 col-md-6 col-sm-6">
+                                    <div class="col-lg-6 col-md-6 col-sm-6" id="branch_details_box">
                                         <div class="form-group">
-                                            <label for="branch_details">Branch</label>&nbsp<span class="red-text">*</span>
-                                            <input type="text" class="branch_details form-control" id="branch_details"
-                                                name="branch_details" value="{{ $project_data['branch_details'] }}">
+                                            <label for="branch_details">Select Branch </label>&nbsp<span
+                                                class="red-text">*</span>
+                                            <select class="form-control" id="branch_details" name="branch_details">
+                                                <option value="">Select</option>
+
+
+                                                <option value="1"
+                                                    @if ($project_data['branch_details'] == '1') {{ 'selected' }} @endif>
+                                                    Artificial Intelligence(AI)and Data Science
+                                                </option>
+                                                <option value="2"
+                                                    @if ($project_data['branch_details'] == '2') {{ 'selected' }} @endif>
+                                                    Artificial Intelligence(AI)and Machine Learning
+                                                </option>
+                                                <option value="3"
+                                                    @if ($project_data['branch_details'] == '3') {{ 'selected' }} @endif>
+                                                    Automation and Robotics
+                                                </option>
+                                                <option value="4"
+                                                    @if ($project_data['branch_details'] == '4') {{ 'selected' }} @endif>
+                                                    Automobile
+                                                </option>
+                                                <option value="5"
+                                                    @if ($project_data['branch_details'] == '5') {{ 'selected' }} @endif>
+                                                    Checimal
+                                                </option>
+                                                <option value="6"
+                                                    @if ($project_data['branch_details'] == '6') {{ 'selected' }} @endif>
+                                                    Civil
+                                                </option>
+                                                <option value="7"
+                                                    @if ($project_data['branch_details'] == '7') {{ 'selected' }} @endif>
+                                                    Civil
+                                                    and Environmental
+                                                </option>
+                                                <option value="8"
+                                                    @if ($project_data['branch_details'] == '8') {{ 'selected' }} @endif>
+                                                    Computer
+                                                </option>
+                                                <option value="8"
+                                                    @if ($project_data['branch_details'] == '8') {{ 'selected' }} @endif>
+                                                    Computer
+                                                    Science and Design
+                                                </option>
+                                                <option value="9"
+                                                    @if ($project_data['branch_details'] == '9') {{ 'selected' }} @endif>
+                                                    Computer
+                                                    Technology
+                                                </option>
+                                                <option value="9"
+                                                    @if ($project_data['branch_details'] == '9') {{ 'selected' }} @endif>
+                                                    Dress
+                                                    Designing and
+                                                    Garnment Manufacturing
+                                                </option>
+                                                <option value="10"
+                                                    @if ($project_data['branch_details'] == '10') {{ 'selected' }} @endif>
+                                                    Electrical
+
+                                                </option>
+                                                <option value="11"
+                                                    @if ($project_data['branch_details'] == '11') {{ 'selected' }} @endif>
+                                                    Electronic and Telecommunication
+
+                                                </option>
+                                                <option value="12"
+                                                    @if ($project_data['branch_details'] == '12') {{ 'selected' }} @endif>
+                                                    Information Technology
+
+                                                </option>
+                                                <option value="13"
+                                                    @if ($project_data['branch_details'] == '13') {{ 'selected' }} @endif>
+                                                    Instrumentation and Control Interior Design
+
+                                                </option>
+                                                <option value="14"
+                                                    @if ($project_data['branch_details'] == '14') {{ 'selected' }} @endif>
+                                                    Mechanical
+
+                                                </option>
+                                                <option value="15"
+                                                    @if ($project_data['branch_details'] == '15') {{ 'selected' }} @endif>
+                                                    Mechatronics
+
+                                                </option>
+                                                <option value="16"
+                                                    @if ($project_data['branch_details'] == '16') {{ 'selected' }} @endif>Polymer
+                                                    Technology
+
+                                                </option>
+                                                <option value="17"
+                                                    @if ($project_data['branch_details'] == '17') {{ 'selected' }} @endif>Robotics
+                                                    and Automation
+
+                                                </option>
+                                                <option value="18"
+                                                    @if ($project_data['branch_details'] == '18') {{ 'selected' }} @endif>
+                                                    Other
+
+
+                                                </option>
+
+
+                                            </select>
                                             @if ($errors->has('branch_details'))
                                                 <span class="red-text"><?php echo $errors->first('branch_details', ':message'); ?></span>
                                             @endif
                                         </div>
                                     </div>
+
+                                    <div class="col-lg-6 col-md-6 col-sm-6" id="other_branch_details_box"
+                                        style="display:none">
+                                        <div class="form-group">
+                                            <label for="other_branch_details">Branch</label>&nbsp<span
+                                                class="red-text">*</span>
+                                            <input type="text" class="other_branch_details form-control"
+                                                id="other_branch_details" name="other_branch_details"
+                                                value="{{ $project_data['other_branch_details'] }}">
+                                            @if ($errors->has('other_branch_details'))
+                                                <span class="red-text"><?php echo $errors->first('other_branch_details', ':message'); ?></span>
+                                            @endif
+                                        </div>
+                                    </div>
+
+
 
                                     <div class="col-lg-6 col-md-6 col-sm-6">
                                         <div class="form-group">
@@ -253,8 +401,8 @@
                                 <div class="row">
                                     <div class="col-lg-6 col-md-6 col-sm-6">
                                         <div class="form-group">
-                                            <label for="payment_proof">Payment proof(Upload screenshot of payment in
-                                                jpeg,png,jpg format with size 6 Kb to 1 Mb)</label>&nbsp<span
+                                            <label for="payment_proof">Upload Payment proof in
+                                                jpeg,png,jpg format with size 1 Mb*</label>&nbsp<span
                                                 class="red-text">*</span><br>
                                             <input type="file" name="payment_proof" id="payment_proof"
                                                 accept="image/*" value="{{ $project_data['payment_proof'] }}"><br>
@@ -302,17 +450,16 @@
                                             </div>
                                         </div>
                                         <!-- <div class="form-group">
-                                                                                <img style="width: 250px;height: 260px;"
-                                                                                    src="{{ env('APP_URL') . '/storage/all_web_data/images/payment_proof/' . $user_data['payment_proof'] }}">
+                                                                                                                                                                                                                                                            <img style="width: 250px;height: 260px;"
+                                                                                                                                                                                                                                                                src="{{ env('APP_URL') . '/storage/all_web_data/images/payment_proof/' . $user_data['payment_proof'] }}">
 
-                                                                            </div> -->
+                                                                                                                                                                                                                                                        </div> -->
                                     </div>
 
                                     <div class="col-lg-6 col-md-6 col-sm-6">
                                         <div class="form-group">
-                                            <label for="project_presentation">Upload project presentation (Upload only pdf
-                                                format with size 5 kb to 5
-                                                Mb)</label>&nbsp<span class="red-text">*</span><br>
+                                            <label for="project_presentation"> Upload project presentation only pdf
+                                                format with 5 Mb*</label>&nbsp<span class="red-text">*</span><br>
                                             <input type="file" name="project_presentation" id="project_presentation"
                                                 accept="image/*" value="{{ old('project_presentation') }}"><br>
                                             @if ($errors->has('project_presentation'))
@@ -342,8 +489,8 @@
                                                     <th>First Name</th>
                                                     <th>Middle Name</th>
                                                     <th>Last Name</th>
-                                                    <th>Passport Photo Size(Upload passport photo in jpeg,png,jpg format
-                                                        with dimensions 800x800)</th>
+                                                    <th>Passport photo in jpeg,png,jpg format with size 800kb and with
+                                                        dimensions 800x800</th>
                                                 </thead>
                                                 <tbody>
                                                     <?php for($index =0; $index < 5; $index ++) { ?>
@@ -445,6 +592,15 @@
                                         </div>
                                     </div>
                                 </div>
+                                <div class="col-lg-6 col-md-6 col-sm-6 p-3">
+                                    <div class="form-group">
+                                        <label for="agree_checkbox">
+                                            <input type="checkbox" name="update_agree_checkbox"
+                                                id="update_agree_checkbox">
+                                            I agree
+                                        </label>
+                                    </div>
+                                </div>
                                 <div class="col-md-12 col-sm-12 text-center">
                                     <button type="submit" class="btn btn-success">Save
                                         &amp; Submit</button>
@@ -483,7 +639,7 @@
             $("#name_of_institute").change(function(e) {
                 if ($("#name_of_institute").val() == '21' ||
                     $("#name_of_institute").val() == '47' ||
-                    $("#name_of_institute").val() == '48') {
+                    $("#name_of_institute").val() == '69') {
                     $("#other_name_of_school").show();
                 } else {
                     $("#other_name_of_school").attr("style", "display:none");
@@ -499,6 +655,14 @@
 
 
 
+        });
+
+        $("#branch_details").change(function(e) {
+            if ($("#branch_details").val() == '18') {
+                $("#other_branch_details_box").show();
+            } else {
+                $("#other_branch_details_box").attr("style", "display:none");
+            }
         });
 
         function getEducationDetails() {
@@ -535,9 +699,9 @@
                             //  '<option value="0">Other</option>');
                             $('#name_of_institute').val('{{ $project_data['name_of_institute'] }}');
 
-                            if ($("#name_of_institute").val() == '21' || 
-                            $("#name_of_institute").val() == '47' || 
-                            $("#name_of_institute").val() == '48') {
+                            if ($("#name_of_institute").val() == '21' ||
+                                $("#name_of_institute").val() == '47' ||
+                                $("#name_of_institute").val() == '69') {
                                 $("#other_institute").show();
                             } else {
                                 $("#other_institute").attr("style", "display:none");
@@ -549,6 +713,18 @@
 
             }
 
+        }
+    </script>
+    <script>
+        function validate_updateForm() {
+            var agreeCheckbox = document.getElementById('update_agree_checkbox');
+            if (agreeCheckbox.checked) {
+                document.getElementById("frm_register_update").submit();
+                return true;
+            } else {
+                alert('Please agree to submit.');
+                return false;
+            }
         }
     </script>
 @endsection

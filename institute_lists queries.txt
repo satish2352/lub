@@ -47,8 +47,29 @@ VALUES ("3","5108","Maratha Vidya Prasarak Samaj's Karmaveer Adv. Baburao Ganpat
 ("2","5402","Shree. Kapildhara Polytechnic, Igatpuri."),
 ("2","5404","Gurukul Education Society's Institute of Engineering & Technology, Nandgaon"),
 ("2","5411","Maulana Mukhtar Ahmad Nadvi Technical Campus, Malegaon."),
-("2","5434","Gokhale Education Society's Sir Dr.M.S.Gosavi Polytechnic Institute, Nashik Road");
-("2","5434","Other");
+("2","5434","Gokhale Education Society's Sir Dr.M.S.Gosavi Polytechnic Institute, Nashik Road"),
+("2","5434","Other"),
 
+("1","1112","Govt ITI, Boripada"),
+("1","1113","Govt ITI,Asarbari"),
+("1","1114","Govt ITI,Ambupada"),
+("1","1115","Govt ITI, Nanashi"),
+("1","1116","Govt ITI,Satpur Nashik"),
+("1","1117","Govt ITI,Nashik Woman"),
+("1","1118","Govt ITI,SCP Nashik"),
+("1","1119","Govt ITI,Dindori"),
+("1","1120","Govt ITI, Peth"),
+("1","1121","Govt ITI,lgatpuri"),
+("1","1122","Govt ITI,Satana"),
+("1","1123","Govt ITI,Nandgaon"),
+("1","1124","Govt ITI,Malegaon"),
+("1","1125","Govt ITI,Chandwad"),
+("1","1126","Govt ITI,Kalwan"),
+("1","1127","Govt ITI,Sinnar"),
+("1","1128","Govt ITI,Surgana"),
+("1","1129","Govt ITI,Yeola"),
+("1","1130","GovtIl,Trimbakeshwar"),
+("1","1131","Govt ITI,Deola"),
+("1","1132","Govt ITI,Niphad"),
 ("1","1111","Other");
 

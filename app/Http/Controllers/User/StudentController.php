@@ -53,11 +53,11 @@ class StudentController extends Controller
             'project_title' => 'required|max:255',
             'education_type' => 'required',
             'academic_year' => 'required',
-            'name_of_institute' => 'required|max:255',
-            'branch_details' => 'required|max:255',
+            'name_of_institute' => 'required',
+            'branch_details' => 'required',
             'payment_type' => 'required',
             'transaction_details' => 'required|max:255',
-            'payment_proof' => 'required|image|mimes:jpeg,png,jpg,JPEG,PNG,JPG|max:501|min:6',
+            'payment_proof' => 'required|image|mimes:jpeg,png,jpg,JPEG,PNG,JPG|max:1024|min:6',
             'project_presentation' => 'required|mimes:PDF,pdf|max:5120|min:5',
 
         ];
@@ -69,24 +69,24 @@ class StudentController extends Controller
             'project_title.required' => 'Please enter project name.',
             'project_title.max' => 'Please enter project name max 255 character.',
             'education_type.required' => 'Please select qualification.',
-            'academic_year.required' => 'Please select qualification.',
+            'academic_year.required' => 'Please select year.',
             'name_of_institute.required' => 'Please select institute name.',
-            'name_of_institute.max' => 'Please select institute name max 255 charcter.',
-            'branch_details.required' => 'Please enter branch.',
-            'branch_details.max' => 'Please enter branch name upto 255 character.',
+            // 'name_of_institute.max' => 'Please select institute name max 255 charcter.',
+            'branch_details.required' => 'Please select branch.',
+
             'payment_type.required' => 'Please select payment type.',
             'transaction_details.required' => 'Please enter confirmation code/id.',
 
             'payment_proof.required' => 'Please upload payment proof.',
             'payment_proof.image' => 'The image must be a valid image file.',
             'payment_proof.mimes' => 'The image must be in JPEG, PNG, JPG format.',
-            'payment_proof.max' => 'The image size must not exceed 500 KB .',
+            'payment_proof.max' => 'The image size must not exceed 1 MB .',
             'payment_proof.min' => 'The image size must not be less than 6 KB .',
 
             'project_presentation.required' => 'Please upload project presentation file.',
             'project_presentation.mimes' => 'The project presentation must be in PDF format.',
             'project_presentation.max' => 'The project presentation size must not exceed 5 MB .',
-            'project_presentation.min' => 'The project presentation size must not be less than 10 KB .',
+            'project_presentation.min' => 'The project presentation size must not be less than 5 KB .',
 
         ];
 
@@ -96,12 +96,18 @@ class StudentController extends Controller
             $messages['institute_other_name.required'] = "Enter name";
         }
 
-        if ($request->name_of_institute == '21' || $request->name_of_institute == '93' || $request->name_of_institute == '94') {
+        if ($request->name_of_institute == '21' || $request->name_of_institute == '47' || $request->name_of_institute == '69') {
             $rules['name_of_institute_other'] = "required";
             $messages['name_of_institute_other.required'] = "Enter name";
         }
 
 
+        if ($request->branch_details == '18') {
+            $rules['other_branch_details'] = "required";
+            $messages['other_branch_details.required'] = "Enter branch name";
+        }
+
+         
 
         for ($i = 1; $i <= 5; $i++) {
             $fname = "f_name_" . $i;
@@ -117,35 +123,38 @@ class StudentController extends Controller
                 $rules[$fname] = "required";
                 $rules[$mname] = "required";
                 $rules[$lname] = "required";
-                $rules[$photo] = "required|image|mimes:jpeg,png,jpg,JPEG,PNG,JPG|max:250|min:1"; //dimensions:min_width=100,min_height=100,max_width=800,max_height=800";
+                $rules[$photo] = "required|image|mimes:jpeg,png,jpg,JPEG,PNG,JPG|max:800|min:1|dimensions:min_width=100,min_height=100,max_width=800,max_height=800"; 
 
                 $messages[$fname . ".required"] = "Please enter first name ";
                 $messages[$mname . ".required"] = "Please enter middle name ";
                 $messages[$lname . ".required"] = "Please enter last name ";
                 $messages[$photo . ".required"] = "Please upload passport photo ";
                 $messages[$photo . ".mimes"] = "Please upload passport photo in jpeg,png,jpg format";
-                $messages[$photo . ".max"] = "Please upload passport photo size must not exceed 250 KB";
+                $messages[$photo . ".max"] = "Please upload passport photo size must not exceed 800 KB";
                 $messages[$photo . ".min"] = "Please upload passport photo size must not be less than 1 KB";
+                $messages[$photo . ".dimensions"] = "Please upload passport photo dimensions must be 800x800";
+
             }
         }
 
         $rules["f_name_1"] = "required";
         $rules["m_name_1"] = "required";
         $rules["l_name_1"] = "required";
-        $rules["passport_photo_1"] = "required|image|mimes:jpeg,png,jpg,JPEG,PNG,JPG|max:250|min:1";
+        $rules["passport_photo_1"] = "required|image|mimes:jpeg,png,jpg,JPEG,PNG,JPG|max:800|min:1|dimensions:min_width=100,min_height=100,max_width=800,max_height=800"; 
 
         $messages["f_name_1.required"] = "Please enter first name ";
         $messages["m_name_1.required"] = "Please enter middle name ";
         $messages["l_name_1.required"] = "Please enter last name ";
         $messages["passport_photo_1.required"] = "Please upload passport photo ";
         $messages["passport_photo_1.mimes"] = "Please upload passport photo in jpeg,png,jpg format";
-        $messages["passport_photo_1.max"] = "Please upload passport photo size must not exceed 250 KB";
+        $messages["passport_photo_1.max"] = "Please upload passport photo size must not exceed 800 KB";
         $messages["passport_photo_1.min"] = "Please upload passport photo size must not be less than 1 KB";
+        $messages["passport_photo_1.dimensions"]= "Please upload passport photo dimensions must be 800x800";
 
 
         try {
             $validation = Validator::make($request->all(), $rules, $messages);
-
+// dd($request);
             if ($validation->fails()) {
                 return redirect('user/project-registration')
                     ->withInput()
@@ -161,6 +170,8 @@ class StudentController extends Controller
                         'name_of_institute' => $request->name_of_institute,
                         'name_of_institute_other' => isset($request->name_of_institute_other) ? $request->name_of_institute_other : 'null',
                         'branch_details' => $request->branch_details,
+                        'other_branch_details' => isset($request->other_branch_details) ? $request->other_branch_details : 'null',
+
                         'payment_type' => $request->payment_type,
                         'transaction_details' => $request->transaction_details,
 
@@ -274,7 +285,7 @@ class StudentController extends Controller
             'education_type' => 'required',
             'academic_year' => 'required',
             'name_of_institute' => 'required|max:255',
-            'branch_details' => 'required|max:255',
+            'branch_details' => 'required',
             'payment_type' => 'required',
             'transaction_details' => 'required|max:255',
             
@@ -290,19 +301,18 @@ class StudentController extends Controller
             'academic_year.required' => 'Please select qualification.',
             'name_of_institute.required' => 'Please select institute name.',
             'name_of_institute.max' => 'Please select institute name max 255 charcter.',
-            'branch_details.required' => 'Please enter branch.',
-            'branch_details.max' => 'Please enter branch name upto 255 character.',
+            'branch_details.required' => 'Please select branch.',
             'payment_type.required' => 'Please select payment type.',
             'transaction_details.required' => 'Please enter confirmation code/id.',
         ];
 
         if ($request->hasFile('payment_proof')) {
-            $rules['payment_proof'] = 'required|image|mimes:jpeg,png,jpg,JPEG,PNG,JPG|max:501|min:6';
+            $rules['payment_proof'] = 'required|image|mimes:jpeg,png,jpg,JPEG,PNG,JPG|max:1024|min:6';
 
             $rulemessagess['payment_proof.required'] = 'Please upload payment proof.';
             $rulemessagess['payment_proof.image'] = 'The image must be a valid image file.';
             $rulemessagess['payment_proof.mimes'] = 'The image must be in JPEG, PNG, JPG format.';
-            $rulemessagess['payment_proof.max'] = 'The image size must not exceed 500 KB .';
+            $rulemessagess['payment_proof.max'] = 'The image size must not exceed 1 MB .';
             $rulemessagess['payment_proof.min'] = 'The image size must not be less than 6 KB .';
         }
 
@@ -312,7 +322,7 @@ class StudentController extends Controller
             $rulemessagess['project_presentation.required'] = 'Please upload project presentation file.';
             $rulemessagess['project_presentation.mimes'] = 'The project presentation must be in PDF format.';
             $rulemessagess['project_presentation.max'] = 'The project presentation size must not exceed 5 MB .';
-            $rulemessagess['project_presentation.min'] = 'The project presentation size must not be less than 10 KB .';
+            $rulemessagess['project_presentation.min'] = 'The project presentation size must not be less than 5 KB .';
 
         }
 
@@ -324,6 +334,10 @@ class StudentController extends Controller
         if ($request->name_of_institute == '0') {
             $rules['name_of_institute_other'] = "required";
             $messages['name_of_institute_other.required'] = "Enter name";
+        }
+        if ($request->branch_details == '0') {
+            $rules['other_branch_details'] = "required";
+            $messages['other_branch_details.required'] = "Enter name";
         }
 
 
@@ -344,10 +358,12 @@ class StudentController extends Controller
                 $rules[$lname] = "required";
                 //$rules[$photo] = "required|image|mimes:jpeg,png,jpg,JPEG,PNG,JPG|max:250|min:1"; //dimensions:min_width=100,min_height=100,max_width=800,max_height=800";
                 if($request->$old_passport_photo){
-                    $rules[$photo] = 'sometimes|image|mimes:jpeg,png,jpg,JPEG,PNG,JPG|max:250|min:1';
+                    $rules[$photo] = 'sometimes|image|mimes:jpeg,png,jpg,JPEG,PNG,JPG|max:800|min:1|dimensions:min_width=100,min_height=100,max_width=800,max_height=800'; 
+                
+
                 }
                 else{
-                    $rules[$photo] = 'required|image|mimes:jpeg,png,jpg,JPEG,PNG,JPG|max:250|min:1';
+                    $rules[$photo] = 'required|image|mimes:jpeg,png,jpg,JPEG,PNG,JPG|max:800|min:1|dimensions:min_width=100,min_height=100,max_width=800,max_height=800'; 
                 }
 
                 $messages[$fname . ".required"] = "Please enter first name ";
@@ -356,8 +372,10 @@ class StudentController extends Controller
                 
                 $messages[$photo . ".required"] = "Please upload passport photo ";
                 $messages[$photo . ".mimes"] = "Please upload passport photo in jpeg,png,jpg format";
-                $messages[$photo . ".max"] = "Please upload passport photo size must not exceed 250 KB";
+                $messages[$photo . ".max"] = "Please upload passport photo size must not exceed 800 KB";
                 $messages[$photo . ".min"] = "Please upload passport photo size must not be less than 1 KB";
+                $messages[$photo . ".dimensions"] = "Please upload passport photo dimension must be 800x800";
+
             }
         }
 
@@ -380,6 +398,7 @@ class StudentController extends Controller
                         'name_of_institute' => $request['name_of_institute'],
                         'name_of_institute_other' => $request['institute_other_name'],
                         'branch_details' => $request['branch_details'],
+                        'other_branch_details' => $request['other_branch_details'],
                         'payment_type' => $request['payment_type'],
                         'transaction_details' => $request['transaction_details']
                     ]
