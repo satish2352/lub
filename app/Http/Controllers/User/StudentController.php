@@ -20,7 +20,33 @@ class StudentController extends Controller
     {
     }
 
-    public function add(Request $request)
+    // public function add(Request $request)
+    // {
+    //     $user_id = $request->session()->get('user_id');
+    //     $user_data = Users::where('id', $user_id)->select('*')->first();
+    //     if ($user_data['is_project_uploaded'] == 1) {
+    //         if ($user_data['is_payment_done'] == 1) {
+    //             $user_data = Users::where('id', $user_id)->select('*')->first();
+    //             $participant_data = ParticipantDetails::where('user_id', $user_id)->select('*')->get()->toArray();
+    //             $project_data = ProjectDetails::where('user_id', $user_id)->select('*')->first();
+    //             $commincation_messege = CommincationMesseges::where(['user_id' => $user_id])->select('*')->get()->toArray();
+    //             return view('user.pages.students-view', compact('user_data', 'participant_data', 'project_data', 'commincation_messege', 'user_id'));
+
+    //         } else {
+    //             $user_data = Users::where('id', $user_id)->select('*')->first();
+    //             $participant_data = ParticipantDetails::where('user_id', $user_id)->select('*')->get()->toArray();
+    //             $project_data = ProjectDetails::where('user_id', $user_id)->select('*')->first();
+    //             $commincation_messege = CommincationMesseges::where(['user_id' => $user_id])->select('*')->get()->toArray();
+
+    //             return view('user.pages.student-edit', compact('user_data', 'participant_data', 'project_data', 'commincation_messege', 'user_id'));
+    //         }
+    //     } else {
+    //         return view('user.pages.students-reg', compact('user_data'));
+    //     }
+    // }
+
+    
+  public function add(Request $request)
     {
         $user_id = $request->session()->get('user_id');
         $user_data = Users::where('id', $user_id)->select('*')->first();
@@ -30,7 +56,29 @@ class StudentController extends Controller
                 $participant_data = ParticipantDetails::where('user_id', $user_id)->select('*')->get()->toArray();
                 $project_data = ProjectDetails::where('user_id', $user_id)->select('*')->first();
                 $commincation_messege = CommincationMesseges::where(['user_id' => $user_id])->select('*')->get()->toArray();
-                return view('user.pages.students-view', compact('user_data', 'participant_data', 'project_data', 'commincation_messege', 'user_id'));
+
+                $educationType = $project_data['education_type'];
+                //    dd($educationType);
+    
+            $count = ProjectDetails::where('education_type', $educationType)->count();
+                    //    dd($count);
+    
+            // Generate the project code based on education type and count
+            switch ($educationType) {
+                case '1': // ITI
+                    $projectCode = 'A' . ($count+ 0);
+                    break;
+                case '2': // Diploma
+                    $projectCode = 'B' . ($count + 0);
+                    break;
+                case '3': // Degree
+                    $projectCode = 'C' . ($count + 0);
+                    break;
+                default:
+                    // Handle other education types if needed
+                    $projectCode = 'UNKNOWN' . ($count + 0);
+                }
+                return view('user.pages.students-view', compact('user_data', 'participant_data', 'project_data', 'commincation_messege', 'user_id','projectCode'));
 
             } else {
                 $user_data = Users::where('id', $user_id)->select('*')->first();
@@ -44,6 +92,7 @@ class StudentController extends Controller
             return view('user.pages.students-reg', compact('user_data'));
         }
     }
+
 
   
 
