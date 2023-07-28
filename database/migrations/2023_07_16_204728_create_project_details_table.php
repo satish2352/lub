@@ -26,6 +26,8 @@ return new class extends Migration
             $table->string('name_of_institute_other')->default('null');
             $table->unsignedBigInteger('branch_details')->default(0);
             $table->string('other_branch_details')->default('null');
+            $table->string('project_code')->default('null');
+
 
             $table->boolean('is_active')->default(true);
             $table->boolean('is_deleted')->default(false);

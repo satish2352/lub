@@ -376,7 +376,7 @@
                                         <div class="form-group">
                                             <label for="payment_proof">Payment Acknowledgement / Receipt</label>&nbsp<span
                                                 class="red-text"><br>Upload Payment proof in
-                                                jpeg,png,jpg format with size 1 Mb*</span><br>
+                                                jpeg,png,jpg format with size 1 MB*</span><br>
                                             <input type="file" name="payment_proof" id="payment_proof"
                                                 accept="image/*" value="{{ old('payment_proof') }}"><br>
                                             @if ($errors->has('payment_proof'))
@@ -391,7 +391,7 @@
                                             <label for="project_presentation">Upload project presentation
                                             </label>&nbsp<span class="red-text"><br>
                                                 Upload project presentation only pdf
-                                                format with 5 Mb*</span><br>
+                                                format with 5 MB*</span><br>
                                             <input type="file" name="project_presentation" id="project_presentation"
                                                 accept="pdf/*" value="{{ old('project_presentation') }}"><br>
                                             @if ($errors->has('project_presentation'))
@@ -418,7 +418,7 @@
                                                     <th>Upload Passport Photo <br><span style="color: red";>(jpeg,png,jpg
                                                             format
                                                             with
-                                                            dimensions 800x800)
+                                                            size 2 MB*)
                                                     </th>
                                                 </thead>
                                                 <tbody>

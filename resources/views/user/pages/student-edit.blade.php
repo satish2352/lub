@@ -77,7 +77,7 @@
                                         <div class="form-group">
                                             <label for="u_email">Email ID</label>&nbsp<span class="red-text">*</span>
                                             <input type="text" class="form-control" name="u_email" id="u_email"
-                                                placeholder="" value="{{ $user_data['u_email'] }}" readonly>
+                                                placeholder="" value="{{ $user_data['u_email'] }}" disabled>
                                             @if ($errors->has('u_email'))
                                                 <span class="red-text"><?php echo $errors->first('u_email', ':message'); ?></span>
                                             @endif
@@ -87,7 +87,7 @@
                                         <div class="form-group">
                                             <label for="mobile_no">Contact No</label>&nbsp<span class="red-text">*</span>
                                             <input type="text" class="form-control" name="mobile_no" id="mobile_no"
-                                                placeholder="" value="{{ $user_data['mobile_no'] }}" readonly>
+                                                placeholder="" value="{{ $user_data['mobile_no'] }}" disabled>
                                             @if ($errors->has('mobile_no'))
                                                 <span class="red-text"><?php echo $errors->first('mobile_no', ':message'); ?></span>
                                             @endif
@@ -99,7 +99,7 @@
                                                 class="red-text">*</span>
                                             <input type="text" class="form-control" name="project_title"
                                                 id="project_title" placeholder=""
-                                                value="{{ $project_data['project_title'] }}">
+                                                value="{{ $project_data['project_title'] }}" disabled>
                                             @if ($errors->has('project_title'))
                                                 <span class="red-text"><?php echo $errors->first('project_title', ':message'); ?></span>
                                             @endif
@@ -109,7 +109,7 @@
                                         <div class="form-group">
                                             <label for="education_type">Select Academic Year </label>&nbsp<span
                                                 class="red-text">*</span>
-                                            <select class="form-control" id="academic_year" name="academic_year">
+                                            <select class="form-control" id="academic_year" name="academic_year" disabled>
                                                 <option value="">Select</option>
                                                 <option value="1"
                                                     @if (old('academic_year') == '1' || $project_data['academic_year'] == '1') {{ 'selected' }} @endif>
@@ -146,7 +146,7 @@
                                             <label for="education_type">Select Qualification</label>&nbsp<span
                                                 class="red-text">*</span>
                                             <select class="form-control" id="education_type" name="education_type"
-                                                onchange="education_type(this.value)">
+                                                onchange="education_type(this.value)" disabled>
                                                 <option value="">Select</option>
                                                 <option value="1"
                                                     @if ($project_data['education_type'] == '1') {{ 'selected' }} @endif>ITI
@@ -177,7 +177,7 @@
                                                 class="red-text">*</span>
                                             <input type="text" class="form-control" name="institute_other_name"
                                                 id="institute_other_name" placeholder=""
-                                                value="{{ $project_data['name_of_institute_other'] }}">
+                                                value="{{ $project_data['name_of_institute_other'] }}" disabled>
                                             @if ($errors->has('institute_other_name'))
                                                 <span class="red-text"><?php echo $errors->first('institute_other_name', ':message'); ?></span>
                                             @endif
@@ -189,7 +189,7 @@
                                             <label for="name_of_institute">Select Institute</label>&nbsp<span
                                                 class="red-text">*</span>
                                             <select class="form-control" id="name_of_institute" name="name_of_institute"
-                                                onchange="myFunction(this.value)">
+                                                onchange="myFunction(this.value)" disabled>
                                                 <option value="">Select</option>
                                                 <option value="0"
                                                     @if ($project_data['name_of_institute'] == '0') {{ 'selected' }} @endif>Other
@@ -209,7 +209,7 @@
                                                 class="red-text">*</span>
                                             <input type="text" class="form-control" name="name_of_institute_other"
                                                 id="name_of_institute_other" placeholder=""
-                                                value="{{ $project_data['name_of_institute_other'] }}">
+                                                value="{{ $project_data['name_of_institute_other'] }}" disabled>
                                             @if ($errors->has('name_of_institute_other'))
                                                 <span class="red-text"><?php echo $errors->first('name_of_institute_other', ':message'); ?></span>
                                             @endif
@@ -220,7 +220,8 @@
                                         <div class="form-group">
                                             <label for="branch_details">Select Branch </label>&nbsp<span
                                                 class="red-text">*</span>
-                                            <select class="form-control" id="branch_details" name="branch_details">
+                                            <select class="form-control" id="branch_details" name="branch_details"
+                                                disabled>
                                                 <option value="">Select</option>
 
 
@@ -335,7 +336,7 @@
                                                 class="red-text">*</span>
                                             <input type="text" class="other_branch_details form-control"
                                                 id="other_branch_details" name="other_branch_details"
-                                                value="{{ $project_data['other_branch_details'] }}">
+                                                value="{{ $project_data['other_branch_details'] }}" disabled>
                                             @if ($errors->has('other_branch_details'))
                                                 <span class="red-text"><?php echo $errors->first('other_branch_details', ':message'); ?></span>
                                             @endif
@@ -348,7 +349,7 @@
                                                 class="red-text">*</span>
                                             <input type="text" class="form-control" name="branch_other_name"
                                                 id="branch_other_name" placeholder=""
-                                                value="{{ $project_data['other_branch_details'] }}">
+                                                value="{{ $project_data['other_branch_details'] }}" disabled>
                                             @if ($errors->has('branch_other_name'))
                                                 <span class="red-text"><?php echo $errors->first('branch_other_name', ':message'); ?></span>
                                             @endif
@@ -470,10 +471,10 @@
                                             </div>
                                         </div>
                                         <!-- <div class="form-group">
-                                                                                                                                                                                                                                                                                                                                                                                                <img style="width: 250px;height: 260px;"
-                                                                                                                                                                                                                                                                                                                                                                                                    src="{{ env('APP_URL') . '/storage/all_web_data/images/payment_proof/' . $user_data['payment_proof'] }}">
+                                                                                                                                                                                                                                                                                                                                                                                                            <img style="width: 250px;height: 260px;"
+                                                                                                                                                                                                                                                                                                                                                                                                                src="{{ env('APP_URL') . '/storage/all_web_data/images/payment_proof/' . $user_data['payment_proof'] }}">
 
-                                                                                                                                                                                                                                                                                                                                                                                            </div> -->
+                                                                                                                                                                                                                                                                                                                                                                                                        </div> -->
                                     </div>
 
                                     <div class="col-lg-6 col-md-6 col-sm-6">
@@ -481,7 +482,7 @@
                                             <label for="project_presentation"> Upload project presentation only pdf
                                                 format with 5 Mb*</label>&nbsp<span class="red-text">*</span><br>
                                             <input type="file" name="project_presentation" id="project_presentation"
-                                                accept="image/*" value="{{ old('project_presentation') }}"><br>
+                                                accept="image/*" value="{{ old('project_presentation') }}" disabled><br>
                                             @if ($errors->has('project_presentation'))
                                                 <span class="red-text"><?php echo $errors->first('project_presentation', ':message'); ?></span>
                                             @endif
@@ -512,7 +513,7 @@
                                                     <th>Upload Passport Photo <br><span style="color: red";>(jpeg,png,jpg
                                                             format
                                                             with
-                                                            dimensions 800x800)</span>
+                                                            size 2 MB*)</span>
                                                     </th>
                                                 </thead>
                                                 <tbody>

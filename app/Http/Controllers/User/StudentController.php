@@ -20,33 +20,7 @@ class StudentController extends Controller
     {
     }
 
-    // public function add(Request $request)
-    // {
-    //     $user_id = $request->session()->get('user_id');
-    //     $user_data = Users::where('id', $user_id)->select('*')->first();
-    //     if ($user_data['is_project_uploaded'] == 1) {
-    //         if ($user_data['is_payment_done'] == 1) {
-    //             $user_data = Users::where('id', $user_id)->select('*')->first();
-    //             $participant_data = ParticipantDetails::where('user_id', $user_id)->select('*')->get()->toArray();
-    //             $project_data = ProjectDetails::where('user_id', $user_id)->select('*')->first();
-    //             $commincation_messege = CommincationMesseges::where(['user_id' => $user_id])->select('*')->get()->toArray();
-    //             return view('user.pages.students-view', compact('user_data', 'participant_data', 'project_data', 'commincation_messege', 'user_id'));
-
-    //         } else {
-    //             $user_data = Users::where('id', $user_id)->select('*')->first();
-    //             $participant_data = ParticipantDetails::where('user_id', $user_id)->select('*')->get()->toArray();
-    //             $project_data = ProjectDetails::where('user_id', $user_id)->select('*')->first();
-    //             $commincation_messege = CommincationMesseges::where(['user_id' => $user_id])->select('*')->get()->toArray();
-
-    //             return view('user.pages.student-edit', compact('user_data', 'participant_data', 'project_data', 'commincation_messege', 'user_id'));
-    //         }
-    //     } else {
-    //         return view('user.pages.students-reg', compact('user_data'));
-    //     }
-    // }
-
-    
-  public function add(Request $request)
+    public function add(Request $request)
     {
         $user_id = $request->session()->get('user_id');
         $user_data = Users::where('id', $user_id)->select('*')->first();
@@ -56,29 +30,7 @@ class StudentController extends Controller
                 $participant_data = ParticipantDetails::where('user_id', $user_id)->select('*')->get()->toArray();
                 $project_data = ProjectDetails::where('user_id', $user_id)->select('*')->first();
                 $commincation_messege = CommincationMesseges::where(['user_id' => $user_id])->select('*')->get()->toArray();
-
-                $educationType = $project_data['education_type'];
-                //    dd($educationType);
-    
-            $count = ProjectDetails::where('education_type', $educationType)->count();
-                    //    dd($count);
-    
-            // Generate the project code based on education type and count
-            switch ($educationType) {
-                case '1': // ITI
-                    $projectCode = 'A' . ($count+ 0);
-                    break;
-                case '2': // Diploma
-                    $projectCode = 'B' . ($count + 0);
-                    break;
-                case '3': // Degree
-                    $projectCode = 'C' . ($count + 0);
-                    break;
-                default:
-                    // Handle other education types if needed
-                    $projectCode = 'UNKNOWN' . ($count + 0);
-                }
-                return view('user.pages.students-view', compact('user_data', 'participant_data', 'project_data', 'commincation_messege', 'user_id','projectCode'));
+                return view('user.pages.students-view', compact('user_data', 'participant_data', 'project_data', 'commincation_messege', 'user_id'));
 
             } else {
                 $user_data = Users::where('id', $user_id)->select('*')->first();
@@ -92,6 +44,7 @@ class StudentController extends Controller
             return view('user.pages.students-reg', compact('user_data'));
         }
     }
+
 
 
   
@@ -192,14 +145,14 @@ class StudentController extends Controller
         $rules["f_name_1"] = "required";
         $rules["m_name_1"] = "required";
         $rules["l_name_1"] = "required";
-        $rules["passport_photo_1"] = "required|image|mimes:jpeg,png,jpg,JPEG,PNG,JPG|max:800|min:1|dimensions:min_width=100,min_height=100,max_width=800,max_height=800"; 
+        $rules["passport_photo_1"] = "required|image|mimes:jpeg,png,jpg,JPEG,PNG,JPG|max:2048|min:1|"; 
 
         $messages["f_name_1.required"] = "Please enter first name ";
         $messages["m_name_1.required"] = "Please enter middle name ";
         $messages["l_name_1.required"] = "Please enter last name ";
         $messages["passport_photo_1.required"] = "Please upload passport photo ";
         $messages["passport_photo_1.mimes"] = "Please upload passport photo in jpeg,png,jpg format";
-        $messages["passport_photo_1.max"] = "Please upload passport photo size must not exceed 800 KB";
+        $messages["passport_photo_1.max"] = "Please upload passport photo size must not exceed 2 MB";
         $messages["passport_photo_1.min"] = "Please upload passport photo size must not be less than 1 KB";
         $messages["passport_photo_1.dimensions"]= "Please upload passport photo dimensions must be 800x800";
 
@@ -212,6 +165,8 @@ class StudentController extends Controller
                     ->withInput()
                     ->withErrors($validation);
             } else {
+                $projectCode = $this->generateProjectCode($request->education_type);
+                // dd($projectCode);
                 ProjectDetails::insert(
                     [
                         'user_id' => $request->session()->get('user_id'),
@@ -226,12 +181,13 @@ class StudentController extends Controller
 
                         'payment_type' => $request->payment_type,
                         'transaction_details' => $request->transaction_details,
+                        'project_code' => $projectCode,
 
 
                     ]
                 );
 
-
+              
                 for ($i = 1; $i <= 5; $i++) {
                     $fname = "f_name_" . $i;
                     $mname = "m_name_" . $i;
@@ -301,7 +257,7 @@ class StudentController extends Controller
                     $path2 = storage_path() . $path_project_presentation . $project_presentation_file_name;
                     file_put_contents($path2, $base64_decoded_content);
                 }
-
+               
                 $all_user_details_added = Users::where('id', $request->session()->get('user_id'))->update(
                     [
                         'is_project_uploaded' => 1,
@@ -331,29 +287,29 @@ class StudentController extends Controller
     {
         // dd($request->hasFile('payment_proof'));
         $rules = [
-            'u_email' => 'required|regex:/^([a-zA-Z0-9_.+-])+\@(([a-zA-Z])+\.)+([a-zA-Z0-9]{2,4})+$/',
-            'mobile_no' => 'required',
-            'project_title' => 'required|max:255',
-            'education_type' => 'required',
-            'academic_year' => 'required',
-            'name_of_institute' => 'required|max:255',
-            'branch_details' => 'required',
+            // 'u_email' => 'required|regex:/^([a-zA-Z0-9_.+-])+\@(([a-zA-Z])+\.)+([a-zA-Z0-9]{2,4})+$/',
+            // 'mobile_no' => 'required',
+            // 'project_title' => 'required|max:255',
+            // 'education_type' => 'required',
+            // 'academic_year' => 'required',
+            // 'name_of_institute' => 'required|max:255',
+            // 'branch_details' => 'required',
             'payment_type' => 'required',
             'transaction_details' => 'required|max:255',
             
         ];
 
         $messages = [
-            'mobile_no.required' => 'Please enter mobile no.',
-            'u_email.required' => 'Please enter email.',
-            'u_email.regex' => 'Enter valid email.',
-            'project_title.required' => 'Please enter project name.',
-            'project_title.max' => 'Please enter project name max 255 character.',
-            'education_type.required' => 'Please select qualification.',
-            'academic_year.required' => 'Please select qualification.',
-            'name_of_institute.required' => 'Please select institute name.',
-            'name_of_institute.max' => 'Please select institute name max 255 charcter.',
-            'branch_details.required' => 'Please select branch.',
+            // 'mobile_no.required' => 'Please enter mobile no.',
+            // 'u_email.required' => 'Please enter email.',
+            // 'u_email.regex' => 'Enter valid email.',
+            // 'project_title.required' => 'Please enter project name.',
+            // 'project_title.max' => 'Please enter project name max 255 character.',
+            // 'education_type.required' => 'Please select qualification.',
+            // 'academic_year.required' => 'Please select qualification.',
+            // 'name_of_institute.required' => 'Please select institute name.',
+            // 'name_of_institute.max' => 'Please select institute name max 255 charcter.',
+            // 'branch_details.required' => 'Please select branch.',
             'payment_type.required' => 'Please select payment type.',
             'transaction_details.required' => 'Please enter confirmation code/id.',
         ];
@@ -378,19 +334,19 @@ class StudentController extends Controller
 
         }
 
-        if ($request->education_type == '4') {
-            $rules['institute_other_name'] = "required";
-            $messages['institute_other_name.required'] = "Enter name";
-        }
+        // if ($request->education_type == '4') {
+        //     $rules['institute_other_name'] = "required";
+        //     $messages['institute_other_name.required'] = "Enter name";
+        // }
 
-        if ($request->name_of_institute == '0') {
-            $rules['name_of_institute_other'] = "required";
-            $messages['name_of_institute_other.required'] = "Enter name";
-        }
-        if ($request->branch_details == '0') {
-            $rules['other_branch_details'] = "required";
-            $messages['other_branch_details.required'] = "Enter name";
-        }
+        // if ($request->name_of_institute == '0') {
+        //     $rules['name_of_institute_other'] = "required";
+        //     $messages['name_of_institute_other.required'] = "Enter name";
+        // }
+        // if ($request->branch_details == '0') {
+        //     $rules['other_branch_details'] = "required";
+        //     $messages['other_branch_details.required'] = "Enter name";
+        // }
 
 
         for ($i = 1; $i <= 5; $i++) {
@@ -440,19 +396,20 @@ class StudentController extends Controller
                     ->withInput()
                     ->withErrors($validation);
             } else {
-
+               
                 $project_data = ProjectDetails::where('user_id', $request->id)->update(
                     [
-                        'project_title' => $request['project_title'],
-                        'education_type' => $request['education_type'],
-                        'academic_year' => $request['academic_year'],
+                        // 'project_title' => $request['project_title'],
+                        // 'education_type' => $request['education_type'],
+                        // 'academic_year' => $request['academic_year'],
                         // 'institute_other_name' => $request['institute_other_name'],
-                        'name_of_institute' => $request['name_of_institute'],
-                        'name_of_institute_other' => $request['institute_other_name'],
-                        'branch_details' => $request['branch_details'],
-                        'other_branch_details' => $request['branch_other_name'],
+                        // 'name_of_institute' => $request['name_of_institute'],
+                        // 'name_of_institute_other' => $request['institute_other_name'],
+                        // 'branch_details' => $request['branch_details'],
+                        // 'other_branch_details' => $request['branch_other_name'],
                         'payment_type' => $request['payment_type'],
-                        'transaction_details' => $request['transaction_details']
+                        'transaction_details' => $request['transaction_details'],
+
                     ]
                 );
 
@@ -528,29 +485,29 @@ class StudentController extends Controller
 
                 }
 
-                if ($request->hasFile('project_presentation')) {
+                // if ($request->hasFile('project_presentation')) {
                 
-                    $path_project_presentation = "/all_web_data/project_docs/";
-                    $project_presentation_file_name = $request->session()->get('user_id') . "_project_doc." . $request->project_presentation->extension();
+                //     $path_project_presentation = "/all_web_data/project_docs/";
+                //     $project_presentation_file_name = $request->session()->get('user_id') . "_project_doc." . $request->project_presentation->extension();
 
-                    if (!file_exists(storage_path() . $path_project_presentation)) {
-                        File::makeDirectory(storage_path() . '/' . $path_project_presentation, 0777, true);
-                    }
-                    if ($request->project_presentation !== null) {
-                        $base64_encoded = base64_encode(file_get_contents($request->project_presentation));
+                //     if (!file_exists(storage_path() . $path_project_presentation)) {
+                //         File::makeDirectory(storage_path() . '/' . $path_project_presentation, 0777, true);
+                //     }
+                //     if ($request->project_presentation !== null) {
+                //         $base64_encoded = base64_encode(file_get_contents($request->project_presentation));
 
-                        $base64_decoded_content = base64_decode($base64_encoded);
-                        $path2 = storage_path() . $path_project_presentation . $project_presentation_file_name;
-                        file_put_contents($path2, $base64_decoded_content);
-                    }
+                //         $base64_decoded_content = base64_decode($base64_encoded);
+                //         $path2 = storage_path() . $path_project_presentation . $project_presentation_file_name;
+                //         file_put_contents($path2, $base64_decoded_content);
+                //     }
 
-                    $all_user_details_added = Users::where('id', $request->session()->get('user_id'))->update(
-                        [
-                            'project_presentation' => $project_presentation_file_name,
-                        ]
-                    );
+                //     $all_user_details_added = Users::where('id', $request->session()->get('user_id'))->update(
+                //         [
+                //             'project_presentation' => $project_presentation_file_name,
+                //         ]
+                //     );
 
-                }
+                // }
 
                 $msg = 'Information saved successfully';
                 $status = 'success';   
@@ -575,35 +532,32 @@ class StudentController extends Controller
         return "ok";
     }
 
-    // public function generateProjectCode(Request $request)
-    // {
-    //     // Get the count of students with the same education type
-    //     $user_id = $request->session()->get('user_id');
-    //     // dd($user_id);
-    //     $project_data = ProjectDetails::where('user_id', $user_id)->select('*')->first();
-    //     $educationType = $project_data['education_type'];
-    //         //    dd($educationType);
-
-    //     $count = ProjectDetails::where('education_type', $educationType)->count();
-    //             //    dd($count);
-
-    //     // Generate the project code based on education type and count
-    //     switch ($educationType) {
-    //         case '1': // ITI
-    //             $projectCode = 'A' . ($count+ 1);
-    //             break;
-    //         case '2': // Diploma
-    //             $projectCode = 'B' . ($count + 1);
-    //             break;
-    //         case '3': // Degree
-    //             $projectCode = 'C' . ($count + 1);
-    //             break;
-    //         default:
-    //             // Handle other education types if needed
-    //             $projectCode = 'UNKNOWN' . ($count + 1);
-    //     }
+    public function generateProjectCode($educationType)
+    {
+        // Get the count of students with the same education type
+        $count = ProjectDetails::where('education_type', $educationType)->count();
     
-    //     return view('user.pages.students-view', compact('projectCode'));
-    // }
+        // Increment the count by 1 for the new student
+        $count++;
+    
+        // Generate the project code based on education type
+        switch ($educationType) {
+            case '1':
+                $projectCode = 'A' . $count;
+                break;
+            case '2':
+                $projectCode = 'B' . $count;
+                break;
+            case '3':
+                $projectCode = 'C' . $count;
+                break;
+            default:
+                // Handle other education types if needed
+                $projectCode = 'null';
+        }
+    
+        return $projectCode;
+    }
+    
     
 }
