@@ -42,8 +42,8 @@
         <div class="content-wrapper mt-6">
             <div class="page-header">
                 <h3 class="page-title">
-                    <b>Event organized by Laghu Udyog Bharti & Government Polytechnic,
-                        Nashik (DTE)</b>
+                    {{-- <b>Event organized by Laghu Udyog Bharti & Government Polytechnic,
+                        Nashik (DTE)</b> --}}
                 </h3>
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb">
@@ -470,10 +470,10 @@
                                             </div>
                                         </div>
                                         <!-- <div class="form-group">
-                                                                                                                                                                                                                                                                                                                                                                                                                <img style="width: 250px;height: 260px;"
-                                                                                                                                                                                                                                                                                                                                                                                                                    src="{{ env('APP_URL') . '/storage/all_web_data/images/payment_proof/' . $user_data['payment_proof'] }}">
+                                                                                                                                                                                                                                                                                                                                                                                                                        <img style="width: 250px;height: 260px;"
+                                                                                                                                                                                                                                                                                                                                                                                                                            src="{{ env('APP_URL') . '/storage/all_web_data/images/payment_proof/' . $user_data['payment_proof'] }}">
 
-                                                                                                                                                                                                                                                                                                                                                                                                            </div> -->
+                                                                                                                                                                                                                                                                                                                                                                                                                    </div> -->
                                     </div>
 
                                     <div class="col-lg-6 col-md-6 col-sm-6">
@@ -543,7 +543,8 @@
                                                                     } elseif (isset($participant_data[$index]['f_name'])) {
                                                                         echo $participant_data[$index]['f_name'];
                                                                     } ?>"
-                                                                    oninput="this.value = this.value.replace(/[^a-zA-Z\s.]/g, '').replace(/(\..*)\./g, '$1');">
+                                                                    oninput="this.value = this.value.replace(/[^a-zA-Z\s.]/g, '').replace(/(\..*)\./g, '$1');"
+                                                                    disabled>
                                                                 @if ($errors->has('f_name_' . $index + 1))
                                                                     <span
                                                                         class="red-text">{{ $errors->first('f_name_' . $index + 1, ':message') }}</span>
@@ -561,7 +562,8 @@
                                                                     } elseif (isset($participant_data[$index]['m_name'])) {
                                                                         echo $participant_data[$index]['m_name'];
                                                                     } ?>"
-                                                                    oninput="this.value = this.value.replace(/[^a-zA-Z\s.]/g, '').replace(/(\..*)\./g, '$1');">
+                                                                    oninput="this.value = this.value.replace(/[^a-zA-Z\s.]/g, '').replace(/(\..*)\./g, '$1');"
+                                                                    disabled>
                                                                 @if ($errors->has('m_name_' . $index + 1))
                                                                     <span
                                                                         class="red-text">{{ $errors->first('m_name_' . $index + 1, ':message') }}</span>
@@ -580,7 +582,8 @@
                                                                     } elseif (isset($participant_data[$index]['l_name'])) {
                                                                         echo $participant_data[$index]['l_name'];
                                                                     } ?>"
-                                                                    oninput="this.value = this.value.replace(/[^a-zA-Z\s.]/g, '').replace(/(\..*)\./g, '$1');">
+                                                                    oninput="this.value = this.value.replace(/[^a-zA-Z\s.]/g, '').replace(/(\..*)\./g, '$1');"
+                                                                    disabled>
                                                                 @if ($errors->has('l_name_' . $index + 1))
                                                                     <span
                                                                         class="red-text">{{ $errors->first('l_name_' . $index + 1, ':message') }}</span>
@@ -593,7 +596,8 @@
                                                                     name="passport_photo_{{ $index + 1 }}"
                                                                     id="passport_photo_{{ $index + 1 }}"
                                                                     accept="image/*"
-                                                                    value="{{ old('passport_photo_' . ($index + 1)) }}"><br>
+                                                                    value="{{ old('passport_photo_' . ($index + 1)) }}"
+                                                                    disabled><br>
 
                                                                 @if ($errors->has('passport_photo_' . ($index + 1)))
                                                                     <span

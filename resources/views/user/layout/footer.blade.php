@@ -22,8 +22,8 @@
 <!-- content-wrapper ends -->
 <footer class="footer">
     <div class="d-flex justify-content-center">
-        <span class="text-muted text-center text-sm-left d-block d-sm-inline-block"> © 2023. All rights reserved with
-            Admin</span>
+        <span class="text-muted text-center text-sm-left d-block d-sm-inline-block"> © 2023.
+            All rights reserved with Laghu Udyog Bharati,Nashik.</span>
         {{-- <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center text-muted">Powered by Software
             Solutions Private Limited</span> --}}
     </div>
@@ -511,36 +511,36 @@
     }
 </script>
 <script>
-    document.addEventListener("DOMContentLoaded", function(){
-  document.querySelectorAll('.sidebar .nav-link').forEach(function(element){
-    
-    element.addEventListener('click', function (e) {
+    document.addEventListener("DOMContentLoaded", function() {
+        document.querySelectorAll('.sidebar .nav-link').forEach(function(element) {
 
-      let nextEl = element.nextElementSibling;
-      let parentEl  = element.parentElement;	
+            element.addEventListener('click', function(e) {
 
-        if(nextEl) {
-            e.preventDefault();	
-            let mycollapse = new bootstrap.Collapse(nextEl);
-            
-            if(nextEl.classList.contains('show')){
-              mycollapse.hide();
-            } else {
-                mycollapse.show();
-                // find other submenus with class=show
-                var opened_submenu = parentEl.parentElement.querySelector('.submenu.show');
-                // if it exists, then close all of them
-                if(opened_submenu){
-                  new bootstrap.Collapse(opened_submenu);
+                let nextEl = element.nextElementSibling;
+                let parentEl = element.parentElement;
+
+                if (nextEl) {
+                    e.preventDefault();
+                    let mycollapse = new bootstrap.Collapse(nextEl);
+
+                    if (nextEl.classList.contains('show')) {
+                        mycollapse.hide();
+                    } else {
+                        mycollapse.show();
+                        // find other submenus with class=show
+                        var opened_submenu = parentEl.parentElement.querySelector(
+                            '.submenu.show');
+                        // if it exists, then close all of them
+                        if (opened_submenu) {
+                            new bootstrap.Collapse(opened_submenu);
+                        }
+                    }
                 }
-            }
-        }
-    }); // addEventListener
-  }) // forEach
-}); 
-// DOMContentLoaded  end
-
-    </script>
+            }); // addEventListener
+        }) // forEach
+    });
+    // DOMContentLoaded  end
+</script>
 </body>
 
 </html> <!-- partial:partials/_footer.html -->

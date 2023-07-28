@@ -38,8 +38,8 @@
         <div class="content-wrapper mt-6">
             <div class="page-header">
                 <h3 class="page-title">
-                    <b>Event organized by Laghu Udyog Bharti & Government Polytechnic,
-                        Nashik (DTE)</b>
+                    {{-- <b>Event organized by Laghu Udyog Bharti & Government Polytechnic,
+                        Nashik (DTE)</b> --}}
                 </h3>
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb">
@@ -435,10 +435,10 @@
                                         </div>
                                     </div>
                                     <!-- <div class="form-group">
-                                                                                                                                                                                                                                                                    <img style="width: 250px;height: 260px;"
-                                                                                                                                                                                                                                                                        src="{{ env('APP_URL') . '/storage/all_web_data/images/payment_proof/' . $user_data['payment_proof'] }}">
+                                                                                                                                                                                                                                                                        <img style="width: 250px;height: 260px;"
+                                                                                                                                                                                                                                                                            src="{{ env('APP_URL') . '/storage/all_web_data/images/payment_proof/' . $user_data['payment_proof'] }}">
 
-                                                                                                                                                                                                                                                                </div> -->
+                                                                                                                                                                                                                                                                    </div> -->
                                 </div>
 
                                 <div class="col-lg-6 col-md-6 col-sm-6">
