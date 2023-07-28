@@ -56,8 +56,7 @@
                 <div class="col-12 grid-margin">
                     <div class="card">
                         <div class="text-center p-3">
-                            <button type="button" class="btn btn-primary mb-3 verify_msg" data-toggle="modal"
-                                data-target="#exampleModal">
+                            <button type="button" class="btn btn-primary mb-3 verify_msg">
 
                                 @if ($user_data['is_project_uploaded'] == 1 && $user_data['is_payment_done'] == 0)
                                     Data submitted successfully but payment is not verified by Admin
@@ -471,10 +470,10 @@
                                             </div>
                                         </div>
                                         <!-- <div class="form-group">
-                                                                                                                                                                                                                                                                                                                                                                                                            <img style="width: 250px;height: 260px;"
-                                                                                                                                                                                                                                                                                                                                                                                                                src="{{ env('APP_URL') . '/storage/all_web_data/images/payment_proof/' . $user_data['payment_proof'] }}">
+                                                                                                                                                                                                                                                                                                                                                                                                                <img style="width: 250px;height: 260px;"
+                                                                                                                                                                                                                                                                                                                                                                                                                    src="{{ env('APP_URL') . '/storage/all_web_data/images/payment_proof/' . $user_data['payment_proof'] }}">
 
-                                                                                                                                                                                                                                                                                                                                                                                                        </div> -->
+                                                                                                                                                                                                                                                                                                                                                                                                            </div> -->
                                     </div>
 
                                     <div class="col-lg-6 col-md-6 col-sm-6">

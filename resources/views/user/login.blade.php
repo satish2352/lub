@@ -132,15 +132,22 @@
                                         Up !</a>
                                 </div>
                             </form>
+                            <div>
+                                <p class="font-weight-medium text-center flex-grow align-self-end"
+                                    style="margin-top: 40px;">Copyright
+                                    ©
+                                    {{ date('Y') }}.
+                                    All rights reserved with Admin.</p>
+                            </div>
                             <!--  Login Form -->
                         </div>
                     </div>
                     <!--  Copyright text -->
                     <div class="col-lg-6 login-half-bg d-flex flex-row">
                         <!--  <img src="{{ asset('website_files\images\home\slide3.jpeg') }}" alt="logo"> -->
-                        <p class="text-white font-weight-medium text-center flex-grow align-self-end">Copyright ©
+                        {{-- <p class="text-white font-weight-medium text-center flex-grow align-self-end">Copyright ©
                             {{ date('Y') }}.
-                            All rights reserved with Admin.</p>
+                            All rights reserved with Admin.</p> --}}
                     </div>
                 </div>
             </div>

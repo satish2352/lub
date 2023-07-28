@@ -102,7 +102,7 @@
                             <select class="form-control" id="registration_type" name="registration_type">
                                 <option value="">Select Type Of Registration</option>
                                 <option value="0">Student</option>
-                                <option value="1">Industry</option>
+                                <option value="1" disabled>Industry</option>
                             </select>
                             <div class="select_arrow"></div>
 
