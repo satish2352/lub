@@ -470,10 +470,10 @@
                                             </div>
                                         </div>
                                         <!-- <div class="form-group">
-                                                                                                                                                                                                                                                                                                                                                                                                                        <img style="width: 250px;height: 260px;"
-                                                                                                                                                                                                                                                                                                                                                                                                                            src="{{ env('APP_URL') . '/storage/all_web_data/images/payment_proof/' . $user_data['payment_proof'] }}">
+                                                                                                                                                                                                                                                                                                                                                                                                                            <img style="width: 250px;height: 260px;"
+                                                                                                                                                                                                                                                                                                                                                                                                                                src="{{ env('APP_URL') . '/storage/all_web_data/images/payment_proof/' . $user_data['payment_proof'] }}">
 
-                                                                                                                                                                                                                                                                                                                                                                                                                    </div> -->
+                                                                                                                                                                                                                                                                                                                                                                                                                        </div> -->
                                     </div>
 
                                     <div class="col-lg-6 col-md-6 col-sm-6">
@@ -545,10 +545,10 @@
                                                                     } ?>"
                                                                     oninput="this.value = this.value.replace(/[^a-zA-Z\s.]/g, '').replace(/(\..*)\./g, '$1');"
                                                                     disabled>
-                                                                @if ($errors->has('f_name_' . $index + 1))
+                                                                {{-- @if ($errors->has('f_name_' . $index + 1))
                                                                     <span
                                                                         class="red-text">{{ $errors->first('f_name_' . $index + 1, ':message') }}</span>
-                                                                @endif
+                                                                @endif --}}
                                                             </div>
                                                         </td>
 
@@ -564,10 +564,10 @@
                                                                     } ?>"
                                                                     oninput="this.value = this.value.replace(/[^a-zA-Z\s.]/g, '').replace(/(\..*)\./g, '$1');"
                                                                     disabled>
-                                                                @if ($errors->has('m_name_' . $index + 1))
+                                                                {{-- @if ($errors->has('m_name_' . $index + 1))
                                                                     <span
                                                                         class="red-text">{{ $errors->first('m_name_' . $index + 1, ':message') }}</span>
-                                                                @endif
+                                                                @endif --}}
                                                             </div>
                                                         </td>
 
@@ -584,10 +584,10 @@
                                                                     } ?>"
                                                                     oninput="this.value = this.value.replace(/[^a-zA-Z\s.]/g, '').replace(/(\..*)\./g, '$1');"
                                                                     disabled>
-                                                                @if ($errors->has('l_name_' . $index + 1))
+                                                                {{-- @if ($errors->has('l_name_' . $index + 1))
                                                                     <span
                                                                         class="red-text">{{ $errors->first('l_name_' . $index + 1, ':message') }}</span>
-                                                                @endif
+                                                                @endif --}}
                                                             </div>
                                                         </td>
                                                         <td>
@@ -599,10 +599,10 @@
                                                                     value="{{ old('passport_photo_' . ($index + 1)) }}"
                                                                     disabled><br>
 
-                                                                @if ($errors->has('passport_photo_' . ($index + 1)))
+                                                                {{-- @if ($errors->has('passport_photo_' . ($index + 1)))
                                                                     <span
                                                                         class="red-text">{{ $errors->first('passport_photo_' . ($index + 1), ':message') }}</span>
-                                                                @endif
+                                                                @endif --}}
 
 
                                                             </div>

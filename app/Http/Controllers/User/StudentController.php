@@ -324,15 +324,15 @@ class StudentController extends Controller
             $rulemessagess['payment_proof.min'] = 'The image size must not be less than 6 KB .';
         }
 
-        if ($request->hasFile('project_presentation')) {
-            $rules['project_presentation'] =  'required|mimes:PDF,pdf|max:5120|min:5';
+        // if ($request->hasFile('project_presentation')) {
+        //     $rules['project_presentation'] =  'required|mimes:PDF,pdf|max:5120|min:5';
           
-            $rulemessagess['project_presentation.required'] = 'Please upload project presentation file.';
-            $rulemessagess['project_presentation.mimes'] = 'The project presentation must be in PDF format.';
-            $rulemessagess['project_presentation.max'] = 'The project presentation size must not exceed 5 MB .';
-            $rulemessagess['project_presentation.min'] = 'The project presentation size must not be less than 5 KB .';
+        //     $rulemessagess['project_presentation.required'] = 'Please upload project presentation file.';
+        //     $rulemessagess['project_presentation.mimes'] = 'The project presentation must be in PDF format.';
+        //     $rulemessagess['project_presentation.max'] = 'The project presentation size must not exceed 5 MB .';
+        //     $rulemessagess['project_presentation.min'] = 'The project presentation size must not be less than 5 KB .';
 
-        }
+        // }
 
         // if ($request->education_type == '4') {
         //     $rules['institute_other_name'] = "required";
@@ -349,43 +349,43 @@ class StudentController extends Controller
         // }
 
 
-        for ($i = 1; $i <= 5; $i++) {
-            $old_passport_photo = "old_passport_photo_" . $i;
-            $fname = "f_name_" . $i;
-            $mname = "m_name_" . $i;
-            $lname = "l_name_" . $i;
-            $photo = "passport_photo_" . $i;
-            if (
-                isset($request->$fname) ||
-                isset($request->$mname) ||
-                isset($request->$lname) ||
-                ($request->$old_passport_photo != null || $request->hasFile($photo))
-            ) {
-                $rules[$fname] = "required";
-                $rules[$mname] = "required";
-                $rules[$lname] = "required";
-                //$rules[$photo] = "required|image|mimes:jpeg,png,jpg,JPEG,PNG,JPG|max:250|min:1"; //dimensions:min_width=100,min_height=100,max_width=800,max_height=800";
-                if($request->$old_passport_photo){
-                    $rules[$photo] = 'sometimes|image|mimes:jpeg,png,jpg,JPEG,PNG,JPG|max:800|min:1|dimensions:min_width=100,min_height=100,max_width=800,max_height=800'; 
+        // for ($i = 1; $i <= 5; $i++) {
+        //     $old_passport_photo = "old_passport_photo_" . $i;
+        //     $fname = "f_name_" . $i;
+        //     $mname = "m_name_" . $i;
+        //     $lname = "l_name_" . $i;
+        //     $photo = "passport_photo_" . $i;
+        //     if (
+        //         isset($request->$fname) ||
+        //         isset($request->$mname) ||
+        //         isset($request->$lname) ||
+        //         ($request->$old_passport_photo != null || $request->hasFile($photo))
+        //     ) {
+        //         $rules[$fname] = "required";
+        //         $rules[$mname] = "required";
+        //         $rules[$lname] = "required";
+        //         //$rules[$photo] = "required|image|mimes:jpeg,png,jpg,JPEG,PNG,JPG|max:250|min:1"; //dimensions:min_width=100,min_height=100,max_width=800,max_height=800";
+        //         if($request->$old_passport_photo){
+        //             $rules[$photo] = 'sometimes|image|mimes:jpeg,png,jpg,JPEG,PNG,JPG|max:800|min:1|dimensions:min_width=100,min_height=100,max_width=800,max_height=800'; 
                 
 
-                }
-                else{
-                    $rules[$photo] = 'required|image|mimes:jpeg,png,jpg,JPEG,PNG,JPG|max:800|min:1|dimensions:min_width=100,min_height=100,max_width=800,max_height=800'; 
-                }
+        //         }
+        //         else{
+        //             $rules[$photo] = 'required|image|mimes:jpeg,png,jpg,JPEG,PNG,JPG|max:800|min:1|dimensions:min_width=100,min_height=100,max_width=800,max_height=800'; 
+        //         }
 
-                $messages[$fname . ".required"] = "Please enter first name ";
-                $messages[$mname . ".required"] = "Please enter middle name ";
-                $messages[$lname . ".required"] = "Please enter last name ";
+        //         $messages[$fname . ".required"] = "Please enter first name ";
+        //         $messages[$mname . ".required"] = "Please enter middle name ";
+        //         $messages[$lname . ".required"] = "Please enter last name ";
                 
-                $messages[$photo . ".required"] = "Please upload passport photo ";
-                $messages[$photo . ".mimes"] = "Please upload passport photo in jpeg,png,jpg format";
-                $messages[$photo . ".max"] = "Please upload passport photo size must not exceed 800 KB";
-                $messages[$photo . ".min"] = "Please upload passport photo size must not be less than 1 KB";
-                $messages[$photo . ".dimensions"] = "Please upload passport photo dimension must be 800x800";
+        //         $messages[$photo . ".required"] = "Please upload passport photo ";
+        //         $messages[$photo . ".mimes"] = "Please upload passport photo in jpeg,png,jpg format";
+        //         $messages[$photo . ".max"] = "Please upload passport photo size must not exceed 800 KB";
+        //         $messages[$photo . ".min"] = "Please upload passport photo size must not be less than 1 KB";
+        //         $messages[$photo . ".dimensions"] = "Please upload passport photo dimension must be 800x800";
 
-            }
-        }
+        //     }
+        // }
 
 
         try {
@@ -413,53 +413,53 @@ class StudentController extends Controller
                     ]
                 );
 
-                for ($i = 1; $i <= 5; $i++) {
-                    $fname = "f_name_" . $i;
-                    $mname = "m_name_" . $i;
-                    $lname = "l_name_" . $i;
-                    $participant_id = "participant_id_" . $i;
-                    $photo = "passport_photo_" . $i;
-                    if (
-                        isset($request->$fname) ||
-                        isset($request->$mname) ||
-                        isset($request->$lname) 
-                        // isset($request->$photo)
-                    ) {
+                // for ($i = 1; $i <= 5; $i++) {
+                //     $fname = "f_name_" . $i;
+                //     $mname = "m_name_" . $i;
+                //     $lname = "l_name_" . $i;
+                //     $participant_id = "participant_id_" . $i;
+                //     $photo = "passport_photo_" . $i;
+                //     if (
+                //         isset($request->$fname) ||
+                //         isset($request->$mname) ||
+                //         isset($request->$lname) 
+                //         // isset($request->$photo)
+                //     ) {
 
-                        if($request->$participant_id) {
-                            $all_user_details_added = ParticipantDetails::find($request->$participant_id);
-                        } else {
-                            $all_user_details_added = new ParticipantDetails();
-                        }
+                //         if($request->$participant_id) {
+                //             $all_user_details_added = ParticipantDetails::find($request->$participant_id);
+                //         } else {
+                //             $all_user_details_added = new ParticipantDetails();
+                //         }
                         
-                        $all_user_details_added->f_name = $request->$fname;
-                        $all_user_details_added->m_name = $request->$mname;
-                        $all_user_details_added->l_name = $request->$lname;
-                        $all_user_details_added->user_id = $request->session()->get('user_id');
-                        $all_user_details_added->save();
-                        $last_id = $all_user_details_added->id;
-                        $path = "/all_web_data/images/userPassportPhoto/";
+                //         $all_user_details_added->f_name = $request->$fname;
+                //         $all_user_details_added->m_name = $request->$mname;
+                //         $all_user_details_added->l_name = $request->$lname;
+                //         $all_user_details_added->user_id = $request->session()->get('user_id');
+                //         $all_user_details_added->save();
+                //         $last_id = $all_user_details_added->id;
+                //         $path = "/all_web_data/images/userPassportPhoto/";
                         
 
-                        if($request->hasFile($photo)) {
-                            $name = $request->session()->get('user_id') . "_" . $last_id . "." . $request->$photo->extension();
-                            if (!file_exists(storage_path() . $path)) {
-                                File::makeDirectory(storage_path() . '/' . $path, 0777, true);
-                            }
-                            if ($request->$photo !== null) {
-                                $base64_encoded = base64_encode(file_get_contents($request->$photo));
-                                $base64_decoded_content = base64_decode($base64_encoded);
-                                $path2 = storage_path() . $path . $name;
-                                file_put_contents($path2, $base64_decoded_content);
-                            }
+                //         if($request->hasFile($photo)) {
+                //             $name = $request->session()->get('user_id') . "_" . $last_id . "." . $request->$photo->extension();
+                //             if (!file_exists(storage_path() . $path)) {
+                //                 File::makeDirectory(storage_path() . '/' . $path, 0777, true);
+                //             }
+                //             if ($request->$photo !== null) {
+                //                 $base64_encoded = base64_encode(file_get_contents($request->$photo));
+                //                 $base64_decoded_content = base64_decode($base64_encoded);
+                //                 $path2 = storage_path() . $path . $name;
+                //                 file_put_contents($path2, $base64_decoded_content);
+                //             }
 
-                            $update_data = ParticipantDetails::find($last_id);
-                            $update_data->passport_photo = $name;
-                            $update_data->save();
+                //             $update_data = ParticipantDetails::find($last_id);
+                //             $update_data->passport_photo = $name;
+                //             $update_data->save();
 
-                        }
-                    }
-                }
+                //         }
+                //     }
+                // }
 
                 if ($request->hasFile('payment_proof')) {
                 
