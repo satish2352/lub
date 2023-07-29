@@ -62,8 +62,8 @@ class StudentController extends Controller
             'branch_details' => 'required',
             'payment_type' => 'required',
             'transaction_details' => 'required|max:255',
-            'payment_proof' => 'required|image|mimes:jpeg,png,jpg,JPEG,PNG,JPG|max:1024|min:6',
-            'project_presentation' => 'required|mimes:PDF,pdf|max:5120|min:5',
+            'payment_proof' => 'required|image|mimes:jpeg,png,jpg,JPEG,PNG,JPG|max:1024|min:1',
+            'project_presentation' => 'required|mimes:PDF,pdf|max:5120|min:1',
 
         ];
 
@@ -86,12 +86,12 @@ class StudentController extends Controller
             'payment_proof.image' => 'The image must be a valid image file.',
             'payment_proof.mimes' => 'The image must be in JPEG, PNG, JPG format.',
             'payment_proof.max' => 'The image size must not exceed 1 MB .',
-            'payment_proof.min' => 'The image size must not be less than 6 KB .',
+            'payment_proof.min' => 'The image size must not be less than 1 KB .',
 
             'project_presentation.required' => 'Please upload project presentation file.',
             'project_presentation.mimes' => 'The project presentation must be in PDF format.',
             'project_presentation.max' => 'The project presentation size must not exceed 5 MB .',
-            'project_presentation.min' => 'The project presentation size must not be less than 5 KB .',
+            'project_presentation.min' => 'The project presentation size must not be less than 1 KB .',
 
         ];
 
@@ -128,16 +128,16 @@ class StudentController extends Controller
                 $rules[$fname] = "required";
                 $rules[$mname] = "required";
                 $rules[$lname] = "required";
-                $rules[$photo] = "required|image|mimes:jpeg,png,jpg,JPEG,PNG,JPG|max:800|min:1|dimensions:min_width=100,min_height=100,max_width=800,max_height=800"; 
+                $rules[$photo] = "required|image|mimes:jpeg,png,jpg,JPEG,PNG,JPG|max:2048|min:1"; 
 
                 $messages[$fname . ".required"] = "Please enter first name ";
                 $messages[$mname . ".required"] = "Please enter middle name ";
                 $messages[$lname . ".required"] = "Please enter last name ";
                 $messages[$photo . ".required"] = "Please upload passport photo ";
                 $messages[$photo . ".mimes"] = "Please upload passport photo in jpeg,png,jpg format";
-                $messages[$photo . ".max"] = "Please upload passport photo size must not exceed 800 KB";
+                $messages[$photo . ".max"] = "Please upload passport photo size must not exceed 2 MB";
                 $messages[$photo . ".min"] = "Please upload passport photo size must not be less than 1 KB";
-                $messages[$photo . ".dimensions"] = "Please upload passport photo dimensions must be 800x800";
+                // $messages[$photo . ".dimensions"] = "Please upload passport photo dimensions must be 800x800";
 
             }
         }
@@ -154,7 +154,7 @@ class StudentController extends Controller
         $messages["passport_photo_1.mimes"] = "Please upload passport photo in jpeg,png,jpg format";
         $messages["passport_photo_1.max"] = "Please upload passport photo size must not exceed 2 MB";
         $messages["passport_photo_1.min"] = "Please upload passport photo size must not be less than 1 KB";
-        $messages["passport_photo_1.dimensions"]= "Please upload passport photo dimensions must be 800x800";
+        // $messages["passport_photo_1.dimensions"]= "Please upload passport photo dimensions must be 800x800";
 
 
         try {
@@ -315,13 +315,13 @@ class StudentController extends Controller
         ];
 
         if ($request->hasFile('payment_proof')) {
-            $rules['payment_proof'] = 'required|image|mimes:jpeg,png,jpg,JPEG,PNG,JPG|max:1024|min:6';
+            $rules['payment_proof'] = 'required|image|mimes:jpeg,png,jpg,JPEG,PNG,JPG|max:1024|min:1';
 
             $rulemessagess['payment_proof.required'] = 'Please upload payment proof.';
             $rulemessagess['payment_proof.image'] = 'The image must be a valid image file.';
             $rulemessagess['payment_proof.mimes'] = 'The image must be in JPEG, PNG, JPG format.';
             $rulemessagess['payment_proof.max'] = 'The image size must not exceed 1 MB .';
-            $rulemessagess['payment_proof.min'] = 'The image size must not be less than 6 KB .';
+            $rulemessagess['payment_proof.min'] = 'The image size must not be less than 1 KB .';
         }
 
         // if ($request->hasFile('project_presentation')) {
