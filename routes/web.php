@@ -55,6 +55,9 @@ Route::group(['prefix' => 'user'], function() {
         Route::get('/dashboard', ['as' => '/dashboard', 'uses' => 'App\Http\Controllers\Admin\Dashboard\DashboardController@index']);
         Route::get('/project-registration', ['as' => 'project-registration', 'uses' => 'App\Http\Controllers\User\StudentController@add']);
         Route::post('/project-registration-save', ['as' => 'project-registration-save', 'uses' => 'App\Http\Controllers\User\StudentController@store']);
+      
+        Route::get('/add-industry-data', ['as' => 'add-industry-data', 'uses' => 'App\Http\Controllers\User\IndusrtyController@add']);
+        Route::post('/add-industry-data', ['as' => 'add-industry-data', 'uses' => 'App\Http\Controllers\User\IndusrtyController@store']);
         Route::post('/project-registration-upadte', ['as' => 'project-registration-upadte', 'uses' => 'App\Http\Controllers\User\StudentController@registered_update']);
         // Route::post('/save-messege', ['as' => 'save-messege', 'uses' => 'App\Http\Controllers\User\StudentController@saveMessege']);
 

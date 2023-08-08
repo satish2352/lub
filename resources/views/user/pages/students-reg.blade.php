@@ -70,10 +70,11 @@
                                             @endif
                                         </div>
                                     </div>
+                                    @if ($user_data['registration_type'] == 0)                             
 
                                     <div class="col-lg-6 col-md-6 col-sm-6">
                                         <div class="form-group">
-                                            <label for="education_type">Select Academic Year </label>&nbsp<span
+                                            <label for="academic_year">Select Academic Year </label>&nbsp<span
                                                 class="red-text">*</span>
                                             <select class="form-control" id="academic_year" name="academic_year">
                                                 <option value="">Select</option>
@@ -136,7 +137,6 @@
                                         </div>
                                     </div>
 
-
                                     <div class="col-lg-6 col-md-6 col-sm-6" id="other_institute" style="display:none">
                                         <div class="form-group">
                                             <label for="institute_other_name">Enter Institute Details</label>&nbsp<span
@@ -181,8 +181,6 @@
                                             @endif
                                         </div>
                                     </div>
-
-
 
                                     <div class="col-lg-6 col-md-6 col-sm-6" id="branch_details_box">
                                         <div class="form-group">
@@ -309,11 +307,67 @@
                                             @endif
                                         </div>
                                     </div>
-
+                                    @else
                                     <div class="col-lg-6 col-md-6 col-sm-6">
                                         <div class="form-group">
+                                            <label for="industry_type">Select Industry Type </label>&nbsp<span
+                                                class="red-text">*</span>
+                                            <select class="form-control" id="industry_type" name="industry_type">
+                                                <option value="">Select</option>
+                                                <option value="1"
+                                                    @if (old('industry_type') == '1') {{ 'selected' }} @endif>
+                                                    Large
+                                                </option>
+                                                <option value="2"
+                                                    @if (old('industry_type') == '2') {{ 'selected' }} @endif>
+                                                   Medium
+                                                </option>
+                                                <option value="3"
+                                                    @if (old('industry_type') == '3') {{ 'selected' }} @endif>
+                                                  Small
+                                                </option>
+                                                <option value="4"
+                                                    @if (old('industry_type') == '4') {{ 'selected' }} @endif>
+                                                    Micro
+                                                </option>
+                                            </select>
+                                            @if ($errors->has('industry_type'))
+                                                <span class="red-text"><?php echo $errors->first('industry_type', ':message'); ?></span>
+                                            @endif
+                                        </div>
+                                    </div>  
+                                    <div class="col-lg-6 col-md-6 col-sm-6">
+                                        <div class="form-group">
+                                            <label for="industry_name">Name of Industry</label>&nbsp<span
+                                                class="red-text">*</span>
+                                            <input type="text" class="form-control" name="industry_name"
+                                                id="industry_name" placeholder="" value="{{ old('industry_name') }}">
+                                            @if ($errors->has('industry_name'))
+                                                <span class="red-text"><?php echo $errors->first('industry_name', ':message'); ?></span>
+                                            @endif
+                                        </div>
+                                    </div>                     
+                                    <div class="col-lg-6 col-md-6 col-sm-6">
+                                        <div class="form-group">
+                                            <label for="product_type">Type Of Product</label>&nbsp<span
+                                                class="red-text">*</span>
+                                            <input type="text" class="form-control" name="product_type"
+                                                id="product_type" placeholder="" value="{{ old('product_type') }}">
+                                            @if ($errors->has('product_type'))
+                                                <span class="red-text"><?php echo $errors->first('product_type', ':message'); ?></span>
+                                            @endif
+                                        </div>
+                                    </div>      
+                                    @endif
+                                    <div class="col-lg-6 col-md-6 col-sm-6">
+                                        <div class="form-group">
+                                            @if ($user_data['registration_type'] == 0)   
                                             <label for="payment_type"><b>Registration fees Rs.1000/- paid by</b>
                                             </label>&nbsp<span class="red-text">*</span>
+                                            @else
+                                            <label for="payment_type"><b>Registration fees Rs.2000/- paid by</b>
+                                            </label>&nbsp<span class="red-text">*</span>
+                                            @endif
                                             <select class="form-control" id="payment_type" name="payment_type"
                                                 onchange="payment_type(this.value)">
                                                 <option value="">Select Payment Mode</option>

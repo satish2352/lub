@@ -17,17 +17,21 @@ return new class extends Migration
             $table->bigIncrements('id'); 
             $table->unsignedBigInteger('user_id')->default(0); 
             $table->string('project_title')->default(0); 
-            $table->unsignedBigInteger('academic_year')->default(0);
-            $table->unsignedBigInteger('education_type')->default(0);
+            $table->string('academic_year')->default('null');
+            $table->string('education_type')->default('null');
             $table->string('institute_other_name')->default('null');
             $table->string('payment_type')->default('null');
             $table->string('transaction_details')->default('null');
-            $table->unsignedBigInteger('name_of_institute')->default(0);
+            $table->string('name_of_institute')->default('null');
             $table->string('name_of_institute_other')->default('null');
-            $table->unsignedBigInteger('branch_details')->default(0);
+            $table->string('branch_details')->default('null');
             $table->string('other_branch_details')->default('null');
             $table->string('project_code')->default('null');
 
+            $table->string('industry_type')->default('null');
+            $table->string('industry_name')->default('null');
+            $table->string('product_type')->default('null');
+            $table->string('industry_code')->default('null');
 
             $table->boolean('is_active')->default(true);
             $table->boolean('is_deleted')->default(false);

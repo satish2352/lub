@@ -41,24 +41,35 @@
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                @foreach ($user_data as $item)
+                                                <?php //dd($project_data); ?>
+                                                @foreach ($project_data as $item)
                                                     <tr>
                                                         <td>{{ $loop->iteration }}</td>
-                                                        <td>{{ $item->u_email }} </td>
-                                                        <td>{{ $item->mobile_no }}</td>
+                                                        <td>{{ $item->user_email }} </td>
+                                                        <td>{{ $item->user_mobile_no }}</td>
 
                                                         <td>
-                                                            @if ($item->is_project_uploaded == 1)
+                                                            @if ($item->user_is_project_uploaded == 1)
                                                                 <button type="button" class="btn btn-success btn-sm">
-                                                                    Details Filled </button>
+                                                                    Details Filled 
+                                                                </button>
+                                                                {{-- @if ($item->user_registration_type == 1 && $item->user_is_project_uploaded == 1 && $item->user_is_payment_done == 1)
+                                                                <button type="button" class="btn btn-primary btn-sm " style="font-size: 18px;">
+                                                                    {{ $item->industry_code }}
+                                                                        @else
+                                                                         {{ $item->project_code }}
+                                                                </button>
+                                                                @endif --}}
                                                             @else
                                                                 <button type="button" class="btn btn-danger btn-sm">Yet to
                                                                     upload
                                                                 </button>
                                                             @endif
+
+                                                           
                                                         </td>
                                                         <td>
-                                                            @if ($item->is_payment_done == 1)
+                                                            @if ($item->user_is_payment_done == 1)
                                                                 <button type="button"
                                                                     class="btn btn-success btn-sm">Confirmed</button>
                                                             @else
@@ -69,7 +80,7 @@
 
 
                                                         <td class="d-flex">
-                                                            @if ($item->is_project_uploaded == 1)
+                                                            @if ($item->user_is_project_uploaded == 1)
                                                                 <a data-id="{{ $item->id }}"
                                                                     class="show-btn btn btn-sm btn-outline-primary m-1"><i
                                                                         class="fas fa-eye"></i></a>
