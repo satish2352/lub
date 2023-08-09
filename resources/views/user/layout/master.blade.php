@@ -100,7 +100,7 @@
                 
                 @if ($userType === 1)
                     <li class="nav-item d-md-flex">
-                        <a href="{{ asset('assets/industry_docs/ETS2023-INDUSTRY_26.07.2023.docx') }}"
+                        <a href="{{ asset('assets/industry_docs/LUB-Kaizen Compition-Guideline.docx') }}"
                             class="mr-4 btn btn-block btn-success btn-sm font-weight-medium auth-form-btn d-flex align-items-center">
                             Project Guidelines
                         </a>
