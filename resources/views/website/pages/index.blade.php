@@ -1,6 +1,38 @@
 @extends('website.layout.master')
 @section('content')
+    <style>
+        .marqueeMain {
+            background-color: #595aa7;
+            color: #fff !important;
+            font-size: 20px;
+            letter-spacing: 0px;
+            font-weight: 600;
+            line-height: 27px;
+            padding: 10px;
+        }
+
+        .marqueeMain p {
+            margin: 0px;
+        }
+        .stop-marquee {
+            animation-play-state: paused;
+        }
+    </style>
+    <script>
+        function toggleMarquee() {
+            var marquee = document.getElementById("myMarquee");
+            marquee.classList.toggle("stop-marquee");
+        }
+    </script>
+
     <div id="first-slider">
+        <div class="marqueeMain d-flex align-items-center">
+
+            <marquee id="myMarquee" behavior="scroll" direction="left" onmouseover="toggleMarquee()"
+                onmouseout="toggleMarquee()">
+                <p class="p-1">Last date Of Project Submission 31st. August 2023</p>
+            </marquee>
+        </div>
         <div id="carousel-example-generic" class="carousel slide carousel-fade">
             <!-- Indicators -->
             <ol class="carousel-indicators">

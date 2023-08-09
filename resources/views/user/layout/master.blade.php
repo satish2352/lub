@@ -94,6 +94,29 @@
                 </ul>
 
                 <ul class="navbar-nav navbar-nav-right">
+                    @php
+                    $userType = session('user_type');
+                @endphp
+                
+                @if ($userType === 1)
+                    <li class="nav-item d-md-flex">
+                        <a href="{{ asset('assets/industry_docs/ETS2023-INDUSTRY_26.07.2023.pptx') }}"
+                            class="mr-4 btn btn-block btn-primary btn-sm font-weight-medium auth-form-btn d-flex align-items-center">
+                            Project Guidelines
+                        </a>
+                    </li>
+                    <li class="nav-item d-md-flex">
+                        <a href="{{ asset('assets/industry_docs/ETS2023-INDUSTRY_26.07.2023.docx') }}"
+                            class="mr-4 btn btn-block btn-primary btn-sm font-weight-medium auth-form-btn d-flex align-items-center">
+                            Project Guidelines
+                        </a>
+                    </li>
+                @endif
+                
+
+
+
+
                     <li class="nav-item nav-profile dropdown mr-0">
                         <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" id="profileDropdown">
                             <img class="img-size" src="{{ asset('website/assets/images/logo.jpg') }}" />
