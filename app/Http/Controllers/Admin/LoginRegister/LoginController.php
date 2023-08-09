@@ -55,18 +55,25 @@ class LoginController extends Controller
                                                 ->select('*')
                                                 ->first();
                 
-                if($response['user_details']) {
-                    $password = $request['password'];
-                    if (Hash::check($password, $response['user_details']['u_password'])) {
-                        $request->session()->put('admin_id',$response['user_details']['id']);
-                        $request->session()->put('u_email',$response['user_details']['u_email']);
-                        $request->session()->put('user_type',$response['user_details']['registration_type']);
-                        $resp = ['status'=>'success','msg'=>'Login successfull.'];
-                    } else {
-                        $resp = ['status'=>'failed','msg'=>'These credentials do not match our records.'];
-                    }
-                    
-                } else {
+                                                if ($response['user_details']) {
+                                                    $password = $request['password'];
+                                                    if (Hash::check($password, $response['user_details']['u_password'])) {
+                                                        $request->session()->put('admin_id', $response['user_details']['id']);
+                                                        $request->session()->put('u_email', $response['user_details']['u_email']);
+                                                        $request->session()->put('user_type', $response['user_details']['registration_type']);
+                                        
+                                                        // Check registration_type and redirect accordingly
+                                                        if ($response['user_details']['registration_type'] == 0) {
+                                                            return redirect('/admin/register-users');  // Change this to the appropriate admin dashboard route
+                                                        } elseif ($response['user_details']['registration_type'] == 1) {
+                                                            return redirect('/admin/industry-list');  // Change this to the appropriate user dashboard route
+                                                        } else {
+                                                            return redirect('/admin/login')->with('error', 'Unknown registration type.');
+                                                        }
+                                                    } else {
+                                                        $resp = ['status' => 'failed', 'msg' => 'These credentials do not match our records.'];
+                                                    }
+                                                } else {
                     $resp = ['status'=>'failed','msg'=>'These credentials do not match our records.'];
                 }
 

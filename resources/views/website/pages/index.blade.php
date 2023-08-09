@@ -68,7 +68,7 @@
             <div class="row text-center">
                 <h1>25 Years of Thriving: Celebrating Our Success Story</h1>
                 <hr>
-                <h5>Documentary "Udyamev Jayate" Celebrating 25 yearsof Laghu Udyog Bharati- Nashik Branch</h5>
+                <h5>Documentary "Udyamev Jayate" Celebrating 25 yearsof Laghu Udyog Bharti- Nashik Branch</h5>
                 <div class="text-left">
                     <div class="col-md-6 clearfix top-off">
                         <a href="https://www.youtube.com/watch?v=vuAcpNvFYE4"> <video width="400" controls>

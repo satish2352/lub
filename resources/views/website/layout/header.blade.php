@@ -37,7 +37,7 @@
                         rel="nofollow"><i class="fa fa-facebook"></i> </a>
                     <a class="twitter" href="https://twitter.com/i/flow/login?redirect_after_login=%2Flubindia"
                         title="twitter" target="_blank" rel="nofollow"><i class="fa fa-twitter"></i> </a>
-                    <a class="linkedin" href="https://www.linkedin.com/company/laghu-udyog-bharati/" title="linkedin"
+                    <a class="linkedin" href="https://www.linkedin.com/company/laghu-udyog-Bharti/" title="linkedin"
                         target="_blank" rel="nofollow"><i class="fa fa-linkedin"></i> </a>
                     <a class="google" href="https://www.instagram.com/lub.india/" title="instagram-plus" target="_blank"
                         rel="nofollow"><i class="fa fa-instagram"></i> </a>

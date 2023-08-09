@@ -32,7 +32,7 @@
                         </div>
                         <h3>HEAD OFFICE</h3>
                         <div class="fancy-box-content">
-                            <p> Laghu Udyog Bharati
+                            <p> Laghu Udyog Bharti
                                 Shri Vishwakarma Bhawan,
                                 48, Deen Dayal Upadhyay Marg,
                                 Rouse Avenue,

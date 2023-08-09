@@ -37,7 +37,18 @@ class StudentController extends Controller
     
         return view('admin.pages.users-list', compact('project_data'));
     }
-
+    public function indexIndustry()
+    {
+        // $user_data = Users::where('is_active', true)->get();
+    
+        // Joining users table with project_details table
+        $project_data = ProjectDetails::join('users', 'project_details.user_id', '=', 'users.id')
+            ->select('project_details.*', 'users.u_email as user_email','users.mobile_no as user_mobile_no','users.is_project_uploaded as user_is_project_uploaded','users.is_payment_done as user_is_payment_done','users.registration_type as user_registration_type') // Add other fields from project_details if needed
+            ->where('project_details.is_active', true)
+            ->get();
+    // dd($project_data);
+        return view('admin.pages.industry-list', compact('project_data'));
+    }
     public function viewDetailsForParticipant(Request $request) {
         $user_id = $request['show_id'];
         $user_data = Users::where('id', $user_id)->select('*')->first();

@@ -7,8 +7,8 @@
                         <h4 class="footer-section-title">About LUB</h4><!-- /.footer-section-title -->
 
                         <div class="footer-section-body">
-                            <p>Laghu Udyog Bharati is a registered all India organization of Micro and Small Industries
-                                in India since 1994. Today, Laghu udyog Bharati has its membership spread over the
+                            <p>Laghu Udyog Bharti is a registered all India organization of Micro and Small Industries
+                                in India since 1994. Today, Laghu udyog Bharti has its membership spread over the
                                 length and breadth of the country. It has membership in more than 400 Districts with 250
                                 Branches all over the Country. </p>
                         </div><!-- /.footer-section-body -->
@@ -55,7 +55,7 @@
                         <h4 class="footer-section-title">Head Office</h4><!-- /.footer-section-title -->
 
                         <div class="footer-section-body"><b><i class="fa fa-map-marker"></i> </b>
-                            Laghu Udyog Bharati
+                            Laghu Udyog Bharti
                             Shri Vishwakarma Bhawan,
                             48, Deen Dayal Upadhyay Marg,
                             Rouse Avenue,

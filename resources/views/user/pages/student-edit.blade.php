@@ -442,7 +442,7 @@
                                             <p class="mt-3">
                                                 <label for="bankdetails" class="bank_details">
                                                     <b>Bank details:</b><br />
-                                                    A/c Name: Laghu Udyog Bharati <br />
+                                                    A/c Name: Laghu Udyog Bharti <br />
                                                     Bank: TJSB Bank <br />
                                                     Branch: Gangapur Rd. <br />
                                                     A/c No.: 021110100000661 <br />

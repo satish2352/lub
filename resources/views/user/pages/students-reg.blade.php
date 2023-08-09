@@ -38,6 +38,13 @@
                                 onsubmit="return validateForm()">
                                 <div class="row">
                                     <input type="hidden" name="_token" id="csrf-token" value="{{ Session::token() }}" />
+
+                                    <input type="hidden" class="form-control" name="registration_type" id="registration_type"
+                                                placeholder="" value="{{ $user_data->registration_type }}" >
+
+                                  
+                                   
+
                                     <div class="col-lg-6 col-md-6 col-sm-6">
                                         <div class="form-group">
                                             <label for="u_email">Email ID</label>&nbsp<span class="red-text">*</span>
@@ -405,7 +412,7 @@
                                             <p class="mt-3">
                                                 <label for="bankdetails" class="bank_details">
                                                     <b>Bank details:</b><br />
-                                                    A/c Name: Laghu Udyog Bharati <br />
+                                                    A/c Name: Laghu Udyog Bharti <br />
                                                     Bank: TJSB Bank <br />
                                                     Branch: Gangapur Rd. <br />
                                                     A/c No.: 021110100000661 <br />
@@ -442,10 +449,19 @@
 
                                     <div class="col-lg-6 col-md-6 col-sm-6">
                                         <div class="form-group">
-                                            <label for="project_presentation">Upload project presentation
-                                            </label>&nbsp<span class="red-text"><br>
+                                            <label for="project_presentation">Upload Project Presentation
+                                            </label>&nbsp
+                                            @if ($user_data['registration_type'] == 0)   
+                                            <span class="red-text"><br>
                                                 Upload project presentation only pdf
-                                                format with 5 MB*</span><br>
+                                                format with 5 MB*</span>
+                                            @else
+                                            <span class="red-text"><br>
+                                                Upload project presentation pdf, excel, ppt, word
+                                                format with 25 MB*</span>
+                                            @endif
+
+                                            <br>
                                             <input type="file" name="project_presentation" id="project_presentation"
                                                 accept="pdf/*" value="{{ old('project_presentation') }}"><br>
                                             @if ($errors->has('project_presentation'))

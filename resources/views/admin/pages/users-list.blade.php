@@ -43,52 +43,48 @@
                                             <tbody>
                                                 <?php //dd($project_data); ?>
                                                 @foreach ($project_data as $item)
-                                                    <tr>
-                                                        <td>{{ $loop->iteration }}</td>
-                                                        <td>{{ $item->user_email }} </td>
-                                                        <td>{{ $item->user_mobile_no }}</td>
-
-                                                        <td>
-                                                            @if ($item->user_is_project_uploaded == 1)
-                                                                <button type="button" class="btn btn-success btn-sm">
-                                                                    Details Filled 
-                                                                </button>
-                                                                {{-- @if ($item->user_registration_type == 1 && $item->user_is_project_uploaded == 1 && $item->user_is_payment_done == 1)
-                                                                <button type="button" class="btn btn-primary btn-sm " style="font-size: 18px;">
-                                                                    {{ $item->industry_code }}
-                                                                        @else
-                                                                         {{ $item->project_code }}
-                                                                </button>
-                                                                @endif --}}
+                                                @if ($item->user_registration_type == 0)
+                                                <tr>
+                                                    <td>{{ $loop->iteration }}</td>
+                                                    <td>{{ $item->user_email }}</td>
+                                                    <td>{{ $item->user_mobile_no }}</td>
+                            
+                                                    <td>
+                                                        @if ($item->user_is_project_uploaded == 1)
+                                                            <button type="button" class="btn btn-success btn-sm">
+                                                                Details Filled
+                                                            </button>
+                                                            @if ($item->user_registration_type == 0 && $item->user_is_project_uploaded == 1 && $item->user_is_payment_done == 1)
+                                                            <button type="button" class="btn btn-primary btn-sm " style="font-size: 18px;">
+                                                                {{ $item->project_code }}
+                                                            </button>
                                                             @else
-                                                                <button type="button" class="btn btn-danger btn-sm">Yet to
-                                                                    upload
-                                                                </button>
+                                                            
                                                             @endif
-
-                                                           
-                                                        </td>
-                                                        <td>
-                                                            @if ($item->user_is_payment_done == 1)
-                                                                <button type="button"
-                                                                    class="btn btn-success btn-sm">Confirmed</button>
-                                                            @else
-                                                                <button type="button" class="btn btn-danger btn-sm">Not
-                                                                    Confirmed</button>
-                                                            @endif
-                                                        </td>
-
-
-                                                        <td class="d-flex">
-                                                            @if ($item->user_is_project_uploaded == 1)
-                                                                <a data-id="{{ $item->id }}"
-                                                                    class="show-btn btn btn-sm btn-outline-primary m-1"><i
-                                                                        class="fas fa-eye"></i></a>
-                                                            @else
-                                                                {{ 'No Project Details Uploaded Yet' }}
-                                                            @endif
-                                                        </td>
-                                                    </tr>
+                                                        @else
+                                                            <button type="button" class="btn btn-danger btn-sm">Yet to upload</button>
+                                                        @endif
+                                                    </td>
+                                                    <td>
+                                                        @if ($item->user_is_payment_done == 1)
+                                                            <button type="button" class="btn btn-success btn-sm">Confirmed</button>
+                                                        @else
+                                                            <button type="button" class="btn btn-danger btn-sm">Not Confirmed</button>
+                                                        @endif
+                                                    </td>
+                            
+                                                    <td class="d-flex">
+                                                        @if ($item->user_is_project_uploaded == 1)
+                                                            <a data-id="{{ $item->id }}" class="show-btn btn btn-sm btn-outline-primary m-1">
+                                                                <i class="fas fa-eye"></i>
+                                                            </a>
+                                                        @else
+                                                            {{ 'No Project Details Uploaded Yet' }}
+                                                        @endif
+                                                    </td>
+                                                </tr>
+                                              
+                                            @endif
                                                 @endforeach
 
                                             </tbody>

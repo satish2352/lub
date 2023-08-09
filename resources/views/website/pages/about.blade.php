@@ -18,14 +18,14 @@
     <section id="about-sec">
         <div class="container">
             <div class="row">
-                <h1 class="">ABOUT LAGHU UDYOG BHARATI NASHIK</h1>
+                <h1 class="">ABOUT LAGHU UDYOG Bharti NASHIK</h1>
                 {{-- <hr> --}}
                 {{-- <h5>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
                     dolore magna aliqua.</h5> --}}
-                <p>Laghu Udyog Bharati is a registered all India organization of Micro and Small Industries in India since
-                    1994. Today, Laghu udyog Bharati has its membership spread over the length and breadth of the country.
+                <p>Laghu Udyog Bharti is a registered all India organization of Micro and Small Industries in India since
+                    1994. Today, Laghu udyog Bharti has its membership spread over the length and breadth of the country.
                     It has membership in more than 400 Districts with 250 Branches all over the Country. In a genuine effort
-                    to organise MSE sector Laghu Udyog Bharati is fighting the various ills plaguing the sector and to
+                    to organise MSE sector Laghu Udyog Bharti is fighting the various ills plaguing the sector and to
                     remove impediments coming in the way to MSEs.
                     Laghu Udyog or MSEs : The Scene
                     Worldwide , micro and small enterprises (MSEs) have been accepted as the engine of economic growth and
