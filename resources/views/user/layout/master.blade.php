@@ -100,15 +100,15 @@
                 
                 @if ($userType === 1)
                     <li class="nav-item d-md-flex">
-                        <a href="{{ asset('assets/industry_docs/ETS2023-INDUSTRY_26.07.2023.pptx') }}"
-                            class="mr-4 btn btn-block btn-primary btn-sm font-weight-medium auth-form-btn d-flex align-items-center">
+                        <a href="{{ asset('assets/industry_docs/ETS2023-INDUSTRY_26.07.2023.docx') }}"
+                            class="mr-4 btn btn-block btn-success btn-sm font-weight-medium auth-form-btn d-flex align-items-center">
                             Project Guidelines
                         </a>
                     </li>
                     <li class="nav-item d-md-flex">
-                        <a href="{{ asset('assets/industry_docs/ETS2023-INDUSTRY_26.07.2023.docx') }}"
-                            class="mr-4 btn btn-block btn-primary btn-sm font-weight-medium auth-form-btn d-flex align-items-center">
-                            Project Guidelines
+                        <a href="{{ asset('assets/industry_docs/ETS2023-INDUSTRY_26.07.2023.pptx') }}"
+                            class="mr-4 btn btn-block btn-success btn-sm font-weight-medium auth-form-btn d-flex align-items-center">
+                            Sample Presentation
                         </a>
                     </li>
                 @endif
