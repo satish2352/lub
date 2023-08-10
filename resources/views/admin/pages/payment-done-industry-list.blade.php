@@ -107,7 +107,7 @@
             </div>
         </div>
 
-        <form method="POST" action="{{ url('/admin/show-users') }}" id="showform">
+        <form method="POST" action="{{ url('/admin/show-industry') }}" id="showform">
             @csrf
             <input type="hidden" name="show_id" id="show_id" value="">
         </form>

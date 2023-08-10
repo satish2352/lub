@@ -56,8 +56,8 @@ Route::group(['prefix' => 'user'], function() {
         Route::get('/project-registration', ['as' => 'project-registration', 'uses' => 'App\Http\Controllers\User\StudentController@add']);
         Route::post('/project-registration-save', ['as' => 'project-registration-save', 'uses' => 'App\Http\Controllers\User\StudentController@store']);
       
-        Route::get('/add-industry-data', ['as' => 'add-industry-data', 'uses' => 'App\Http\Controllers\User\IndusrtyController@add']);
-        Route::post('/add-industry-data', ['as' => 'add-industry-data', 'uses' => 'App\Http\Controllers\User\IndusrtyController@store']);
+        Route::get('/add-industry-data', ['as' => 'add-industry-data', 'uses' => 'App\Http\Controllers\User\IndustryController@add']);
+        Route::post('/add-industry-data', ['as' => 'add-industry-data', 'uses' => 'App\Http\Controllers\User\IndustryController@store']);
         Route::post('/project-registration-upadte', ['as' => 'project-registration-upadte', 'uses' => 'App\Http\Controllers\User\StudentController@registered_update']);
         // Route::post('/save-messege', ['as' => 'save-messege', 'uses' => 'App\Http\Controllers\User\StudentController@saveMessege']);
 
@@ -69,12 +69,16 @@ Route::group(['prefix' => 'admin'], function() {
 
         Route::get('/dashboard', ['as' => 'dashboard', 'uses' => 'App\Http\Controllers\Admin\Dashboard\DashboardController@index']);
         Route::get('/register-users', ['as' => 'register-users', 'uses' => 'App\Http\Controllers\Admin\StudentController@index']);
-        Route::get('/industry-list', ['as' => 'industry-list', 'uses' => 'App\Http\Controllers\Admin\StudentController@indexIndustry']);
-        Route::get('/payment-done-industry-list', ['as' => 'payment-done-industry-list', 'uses' => 'App\Http\Controllers\Admin\StudentController@getPaymentIndustry']);
+        // Route::get('/industry-list', ['as' => 'industry-list', 'uses' => 'App\Http\Controllers\Admin\StudentController@indexIndustry']);
+        // Route::get('/payment-done-industry-list', ['as' => 'payment-done-industry-list', 'uses' => 'App\Http\Controllers\Admin\StudentController@getPaymentIndustry']);
         Route::get('/payment-done-student-list', ['as' => 'payment-done-student-list', 'uses' => 'App\Http\Controllers\Admin\StudentController@getPaymentStudent']);
         Route::post('/show-users', ['as' => 'show-users', 'uses' => 'App\Http\Controllers\Admin\StudentController@viewDetailsForParticipant']);
         Route::post('/save-messege', ['as' => 'save-messege', 'uses' => 'App\Http\Controllers\Admin\StudentController@saveMessege']);
         Route::post('/update', ['as' => 'update', 'uses' => 'App\Http\Controllers\Admin\StudentController@update']);
         
+        Route::post('/show-industry', ['as' => 'show-industry', 'uses' => 'App\Http\Controllers\Admin\IndustryController@viewDetailsForParticipant']);
+        Route::get('/industry-list', ['as' => 'industry-list', 'uses' => 'App\Http\Controllers\Admin\IndustryController@indexIndustry']);
+        Route::get('/payment-done-industry-list', ['as' => 'payment-done-industry-list', 'uses' => 'App\Http\Controllers\Admin\IndustryController@getPaymentIndustry']);
+        Route::post('/update-industry', ['as' => 'update-industry', 'uses' => 'App\Http\Controllers\Admin\IndustryController@update']);
     });
 });
