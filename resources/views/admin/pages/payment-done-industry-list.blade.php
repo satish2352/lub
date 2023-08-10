@@ -5,12 +5,12 @@
         <div class="content-wrapper mt-7">
             <div class="page-header">
                 <h3 class="page-title">
-                    Industry Register List
+                    Industry Payment Done List
                 </h3>
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item"><a href="#">Industry List</a></li>
-                        <li class="breadcrumb-item active" aria-current="page"> Industry Register List </li>
+                        <li class="breadcrumb-item active" aria-current="page"> Industry Payment Done List </li>
                     </ol>
                 </nav>
             </div>
@@ -41,29 +41,34 @@
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                               
-
                                                 <?php
                                                 $serialNumber = 1; // Initialize the serial number counter
                                                 ?>
                                                 @foreach ($project_data as $item)
-                                                    @if ($item->registration_type == 1)
+                                                    @if ($item->user_registration_type == 1)
                                                         <tr>
                                                             <td>{{ $serialNumber }}</td>
-                                                            <td>{{ $item->u_email }}</td>
-                                                            <td>{{ $item->mobile_no }}</td>
+                                                            <td>{{ $item->user_email }}</td>
+                                                            <td>{{ $item->user_mobile_no }}</td>
                                     
                                                             <td>
-                                                                @if ($item->is_project_uploaded == 1)
+                                                                @if ($item->user_is_project_uploaded == 1)
                                                                     <button type="button" class="btn btn-success btn-sm">
                                                                         Details Filled
                                                                     </button>
+                                                                    @if ($item->user_registration_type == 1 && $item->user_is_project_uploaded == 1 && $item->user_is_payment_done == 1)
+                                                                    <button type="button" class="btn btn-primary btn-sm " style="font-size: 18px;">
+                                                                        {{ $item->industry_code }}
+                                                                    </button>
+                                                                    @else
+                                                                    
+                                                                    @endif
                                                                 @else
                                                                     <button type="button" class="btn btn-danger btn-sm">Yet to upload</button>
                                                                 @endif
                                                             </td>
                                                             <td>
-                                                                @if ($item->is_payment_done == 1)
+                                                                @if ($item->user_is_payment_done == 1)
                                                                     <button type="button" class="btn btn-success btn-sm">Confirmed</button>
                                                                 @else
                                                                     <button type="button" class="btn btn-danger btn-sm">Not Confirmed</button>
@@ -71,7 +76,7 @@
                                                             </td>
                                     
                                                             <td class="d-flex">
-                                                                @if ($item->is_project_uploaded == 1)
+                                                                @if ($item->user_is_project_uploaded == 1)
                                                                     <a data-id="{{ $item->id }}" class="show-btn btn btn-sm btn-outline-primary m-1">
                                                                         <i class="fas fa-eye"></i>
                                                                     </a>
@@ -84,7 +89,6 @@
                                                     $serialNumber++; // Increment the serial number counter
                                                 @endphp
                                                     @endif
-                                                   
                                                 @endforeach
                                             </tbody>
                                         </table>

@@ -92,8 +92,7 @@
                         {{ env('APP_NAME') }}
                     </li>
                 </ul>
-
-                <ul class="navbar-nav navbar-nav-right">
+                <ul class="navbar-nav justify-content-center" style="padding-left: 230px">
                     @php
                     $userType = session('user_type');
                 @endphp
@@ -113,10 +112,10 @@
                     </li>
                 @endif
                 
+                </ul>
 
-
-
-
+                <ul class="navbar-nav navbar-nav-right">
+                  
                     <li class="nav-item nav-profile dropdown mr-0">
                         <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" id="profileDropdown">
                             <img class="img-size" src="{{ asset('website/assets/images/logo.jpg') }}" />

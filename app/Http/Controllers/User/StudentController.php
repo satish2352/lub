@@ -202,10 +202,10 @@ $rules = $commonRules; // Initialize rules with common rules
                    $attributes['product_type'] = $request->product_type ?? 'NA';
                    $attributes['industry_code'] = $industryCode ?? 'NA';
                } else {
-                   $attributes['industry_type'] = $request->industry_type ?? 'NA';
-                   $attributes['industry_name'] = $request->industry_name ?? 'NA';
-                   $attributes['product_type'] = $request->product_type ?? 'NA';
-                   $attributes['industry_code'] = $industryCode ?? 'NA';
+                //    $attributes['industry_type'] = $request->industry_type ?? 'NA';
+                //    $attributes['industry_name'] = $request->industry_name ?? 'NA';
+                //    $attributes['product_type'] = $request->product_type ?? 'NA';
+                //    $attributes['industry_code'] = $industryCode ?? 'NA';
    
                    $attributes['academic_year'] = $request->academic_year ?? 'NA';
                    $attributes['education_type'] = $request->education_type ?? 'NA';
@@ -453,26 +453,41 @@ $rules = $commonRules; // Initialize rules with common rules
         return $projectCode;
     }
     
+    // public function generateIndustryCode($IndustryCode)
+    // {
+    //     // Get the count of students with the same education type
+    //     $count = ProjectDetails::where('industry_type', $IndustryCode)->count();
+    
+    //     // Increment the count by 1 for the new student
+    //     $count++;
+    
+    //     // Generate the project code based on education type
+    //     switch ($IndustryCode) {
+    //         case '1':
+    //             $IndustryCode = 'D' . $count;
+    //             break;
+    //         default:
+    //             // Handle other education types if needed
+    //             $IndustryCode = 'null';
+    //     }
+    
+    //     return $IndustryCode;
+    // }
+
     public function generateIndustryCode($IndustryCode)
-    {
-        // Get the count of students with the same education type
-        $count = ProjectDetails::where('industry_type', $IndustryCode)->count();
-    
-        // Increment the count by 1 for the new student
-        $count++;
-    
-        // Generate the project code based on education type
-        switch ($IndustryCode) {
-            case '1':
-                $IndustryCode = 'D' . $count;
-                break;
-            default:
-                // Handle other education types if needed
-                $IndustryCode = 'null';
-        }
-    
-        return $IndustryCode;
-    }
+{
+    // Get the count of students with the same education type
+    $count = ProjectDetails::where('industry_type', $IndustryCode)->count();
+
+    // Increment the count by 1 for the new student
+    $count++;
+
+    // Generate the project code without any specific condition
+    $IndustryCode = 'D' . $count;
+// dd($IndustryCode);
+    return $IndustryCode;
+}
+
     
     
 }

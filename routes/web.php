@@ -70,6 +70,8 @@ Route::group(['prefix' => 'admin'], function() {
         Route::get('/dashboard', ['as' => 'dashboard', 'uses' => 'App\Http\Controllers\Admin\Dashboard\DashboardController@index']);
         Route::get('/register-users', ['as' => 'register-users', 'uses' => 'App\Http\Controllers\Admin\StudentController@index']);
         Route::get('/industry-list', ['as' => 'industry-list', 'uses' => 'App\Http\Controllers\Admin\StudentController@indexIndustry']);
+        Route::get('/payment-done-industry-list', ['as' => 'payment-done-industry-list', 'uses' => 'App\Http\Controllers\Admin\StudentController@getPaymentIndustry']);
+        Route::get('/payment-done-student-list', ['as' => 'payment-done-student-list', 'uses' => 'App\Http\Controllers\Admin\StudentController@getPaymentStudent']);
         Route::post('/show-users', ['as' => 'show-users', 'uses' => 'App\Http\Controllers\Admin\StudentController@viewDetailsForParticipant']);
         Route::post('/save-messege', ['as' => 'save-messege', 'uses' => 'App\Http\Controllers\Admin\StudentController@saveMessege']);
         Route::post('/update', ['as' => 'update', 'uses' => 'App\Http\Controllers\Admin\StudentController@update']);

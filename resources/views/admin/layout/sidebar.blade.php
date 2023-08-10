@@ -16,9 +16,9 @@
                           <img src="images/faces/face5.jpg" alt="image" />
                       </div> --}}
                  <div class="profile-name">
-                     <p class="name">
-                         Welcome Admin
-                     </p>
+                    <p class="name">
+                        Welcome {{session()->get('u_email')}}
+                    </p>
                      {{-- <p class="designation">
                               Super Admin
                           </p> --}}
@@ -32,14 +32,41 @@
              </a>
          </li>
          --}}
-
+         @php
+         $userType = session('user_type');
+     @endphp
+     
+     @if ($userType === 1)
        <li class="nav-item">
-                 <a class="nav-link active" href="{{ route('register-users') }}">
+                 <a class="nav-link active" href="{{ route('industry-list') }}">
                      <i class="fa fa-th-large menu-icon"></i>
-                     <span class="menu-title">Registered Users</span>
+                     <span class="menu-title">Industry Registered Users</span>
                      <i class="menu-arrow"></i>
                  </a>
              </li>
+             <li class="nav-item">
+                <a class="nav-link active" href="{{ route('payment-done-industry-list') }}">
+                    <i class="fa fa-th-large menu-icon"></i>
+                    <span class="menu-title">Industry Payment Done Users</span>
+                    <i class="menu-arrow"></i>
+                </a>
+            </li>
+            @elseif ($userType === 0)
+            <li class="nav-item">
+                <a class="nav-link active" href="{{ route('register-users') }}">
+                    <i class="fa fa-th-large menu-icon"></i>
+                    <span class="menu-title">Student Registered Users</span>
+                    <i class="menu-arrow"></i>
+                </a>
+            </li>
+            <li class="nav-item">
+               <a class="nav-link active" href="{{ route('payment-done-student-list') }}">
+                   <i class="fa fa-th-large menu-icon"></i>
+                   <span class="menu-title">Student Payment Done Users</span>
+                   <i class="menu-arrow"></i>
+               </a>
+           </li>
+             @endif
      </ul>
  </nav>
  <!-- partial -->

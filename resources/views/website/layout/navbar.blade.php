@@ -1,4 +1,4 @@
-<nav class="navbar navbar-default bootsnav">
+<nav class="navbar navbar-default  bootsnav">
     <div class="container">
         <div class="row">
             <div class="attr-nav">
