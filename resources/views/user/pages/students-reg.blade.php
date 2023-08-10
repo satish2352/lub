@@ -463,7 +463,8 @@
 
                                             <br>
                                             <input type="file" name="project_presentation" id="project_presentation"
-                                                accept="pdf/*" value="{{ old('project_presentation') }}"><br>
+       accept=".pdf, .ppt, .pptx, .doc, .docx" value="{{ old('project_presentation') }}"><br>
+
                                             @if ($errors->has('project_presentation'))
                                                 <span class="red-text"><?php echo $errors->first('project_presentation', ':message'); ?></span>
                                             @endif

@@ -64,6 +64,7 @@ class StudentController extends Controller
             ->where('project_details.is_active', true)
             ->where('users.is_payment_done', true)
             ->get();
+            // dd($project_data);
     // dd($project_data);
         return view('admin.pages.payment-done-industry-list', compact('project_data'));
     }

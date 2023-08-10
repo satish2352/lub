@@ -4,7 +4,14 @@
         .password-toggle {
             cursor: pointer;
             position: absolute;
-            top: 50%;
+            top: 42%;
+            right: 32px;
+            transform: translateY(-50%);
+        }
+        .password-toggle1 {
+            cursor: pointer;
+            position: absolute;
+            top: 30%;
             right: 32px;
             transform: translateY(-50%);
         }
@@ -93,8 +100,12 @@
                                 id="password_confirmation" placeholder="Re-type Password" />
 
                         </div>
-                        <span id="password-error" class="error-message red-text"></span>
 
+
+                        <span id="togglePassword" class="togglePpassword1 password-toggle1"
+                            onclick="togglePasswordVisibility1()">
+                            <i class="fa fa-eye-slash"></i>
+                        </span>
                         @if ($errors->has('password_confirmation'))
                             <span class="red-text"><?php echo $errors->first('password_confirmation', ':message'); ?></span>
                         @endif
@@ -217,6 +228,23 @@
             }
         }
     </script>
+
+<script>
+    function togglePasswordVisibilityConf() {
+        var passwordInput = document.getElementsByClassName("password_confirmation")[0];
+        var toggleIcon = document.querySelector(".togglePpassword1 i");
+
+        if (passwordInput.type === "password") {
+            passwordInput.type = "text";
+            toggleIcon.classList.remove("fa-eye-slash");
+            toggleIcon.classList.add("fa-eye");
+        } else {
+            passwordInput.type = "password";
+            toggleIcon.classList.remove("fa-eye");
+            toggleIcon.classList.add("fa-eye-slash");
+        }
+    }
+</script>
 
     <script>
         $(document).ready(function() {
