@@ -14,8 +14,26 @@
         .fa-eye-slash {
             /* display: none; */
         }
+
+        .verify_msg {
+            /* padding: 20px; */
+            background-color: green;
+            color: white;
+            font-size: 18px;
+            text-align: center;
+        }
+
+        .closebtn {
+            margin-left: 15px;
+            color: white;
+            font-weight: bold;
+            float: right;
+            font-size: 22px;
+            line-height: 20px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
     </style>
-    <?php //dd($project_data); ?>
     <div class="main-panel">
         <div class="content-wrapper mt-6">
             <div class="page-header">
@@ -33,6 +51,34 @@
             <div class="row">
                 <div class="col-12 grid-margin">
                     <div class="card">
+                        <div class="row">
+                            <div class="col-lg-5 col-md-5 col-sm-5 p-3">
+                                <button type="button" class="btn btn-primary  float-left" style="font-size: 18px;">
+                                    @if ($user_data['registration_type'] == 1 && $user_data['is_project_uploaded'] == 1 && $user_data['is_payment_done'] == 1)
+                                    Your Industry Code is: {{ $project_data['industry_code'] }}
+                                        @else
+                                        Your Project Code is: {{ $project_data['project_code'] }}
+                                    @endif
+                                </button>
+
+                            </div>
+                            <div class="col-lg-2 col-md-2 col-sm-2 ">
+
+                            </div>
+                            <div class="col-lg-5 col-md-5 col-sm-5 p-3">
+                                <button type="button" class="btn float-right verify_msg">
+                                    @if ($user_data['is_project_uploaded'] == 1 && $user_data['is_payment_done'] == 1)
+                                        <div class="verify_msg">
+                                            Your Payment is verified
+                                        </div>
+                                    @endif
+                                </button>
+
+                            </div>
+                        </div>
+
+
+
                         <div class="card-body">
 
                             <div class="row">
@@ -67,6 +113,7 @@
                                         @endif
                                     </div>
                                 </div>
+                                @if ($user_data['registration_type'] == 0) 
                                 <div class="col-lg-6 col-md-6 col-sm-6">
                                     <div class="form-group">
                                         <label for="education_type">Select Academic Year </label>&nbsp<span
@@ -102,6 +149,7 @@
                                         @endif
                                     </div>
                                 </div>
+
                                 <div class="col-lg-6 col-md-6 col-sm-6">
                                     <div class="form-group">
                                         <label for="education_type">Select Qualification</label>&nbsp<span
@@ -301,7 +349,6 @@
                                         @endif
                                     </div>
                                 </div>
-
                                 <div class="col-lg-6 col-md-6 col-sm-6" id="edit_branch" style="display:none">
                                     <div class="form-group">
                                         <label for="branch_other_name">Branch</label>&nbsp<span class="red-text">*</span>
@@ -313,9 +360,62 @@
                                         @endif
                                     </div>
                                 </div>
+@else
+<div class="col-lg-6 col-md-6 col-sm-6">
+    <div class="form-group">
+        <label for="industry_type">Select Industry Type </label>&nbsp<span
+            class="red-text">*</span>
+        <select class="form-control" id="industry_type" name="industry_type" disabled>
+            <option value="">Select</option>
+            <option value="1"
+            @if (old('industry_type') == '1' || $project_data['industry_type'] == '1') {{ 'selected' }} @endif>
+            Large
+        </option>
+        <option value="2"
+            @if (old('industry_type') == '2' || $project_data['industry_type'] == '2') {{ 'selected' }} @endif>
+            Medium
+        </option>
+        <option value="3"
+            @if (old('industry_type') == '3' || $project_data['industry_type'] == '3') {{ 'selected' }} @endif>
+            Small
+        </option>
+        <option value="4"
+        @if (old('industry_type') == '4' || $project_data['industry_type'] == '3') {{ 'selected' }} @endif>
+        Micro
+    </option>                                             
+        </select>
+        @if ($errors->has('industry_type'))
+            <span class="red-text"><?php echo $errors->first('industry_type', ':message'); ?></span>
+        @endif
+    </div>
+</div>  
+<div class="col-lg-6 col-md-6 col-sm-6">
+    <div class="form-group">
+        <label for="industry_name">Name of Industry</label>&nbsp<span
+            class="red-text">*</span>
+        <input type="text" class="form-control" name="industry_name"
+            id="industry_name" placeholder=""  value="{{ $project_data['industry_name'] }}" disabled>
+        @if ($errors->has('industry_name'))
+            <span class="red-text"><?php echo $errors->first('industry_name', ':message'); ?></span>
+        @endif
+    </div>
+</div>                     
+<div class="col-lg-6 col-md-6 col-sm-6">
+    <div class="form-group">
+        <label for="product_type">Type Of Product</label>&nbsp<span
+            class="red-text">*</span>
+        <input type="text" class="form-control" name="product_type"
+            id="product_type" placeholder="" value="{{ $project_data['product_type'] }}" disabled>
+        @if ($errors->has('product_type'))
+            <span class="red-text"><?php echo $errors->first('product_type', ':message'); ?></span>
+        @endif
+    </div>
+</div> 
+@endif
+
                                 <div class="col-lg-6 col-md-6 col-sm-6">
                                     <div class="form-group">
-                                        <label for="payment_type"><b>Registration fees Rs.2000/- paid by</b>
+                                        <label for="payment_type"><b>Registration fees Rs.1000/- paid by</b>
                                         </label>&nbsp<span class="red-text">*</span>
                                         <select class="form-control" id="payment_type" name="payment_type"
                                             onchange="payment_type(this.value)" disabled>
@@ -390,10 +490,10 @@
                                         </div>
                                     </div>
                                     <!-- <div class="form-group">
-                                                                                                                            <img style="width: 250px;height: 260px;"
-                                                                                                                                src="{{ env('APP_URL') . '/storage/all_web_data/images/payment_proof/' . $user_data['payment_proof'] }}">
+                                                                                                                                                                                                                                                                        <img style="width: 250px;height: 260px;"
+                                                                                                                                                                                                                                                                            src="{{ env('APP_URL') . '/storage/all_web_data/images/payment_proof/' . $user_data['payment_proof'] }}">
 
-                                                                                                                        </div> -->
+                                                                                                                                                                                                                                                                    </div> -->
                                 </div>
 
                                 <div class="col-lg-6 col-md-6 col-sm-6">
@@ -438,20 +538,6 @@
                                 </div>
                             </div>
 
-                            <form method="POST" action="{{ url('/admin/update') }}">
-                                @csrf
-                                <input type="hidden" name="id" id="id" class="form-control"
-                                    value="{{ $user_id }}" placeholder="">
-                                <div class="p-2">
-                                    <input type="checkbox" name="is_payment_done" value="1"
-                                        @if ($user_data['is_payment_done']) {{ 'checked' }} @endif>
-                                    Is Payment Done
-                                </div>
-                                <div class="row d-flex justify-content-center">
-                                    <button type="submit" class="btn btn-success">Submit</button>
-                                </div>
-                            </form>
-
                             <input type="hidden" name="id" id="id" class="form-control"
                                 value="{{ $user_data['id'] }}" placeholder="">
                         </div>
@@ -483,9 +569,8 @@
             });
 
             $("#name_of_institute").change(function(e) {
-                if ($("#name_of_institute").val() == '21' ||
-                    $("#name_of_institute").val() == '47' ||
-                    $("#name_of_institute").val() == '48') {
+                if ($("#name_of_institute").val() == '21' || $("#name_of_institute").val() == '47' || $(
+                        "#name_of_institute").val() == '48') {
                     $("#other_name_of_school").show();
                 } else {
                     $("#other_name_of_school").attr("style", "display:none");
@@ -537,7 +622,7 @@
 
 
                             //$('#name_of_institute').append(
-                            //    '<option value="0">Other</option>');
+                            //   '<option value="0">Other</option>');
                             $('#name_of_institute').val('{{ $project_data['name_of_institute'] }}');
                             if ('{{ $project_data['name_of_institute'] }}' == '21' ||
                                 '{{ $project_data['name_of_institute'] }}' == '47' ||

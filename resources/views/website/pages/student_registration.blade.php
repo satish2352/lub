@@ -11,17 +11,25 @@
         .password-toggle1 {
             cursor: pointer;
             position: absolute;
-            top: 30%;
+            top: 51%;
             right: 32px;
             transform: translateY(-50%);
         }
+
+        /* .password-toggle {
+            cursor: pointer;
+            position: absolute;
+            top: 50%;
+            right: 20px;
+            transform: translateY(-50%);
+        } */
     </style>
     <section id="inner-banner">
         <div class="overlay">
             <div class="container">
                 <div class="row">
                     <div class="col-sm-6">
-                        <h1>REGISTRATION</h1>
+                        <h1>Registration for Engineering Talent Search 2023</h1>
                     </div>
                     <div class="col-sm-6">
                         <h6 class="breadcrumb"><a href="index.html">Home</a> / Registration</h6>
@@ -89,8 +97,8 @@
                                 placeholder="Password" />
                         </div>
                         <span id="togglePassword" class="togglePpassword password-toggle"
-                            onclick="togglePasswordVisibility()">
-                            <i class="fa fa-eye-slash"></i>
+                        onclick="togglePasswordVisibility()">
+                        <i class="fa fa-eye-slash"></i>
                         </span>
                         @if ($errors->has('u_password'))
                             <span class="red-text"><?php echo $errors->first('u_password', ':message'); ?></span>
@@ -102,8 +110,8 @@
                         </div>
 
 
-                        <span id="togglePassword" class="togglePpassword1 password-toggle1"
-                            onclick="togglePasswordVisibility1()">
+                        <span id="toggleConfirmPassword" class=" toggleConfirmPpassword password-toggle1"
+                        onclick="toggleConfirmPasswordVisibility()">
                             <i class="fa fa-eye-slash"></i>
                         </span>
                         @if ($errors->has('password_confirmation'))
@@ -212,41 +220,7 @@
             }
         });
     </script>
-    <script>
-        function togglePasswordVisibility() {
-            var passwordInput = document.getElementsByClassName("password")[0];
-            var toggleIcon = document.querySelector(".togglePpassword i");
-
-            if (passwordInput.type === "password") {
-                passwordInput.type = "text";
-                toggleIcon.classList.remove("fa-eye-slash");
-                toggleIcon.classList.add("fa-eye");
-            } else {
-                passwordInput.type = "password";
-                toggleIcon.classList.remove("fa-eye");
-                toggleIcon.classList.add("fa-eye-slash");
-            }
-        }
-    </script>
-
-<script>
-    function togglePasswordVisibilityConf() {
-        var passwordInput = document.getElementsByClassName("password_confirmation")[0];
-        var toggleIcon = document.querySelector(".togglePpassword1 i");
-
-        if (passwordInput.type === "password") {
-            passwordInput.type = "text";
-            toggleIcon.classList.remove("fa-eye-slash");
-            toggleIcon.classList.add("fa-eye");
-        } else {
-            passwordInput.type = "password";
-            toggleIcon.classList.remove("fa-eye");
-            toggleIcon.classList.add("fa-eye-slash");
-        }
-    }
-</script>
-
-    <script>
+        <script>
         $(document).ready(function() {
             $('#password_confirmation').on('input', function() {
 

@@ -147,6 +147,40 @@
 
     });
 </script>
+
+<script>
+    function togglePasswordVisibility() {
+        var passwordInput = document.getElementsByClassName("password")[0];
+        var toggleIcon = document.querySelector(".togglePpassword i");
+
+        if (passwordInput.type === "password") {
+            passwordInput.type = "text";
+            toggleIcon.classList.remove("fa-eye-slash");
+            toggleIcon.classList.add("fa-eye");
+        } else {
+            passwordInput.type = "password";
+            toggleIcon.classList.remove("fa-eye");
+            toggleIcon.classList.add("fa-eye-slash");
+        }
+    }
+</script>
+<script>
+    function toggleConfirmPasswordVisibility() {
+        var passwordInput = document.getElementsByClassName("password_confirmation")[0];
+
+        var toggleIcon = document.querySelector(".toggleConfirmPpassword i");
+
+        if (passwordInput.type === "password") {
+            passwordInput.type = "text";
+            toggleIcon.classList.remove("fa-eye-slash");
+            toggleIcon.classList.add("fa-eye");
+        } else {
+            passwordInput.type = "password";
+            toggleIcon.classList.remove("fa-eye");
+            toggleIcon.classList.add("fa-eye-slash");
+        }
+    }
+</script>
 {{-- <script src="{{ asset('website/assets/js/script.js') }}"></script> --}}
 </body>
 

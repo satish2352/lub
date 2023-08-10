@@ -54,42 +54,40 @@ class IndustryController extends Controller
     public function store(Request $request)
     {
         $rules = [
-            // 'u_email' => 'required|regex:/^([a-zA-Z0-9_.+-])+\@(([a-zA-Z])+\.)+([a-zA-Z0-9]{2,4})+$/',
-            // 'mobile_no' => 'required',
-            // 'project_title' => 'required|max:255',
-            // 'industry_type' => 'required',
-            //     'industry_name' => 'required',
-            //     'product_type' => 'required',
-            //     'project_presentation' => 'required|mimes:pdf,excel,ppt,word|max:25600|min:1',
-            // 'payment_type' => 'required',
-            // 'transaction_details' => 'required|max:255',
-            // 'payment_proof' => 'required|image|mimes:jpeg,png,jpg,JPEG,PNG,JPG|max:1024|min:1',
+            'u_email' => 'required|regex:/^([a-zA-Z0-9_.+-])+\@(([a-zA-Z])+\.)+([a-zA-Z0-9]{2,4})+$/',
+            'mobile_no' => 'required',
+            'project_title' => 'required|max:255',
+            'industry_type' => 'required',
+            'industry_name' => 'required',
+            'product_type' => 'required',
+            'project_presentation' => 'required|mimes:pdf,excel,ppt,pptx,doc,docx|max:25600',
+            'payment_type' => 'required',
+            'transaction_details' => 'required|max:255',
+            'payment_proof' => 'required|image|mimes:jpeg,png,jpg,JPEG,PNG,JPG|max:1024|min:1',
            
 
         ];
 
         $messages = [
-            // 'mobile_no.required' => 'Please enter mobile no.',
-            // 'u_email.required' => 'Please enter email.',
-            // 'u_email.regex' => 'Enter valid email.',
-            // 'project_title.required' => 'Please enter project name.',
-            // 'project_title.max' => 'Please enter project name max 255 character.',
-            // 'industry_type' => 'Please select industry type.',
-            //     'industry_name' => 'Please select industry name.',
-            //     'product_type' => 'Please select product type',
-            //     'project_presentation.required' => 'Please upload project presentation file.',
-            //     'project_presentation.mimes' => 'The presentation must be in PDF, Excel, PowerPoint, or Word format.',     
-            //     'project_presentation.max' => 'The presentation size must not exceed 25 MB.',
-            //     'project_presentation.min' => 'The presentation size must not be less than 1 KB.',
-
-            // 'payment_type.required' => 'Please select payment type.',
-            // 'transaction_details.required' => 'Please enter confirmation code/id.',
-
-            // 'payment_proof.required' => 'Please upload payment proof.',
-            // 'payment_proof.image' => 'The image must be a valid image file.',
-            // 'payment_proof.mimes' => 'The image must be in JPEG, PNG, JPG format.',
-            // 'payment_proof.max' => 'The image size must not exceed 1 MB .',
-            // 'payment_proof.min' => 'The image size must not be less than 1 KB .',
+            'mobile_no.required' => 'Please enter mobile no.',
+            'u_email.required' => 'Please enter email.',
+            'u_email.regex' => 'Enter valid email.',
+            'project_title.required' => 'Please enter project name.',
+            'project_title.max' => 'Please enter project name max 255 character.',
+            'industry_type' => 'Please select industry type.',
+            'industry_name' => 'Please select industry name.',
+            'product_type' => 'Please select product type',
+            'project_presentation.required' => 'Please upload project presentation file.',
+            'project_presentation.mimes' => 'The presentation must be in PDF, Excel, PowerPoint, or Word format.',     
+            'project_presentation.max' => 'The presentation size must not exceed 25 MB.',
+            'project_presentation.min' => 'The presentation size must not be less than 1 KB.',
+            'payment_type.required' => 'Please select payment type.',
+            'transaction_details.required' => 'Please enter confirmation code/id.',
+            'payment_proof.required' => 'Please upload payment proof.',
+            'payment_proof.image' => 'The image must be a valid image file.',
+            'payment_proof.mimes' => 'The image must be in JPEG, PNG, JPG format.',
+            'payment_proof.max' => 'The image size must not exceed 1 MB .',
+            'payment_proof.min' => 'The image size must not be less than 1 KB .',
 
 
         ];
@@ -331,7 +329,7 @@ class IndustryController extends Controller
 
                 $msg = 'Information saved successfully';
                 $status = 'success';   
-                return redirect('user/project-registration')->with(compact('msg', 'status'));
+                return redirect('user/add-industry-data')->with(compact('msg', 'status'));
             }
         } catch (Exception $e) {
             return redirect()->back()

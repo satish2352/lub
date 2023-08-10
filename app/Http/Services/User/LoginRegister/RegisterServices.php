@@ -27,7 +27,7 @@ class RegisterServices
         try {
             $last_id = $this->repo->register($request);
             if ($last_id) {
-                return ['status' => 'success', 'msg' => 'User registration successfully done please login to use service.'];
+                return ['status' => 'success', 'msg' => 'User Registration Successfully Done. Please Login to Submit the Project.'];
             } else {
                 return ['status' => 'error', 'msg' => 'User not registered please try again after some time.'];
             }  

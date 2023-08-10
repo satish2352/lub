@@ -198,7 +198,7 @@
                                                 class="red-text"><br>Upload Payment proof in
                                                 jpeg,png,jpg format with size 1 MB*</span><br>
                                             <input type="file" name="payment_proof" id="payment_proof"
-                                                accept="image/*" value="{{ old('payment_proof') }}"><br>
+                                                accept="image/*, .pdf" value="{{ old('payment_proof') }}"><br>
                                             @if ($errors->has('payment_proof'))
                                                 <span class="red-text"><?php echo $errors->first('payment_proof', ':message'); ?></span>
                                             @endif

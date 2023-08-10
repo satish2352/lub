@@ -68,7 +68,7 @@
 
                         <div class="card-body">
                             <form class="forms-sample" id="frm_register_update" name="frm_register_update" method="post"
-                                role="form" action="{{ route('project-registration-upadte') }} "
+                                role="form" action="{{ route('industry-registration-upadte') }} "
                                 enctype="multipart/form-data" onsubmit="return validate_updateForm()">
                                 <div class="row">
                                     <input type="hidden" name="_token" id="csrf-token" value="{{ Session::token() }}" />
@@ -433,7 +433,7 @@
                                 </div>
                                 <div class="col-md-12 col-sm-12 text-center">
                                     <button type="submit" class="btn btn-success">Save
-                                        &amp; Submit</button>
+                                        &amp; Update</button>
                                 </div>
                                 <input type="hidden" name="id" id="id" class="form-control"
                                     value="{{ $user_data['id'] }}" placeholder="">

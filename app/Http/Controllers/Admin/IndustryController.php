@@ -96,7 +96,7 @@ class IndustryController extends Controller
             // return redirect('admin/payment-done-industry-list')->withSuccess('Payment status updated successfully.');
           
         } catch (\Exception $e) {
-            return redirect('admin/students-view')->with('success', 'An error occurred while updating the record.');
+            return redirect('admin/industry-view')->with('success', 'An error occurred while updating the record.');
         }
     }
 
@@ -136,7 +136,7 @@ class IndustryController extends Controller
     //         // return redirect('admin/register-users')->withSuccess('Payment status updated successfully.');
           
     //     } catch (\Exception $e) {
-    //         return redirect('admin/students-view')->with('success', 'An error occurred while updating the record.');
+    //         return redirect('admin/industry-view')->with('success', 'An error occurred while updating the record.');
     //     }
     // }
 
