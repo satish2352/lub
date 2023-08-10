@@ -142,8 +142,10 @@ class IndustryController extends Controller
                     ->withInput()
                     ->withErrors($validation);
             } else {
-                $industryCode = $this->generateIndustryCode($request->industry_name);
-                // dd($projectCode);
+                $industryName = $request->industry_name;
+$industryCode = $this->generateIndustryCode($industryName);
+                
+                //  dd($industryCode);
                 IndustryDetails::insert(
                     [
                         'user_id' => $request->session()->get('user_id'),
@@ -370,20 +372,23 @@ class IndustryController extends Controller
     //     return $IndustryCode;
     // }
 
-    public function generateIndustryCode($IndustryCode)
-{
-    // Get the count of students with the same education type
-    $count = IndustryDetails::where('industry_name', $IndustryCode)->count();
+//     public function generateIndustryCode($IndustryCode){
+//     $count = IndustryDetails::where('industry_name', $IndustryCode)->count();
+//     $count++;
+//     $IndustryCode = 'D' . $count;
+// // dd($IndustryCode);
+//     return $IndustryCode;
+// }
 
-    // Increment the count by 1 for the new student
-    $count++;
-
-    // Generate the project code without any specific condition
-    $IndustryCode = 'D' . $count;
-// dd($IndustryCode);
-    return $IndustryCode;
+public function generateIndustryCode($industryName) {
+    $count = IndustryDetails::where('industry_name', $industryName)->count();
+    $count++; // Increment the count for the new industry code
+    $industryCode = 'D' . $count;
+    return $industryCode;
 }
 
-    
+// Usage example:
+
+
     
 }

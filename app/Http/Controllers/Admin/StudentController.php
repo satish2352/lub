@@ -73,6 +73,7 @@ class StudentController extends Controller
         $user_data = Users::where('id', $user_id)->select('*')->first();
         $participant_data = ParticipantDetails::where('user_id', $user_id)->select('*')->get()->toArray();
         $project_data = ProjectDetails::where('user_id', $user_id)->select('*')->first();
+        dd($user_data);
         $commincation_messege = CommincationMesseges::where('user_id', $user_id)->select('*')->get()->toArray();
         return view('admin.pages.student-edit', compact('user_data', 'participant_data', 'project_data', 'commincation_messege', 'user_id'));
     }
@@ -92,7 +93,7 @@ class StudentController extends Controller
             if ($is_payment_done== 1) {
                 return redirect()->route('payment-done-student-list')->withSuccess('Payment status updated successfully.');
             } elseif ($is_payment_done == 0) {
-                return redirect()->route('industry-list')->withSuccess('Payment status updated successfully.');
+                return redirect()->route('register-users')->withSuccess('Payment status updated successfully.');
             }
 
             // if ($registration_type == 0) {

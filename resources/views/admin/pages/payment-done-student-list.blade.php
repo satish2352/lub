@@ -41,13 +41,16 @@
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                <?php
-                                                $serialNumber = 1; // Initialize the serial number counter
-                                                ?>
+                                                {{-- <?php
+                                                //$serialNumber = 1; // Initialize the serial number counter
+                                                ?> --}}
+                                                <?php dd($project_data); ?>
                                                 @foreach ($project_data as $item)
-                                                @if ($item->user_registration_type == 0)
+                                                {{-- @if ($item->user_registration_type == 0) --}}
                                                 <tr>
-                                                    <td>{{ $serialNumber }}</td>
+                                                    <?php //dd($loop->iteration); ?>
+                                                    <td>{{ $loop->iteration }}</td>
+                                                    {{-- <td>{{ $serialNumber }}</td> --}}
                                                     <td>{{ $item->user_email }}</td>
                                                     <td>{{ $item->user_mobile_no }}</td>
                             
@@ -85,10 +88,10 @@
                                                         @endif
                                                     </td>
                                                 </tr>
-                                                @php
+                                                {{-- @php
                                                 $serialNumber++; // Increment the serial number counter
-                                            @endphp
-                                            @endif
+                                            @endphp --}}
+                                            {{-- @endif --}}
                                                 @endforeach
 
                                             </tbody>
