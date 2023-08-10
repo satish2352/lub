@@ -33,27 +33,27 @@ class StudentController extends Controller
     
         return view('admin.pages.users-list', compact('project_data'));
     }
-    // public function getPaymentStudent()
-    // {
-    //     $project_data = ProjectDetails::join('users', 'project_details.user_id', '=', 'users.id')
-    //         ->select('project_details.*', 'users.u_email as user_email','users.mobile_no as user_mobile_no','users.is_project_uploaded as user_is_project_uploaded','users.is_payment_done as user_is_payment_done','users.registration_type as user_registration_type') // Add other fields from project_details if needed
-    //         ->where('project_details.is_active', true)
-    //         ->where('users.is_payment_done', true)
-    //         ->get();
-    
-    //     return view('admin.pages.payment-done-student-list', compact('project_data'));
-    // }
-
-    
-    public function indexIndustry()
+    public function getPaymentStudent()
     {
-          // $user_data = Users::where('is_active', true)->get();
-        $project_data = Users::where('is_active', true)
-                    ->where('is_payment_done', false)
-                    ->get();
-
-        return view('admin.pages.industry-list', compact('project_data'));
+        $project_data = ProjectDetails::join('users', 'project_details.user_id', '=', 'users.id')
+            ->select('project_details.*', 'users.u_email as user_email','users.mobile_no as user_mobile_no','users.is_project_uploaded as user_is_project_uploaded','users.is_payment_done as user_is_payment_done','users.registration_type as user_registration_type') // Add other fields from project_details if needed
+            ->where('project_details.is_active', true)
+            ->where('users.is_payment_done', true)
+            ->get();
+    
+        return view('admin.pages.payment-done-student-list', compact('project_data'));
     }
+
+    
+    // public function indexIndustry()
+    // {
+    //       // $user_data = Users::where('is_active', true)->get();
+    //     $project_data = Users::where('is_active', true)
+    //                 ->where('is_payment_done', false)
+    //                 ->get();
+
+    //     return view('admin.pages.industry-list', compact('project_data'));
+    // }
 
     // public function getPaymentIndustry()
     // {
@@ -90,7 +90,7 @@ class StudentController extends Controller
 
 
             if ($is_payment_done== 1) {
-                return redirect()->route('payment-done-industry-list')->withSuccess('Payment status updated successfully.');
+                return redirect()->route('payment-done-student-list')->withSuccess('Payment status updated successfully.');
             } elseif ($is_payment_done == 0) {
                 return redirect()->route('industry-list')->withSuccess('Payment status updated successfully.');
             }
