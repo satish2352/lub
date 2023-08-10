@@ -15,7 +15,7 @@
             /* display: none; */
         }
     </style>
-    <?php dd($project_data); ?>
+    <?php //dd($project_data); ?>
     <div class="main-panel">
         <div class="content-wrapper mt-6">
             <div class="page-header">
