@@ -113,282 +113,36 @@
                                         @endif
                                     </div>
                                 </div>
-                                @if ($user_data['registration_type'] == 0) 
-                                <div class="col-lg-6 col-md-6 col-sm-6">
-                                    <div class="form-group">
-                                        <label for="education_type">Select Academic Year </label>&nbsp<span
-                                            class="red-text">*</span>
-                                        <select class="form-control" id="academic_year" name="academic_year" disabled>
-                                            <option value="">Select</option>
-                                            <option value="1"
-                                                @if (old('academic_year') == '1' || $project_data['academic_year'] == '1') {{ 'selected' }} @endif>
-                                                First Year
-                                            </option>
-                                            <option value="2"
-                                                @if (old('academic_year') == '2' || $project_data['academic_year'] == '2') {{ 'selected' }} @endif>
-                                                Second Year
-                                            </option>
-                                            <option value="3"
-                                                @if (old('academic_year') == '3' || $project_data['academic_year'] == '3') {{ 'selected' }} @endif>
-                                                Third Year
-                                            </option>
-                                            <option value="4"
-                                                @if (old('academic_year') == '4' || $project_data['academic_year'] == '4') {{ 'selected' }} @endif>
-                                                Fourth Year
-                                            </option>
-                                            <option value="5"
-                                                @if (old('academic_year') == '5' || $project_data['academic_year'] == '5') {{ 'selected' }} @endif>
-                                                Other
-                                            </option>
-
-
-
-                                        </select>
-                                        @if ($errors->has('academic_year'))
-                                            <span class="red-text"><?php echo $errors->first('academic_year', ':message'); ?></span>
-                                        @endif
+                               
+ <div class="col-lg-6 col-md-6 col-sm-6">
+                                        <div class="form-group">
+                                            <label for="education_type">Select Academic Year </label>&nbsp<span
+                                                class="red-text">*</span>
+                                            <select class="form-control" id="industry_type" name="industry_type" disabled>
+                                                <option value="">Select</option>
+                                                <option value="1"
+                                                    @if (old('industry_type') == '1' || $project_data['industry_type'] == '1') {{ 'selected' }} @endif>
+                                                    Large
+                                                </option>
+                                                <option value="2"
+                                                    @if (old('industry_type') == '2' || $project_data['industry_type'] == '2') {{ 'selected' }} @endif>
+                                                    Medium
+                                                </option>
+                                                <option value="3"
+                                                    @if (old('industry_type') == '3' || $project_data['industry_type'] == '3') {{ 'selected' }} @endif>
+                                                    Small
+                                                </option>
+                                                <option value="4"
+                                                    @if (old('industry_type') == '4' || $project_data['industry_type'] == '4') {{ 'selected' }} @endif>
+                                                    Micro
+                                                </option>
+                                               
+                                            </select>
+                                            @if ($errors->has('industry_type'))
+                                                <span class="red-text"><?php echo $errors->first('industry_type', ':message'); ?></span>
+                                            @endif
+                                        </div>
                                     </div>
-                                </div>
-
-                                <div class="col-lg-6 col-md-6 col-sm-6">
-                                    <div class="form-group">
-                                        <label for="education_type">Select Qualification</label>&nbsp<span
-                                            class="red-text">*</span>
-                                        <select class="form-control" id="education_type" name="education_type"
-                                            onchange="education_type(this.value)" disabled>
-                                            <option value="">Select</option>
-                                            <option value="1"
-                                                @if ($project_data['education_type'] == '1') {{ 'selected' }} @endif>ITI
-                                            </option>
-                                            <option value="2"
-                                                @if ($project_data['education_type'] == '2') {{ 'selected' }} @endif>Diploma
-                                            </option>
-                                            <option value="3"
-                                                @if ($project_data['education_type'] == '3') {{ 'selected' }} @endif>Degree
-                                            </option>
-
-                                            {{-- <option value="6"
-                                                    @if ($project_data['education_type'] == '4') {{ 'selected' }} @endif>Other
-                                                </option> --}}
-
-                                        </select>
-                                        @if ($errors->has('education_type'))
-                                            <span class="red-text"><?php echo $errors->first('education_type', ':message'); ?></span>
-                                        @endif
-                                    </div>
-                                </div>
-
-
-
-                                <div class="col-lg-6 col-md-6 col-sm-6" id="other_institute" style="display:none">
-                                    <div class="form-group">
-                                        <label for="institute_other_name">Institute Details</label>&nbsp<span
-                                            class="red-text">*</span>
-                                        <input type="text" class="form-control" name="institute_other_name"
-                                            id="institute_other_name" placeholder=""
-                                            value="{{ $project_data['name_of_institute_other'] }}" disabled>
-                                        @if ($errors->has('institute_other_name'))
-                                            <span class="red-text"><?php echo $errors->first('institute_other_name', ':message'); ?></span>
-                                        @endif
-                                    </div>
-                                </div>
-
-                                <div class="col-lg-6 col-md-6 col-sm-6">
-                                    <div class="form-group">
-                                        <label for="name_of_institute">Select Institute</label>&nbsp<span
-                                            class="red-text">*</span>
-                                        <select class="form-control" id="name_of_institute" name="name_of_institute"
-                                            onchange="myFunction(this.value)" disabled>
-                                            <option value="">Select</option>
-                                            <option value="0"
-                                                @if ($project_data['name_of_institute'] == '0') {{ 'selected' }} @endif>Other
-                                            </option>
-
-                                        </select>
-                                        @if ($errors->has('name_of_institute'))
-                                            <span class="red-text"><?php echo $errors->first('name_of_institute', ':message'); ?></span>
-                                        @endif
-                                    </div>
-                                </div>
-
-                                <div class="col-lg-6 col-md-6 col-sm-6" id="other_name_of_school" style="display:none">
-                                    <div class="form-group">
-                                        <label for="name_of_institute_other">Enter Institute Details</label>&nbsp<span
-                                            class="red-text">*</span>
-                                        <input type="text" class="form-control" name="name_of_institute_other"
-                                            id="name_of_institute_other" placeholder=""
-                                            value="{{ $project_data['name_of_institute_other'] }}" disabled>
-                                        @if ($errors->has('name_of_institute_other'))
-                                            <span class="red-text"><?php echo $errors->first('name_of_institute_other', ':message'); ?></span>
-                                        @endif
-                                    </div>
-                                </div>
-
-                                <div class="col-lg-6 col-md-6 col-sm-6" id="branch_details_box">
-                                    <div class="form-group">
-                                        <label for="branch_details">Select Branch </label>&nbsp<span
-                                            class="red-text">*</span>
-                                        <select class="form-control" id="branch_details" name="branch_details" disabled>
-                                            <option value="">Select</option>
-
-
-                                            <option value="1"
-                                                @if ($project_data['branch_details'] == '1') {{ 'selected' }} @endif>
-                                                Artificial Intelligence(AI)and Data Science
-                                            </option>
-                                            <option value="2"
-                                                @if ($project_data['branch_details'] == '2') {{ 'selected' }} @endif>
-                                                Artificial Intelligence(AI)and Machine Learning
-                                            </option>
-                                            <option value="3"
-                                                @if ($project_data['branch_details'] == '3') {{ 'selected' }} @endif>
-                                                Automation and Robotics
-                                            </option>
-                                            <option value="4"
-                                                @if ($project_data['branch_details'] == '4') {{ 'selected' }} @endif>
-                                                Automobile
-                                            </option>
-                                            <option value="5"
-                                                @if ($project_data['branch_details'] == '5') {{ 'selected' }} @endif>
-                                                Checimal
-                                            </option>
-                                            <option value="6"
-                                                @if ($project_data['branch_details'] == '6') {{ 'selected' }} @endif>
-                                                Civil
-                                            </option>
-                                            <option value="7"
-                                                @if ($project_data['branch_details'] == '7') {{ 'selected' }} @endif>
-                                                Civil
-                                                and Environmental
-                                            </option>
-                                            <option value="8"
-                                                @if ($project_data['branch_details'] == '8') {{ 'selected' }} @endif>
-                                                Computer
-                                            </option>
-                                            <option value="8"
-                                                @if ($project_data['branch_details'] == '8') {{ 'selected' }} @endif>
-                                                Computer
-                                                Science and Design
-                                            </option>
-                                            <option value="9"
-                                                @if ($project_data['branch_details'] == '9') {{ 'selected' }} @endif>
-                                                Computer
-                                                Technology
-                                            </option>
-                                            <option value="9"
-                                                @if ($project_data['branch_details'] == '9') {{ 'selected' }} @endif>
-                                                Dress
-                                                Designing and
-                                                Garnment Manufacturing
-                                            </option>
-                                            <option value="10"
-                                                @if ($project_data['branch_details'] == '10') {{ 'selected' }} @endif>
-                                                Electrical
-
-                                            </option>
-                                            <option value="11"
-                                                @if ($project_data['branch_details'] == '11') {{ 'selected' }} @endif>
-                                                Electronic and Telecommunication
-
-                                            </option>
-                                            <option value="12"
-                                                @if ($project_data['branch_details'] == '12') {{ 'selected' }} @endif>
-                                                Information Technology
-
-                                            </option>
-                                            <option value="13"
-                                                @if ($project_data['branch_details'] == '13') {{ 'selected' }} @endif>
-                                                Instrumentation and Control Interior Design
-
-                                            </option>
-                                            <option value="14"
-                                                @if ($project_data['branch_details'] == '14') {{ 'selected' }} @endif>
-                                                Mechanical
-
-                                            </option>
-                                            <option value="15"
-                                                @if ($project_data['branch_details'] == '15') {{ 'selected' }} @endif>
-                                                Mechatronics
-
-                                            </option>
-                                            <option value="16"
-                                                @if ($project_data['branch_details'] == '16') {{ 'selected' }} @endif>Polymer
-                                                Technology
-
-                                            </option>
-                                            <option value="17"
-                                                @if ($project_data['branch_details'] == '17') {{ 'selected' }} @endif>Robotics
-                                                and Automation
-
-                                            </option>
-                                            <option value="18"
-                                                @if ($project_data['branch_details'] == '18') {{ 'selected' }} @endif>
-                                                Other
-
-
-                                            </option>
-
-
-                                        </select>
-                                        @if ($errors->has('branch_details'))
-                                            <span class="red-text"><?php echo $errors->first('branch_details', ':message'); ?></span>
-                                        @endif
-                                    </div>
-                                </div>
-
-                                <div class="col-lg-6 col-md-6 col-sm-6" id="other_branch_details_box"
-                                    style="display:none">
-                                    <div class="form-group">
-                                        <label for="other_branch_details">Branch</label>&nbsp<span
-                                            class="red-text">*</span>
-                                        <input type="text" class="other_branch_details form-control"
-                                            id="other_branch_details" name="other_branch_details"
-                                            value="{{ $project_data['other_branch_details'] }}" disabled>
-                                        @if ($errors->has('other_branch_details'))
-                                            <span class="red-text"><?php echo $errors->first('other_branch_details', ':message'); ?></span>
-                                        @endif
-                                    </div>
-                                </div>
-                                <div class="col-lg-6 col-md-6 col-sm-6" id="edit_branch" style="display:none">
-                                    <div class="form-group">
-                                        <label for="branch_other_name">Branch</label>&nbsp<span class="red-text">*</span>
-                                        <input type="text" class="form-control" name="branch_other_name"
-                                            id="branch_other_name" placeholder=""
-                                            value="{{ $project_data['other_branch_details'] }}" disabled>
-                                        @if ($errors->has('branch_other_name'))
-                                            <span class="red-text"><?php echo $errors->first('branch_other_name', ':message'); ?></span>
-                                        @endif
-                                    </div>
-                                </div>
-@else
-<div class="col-lg-6 col-md-6 col-sm-6">
-    <div class="form-group">
-        <label for="industry_type">Select Industry Type </label>&nbsp<span
-            class="red-text">*</span>
-        <select class="form-control" id="industry_type" name="industry_type" disabled>
-            <option value="">Select</option>
-            <option value="1"
-            @if (old('industry_type') == '1' || $project_data['industry_type'] == '1') {{ 'selected' }} @endif>
-            Large
-        </option>
-        <option value="2"
-            @if (old('industry_type') == '2' || $project_data['industry_type'] == '2') {{ 'selected' }} @endif>
-            Medium
-        </option>
-        <option value="3"
-            @if (old('industry_type') == '3' || $project_data['industry_type'] == '3') {{ 'selected' }} @endif>
-            Small
-        </option>
-        <option value="4"
-        @if (old('industry_type') == '4' || $project_data['industry_type'] == '3') {{ 'selected' }} @endif>
-        Micro
-    </option>                                             
-        </select>
-        @if ($errors->has('industry_type'))
-            <span class="red-text"><?php echo $errors->first('industry_type', ':message'); ?></span>
-        @endif
-    </div>
-</div>  
 <div class="col-lg-6 col-md-6 col-sm-6">
     <div class="form-group">
         <label for="industry_name">Name of Industry</label>&nbsp<span
@@ -411,7 +165,7 @@
         @endif
     </div>
 </div> 
-@endif
+
 
                                 <div class="col-lg-6 col-md-6 col-sm-6">
                                     <div class="form-group">

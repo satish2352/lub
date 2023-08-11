@@ -197,8 +197,10 @@
                                             <label for="payment_proof">Payment Acknowledgement / Receipt</label>&nbsp<span
                                                 class="red-text"><br>Upload Payment proof in
                                                 jpeg,png,jpg format with size 1 MB*</span><br>
-                                            <input type="file" name="payment_proof" id="payment_proof"
-                                                accept="image/*, .pdf" value="{{ old('payment_proof') }}"><br>
+                                            {{-- <input type="file" name="payment_proof" id="payment_proof"
+                                                accept="image/*, .pdf" value="{{ old('payment_proof') }}"><br> --}}
+                                                <input type="file" name="payment_proof" id="payment_proof" accept="image/jpeg,image/png,image/jpg,application/pdf" value="{{ old('payment_proof') }}" /><br>
+
                                             @if ($errors->has('payment_proof'))
                                                 <span class="red-text"><?php echo $errors->first('payment_proof', ':message'); ?></span>
                                             @endif

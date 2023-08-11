@@ -44,7 +44,7 @@
                                                 {{-- <?php
                                                 //$serialNumber = 1; // Initialize the serial number counter
                                                 ?> --}}
-                                                <?php dd($project_data); ?>
+                                              
                                                 @foreach ($project_data as $item)
                                                 {{-- @if ($item->user_registration_type == 0) --}}
                                                 <tr>

@@ -104,34 +104,35 @@
                                             @endif
                                         </div>
                                     </div>
-                                     <div class="col-lg-6 col-md-6 col-sm-6">
+                                    <div class="col-lg-6 col-md-6 col-sm-6">
                                         <div class="form-group">
-                                            <label for="industry_type">Select Industry Type </label>&nbsp<span
+                                            <label for="education_type">Select Industry Type </label>&nbsp<span
                                                 class="red-text">*</span>
                                             <select class="form-control" id="industry_type" name="industry_type" disabled>
                                                 <option value="">Select</option>
                                                 <option value="1"
-                                                @if (old('industry_type') == '1' || $project_data['industry_type'] == '1') {{ 'selected' }} @endif>
-                                                Large
-                                            </option>
-                                            <option value="2"
-                                                @if (old('industry_type') == '2' || $project_data['industry_type'] == '2') {{ 'selected' }} @endif>
-                                                Medium
-                                            </option>
-                                            <option value="3"
-                                                @if (old('industry_type') == '3' || $project_data['industry_type'] == '3') {{ 'selected' }} @endif>
-                                                Small
-                                            </option>
-                                            <option value="4"
-                                            @if (old('industry_type') == '4' || $project_data['industry_type'] == '3') {{ 'selected' }} @endif>
-                                            Micro
-                                        </option>                                             
+                                                    @if (old('industry_type') == '1' || $project_data['industry_type'] == '1') {{ 'selected' }} @endif>
+                                                    Large
+                                                </option>
+                                                <option value="2"
+                                                    @if (old('industry_type') == '2' || $project_data['industry_type'] == '2') {{ 'selected' }} @endif>
+                                                    Medium
+                                                </option>
+                                                <option value="3"
+                                                    @if (old('industry_type') == '3' || $project_data['industry_type'] == '3') {{ 'selected' }} @endif>
+                                                    Small
+                                                </option>
+                                                <option value="4"
+                                                    @if (old('industry_type') == '4' || $project_data['industry_type'] == '4') {{ 'selected' }} @endif>
+                                                    Micro
+                                                </option>
+                                               
                                             </select>
                                             @if ($errors->has('industry_type'))
                                                 <span class="red-text"><?php echo $errors->first('industry_type', ':message'); ?></span>
                                             @endif
                                         </div>
-                                    </div>  
+                                    </div> 
                                     <div class="col-lg-6 col-md-6 col-sm-6">
                                         <div class="form-group">
                                             <label for="industry_name">Name of Industry</label>&nbsp<span

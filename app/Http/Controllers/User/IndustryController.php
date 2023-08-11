@@ -38,7 +38,7 @@ class IndustryController extends Controller
                 $project_data = IndustryDetails::where('user_id', $user_id)->select('*')->first();
                 $commincation_messege = CommincationMesseges::where(['user_id' => $user_id])->select('*')->get()->toArray();
 
-                return view('user.pages.student-edit', compact('user_data', 'participant_data', 'project_data', 'commincation_messege', 'user_id'));
+                return view('user.pages.industry-edit', compact('user_data', 'participant_data', 'project_data', 'commincation_messege', 'user_id'));
             }
         } else {
             return view('user.pages.industry-reg', compact('user_data'));
@@ -63,7 +63,9 @@ class IndustryController extends Controller
             'project_presentation' => 'required|mimes:pdf,excel,ppt,pptx,doc,docx|max:25600',
             'payment_type' => 'required',
             'transaction_details' => 'required|max:255',
-            'payment_proof' => 'required|image|mimes:jpeg,png,jpg,JPEG,PNG,JPG|max:1024|min:1',
+            // 'payment_proof' => 'required|image|mimes:jpeg,png,jpg,JPEG,PNG,JPG|max:1024|min:1',
+            'payment_proof' => 'required|mimes:jpeg,png,jpg,pdf,JPEG,PNG,JPG,pdf|max:10240|min:1',
+
            
 
         ];
