@@ -97,9 +97,9 @@
                     $userType = session('user_type');
                 @endphp
                 
-                @if ($userType === 1)
+                @if ($userType == 1)
                     <li class="nav-item d-md-flex">
-                        <a href="{{ asset('assets/industry_docs/LUB-Kaizen Compition-Guideline.docx') }}"
+                        <a href="{{ asset('assets/industry_docs/Competition Guidelines 2023.docx') }}"
                             class="mr-4 btn btn-block btn-success btn-sm font-weight-medium auth-form-btn d-flex align-items-center">
                             Project Guidelines
                         </a>

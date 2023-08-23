@@ -34,13 +34,13 @@
          </li>
          --}}
 
-         <li class="nav-item">
-             <a class="nav-link active" href="{{ route('project-registration') }}">
-                 <i class="fa fa-th-large menu-icon"></i>
-                 <span class="menu-title">Update Project Details</span>
-                 <i class="menu-arrow"></i>
-             </a>
-         </li>
+         <!--<li class="nav-item">-->
+         <!--    <a class="nav-link active" href="{{ route('project-registration') }}">-->
+         <!--        <i class="fa fa-th-large menu-icon"></i>-->
+         <!--        <span class="menu-title">Update Project Details</span>-->
+         <!--        <i class="menu-arrow"></i>-->
+         <!--    </a>-->
+         <!--</li>-->
      </ul>
  </nav>
  <!-- partial -->

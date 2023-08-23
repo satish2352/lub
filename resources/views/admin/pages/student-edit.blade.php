@@ -315,7 +315,7 @@
                                 </div>
                                 <div class="col-lg-6 col-md-6 col-sm-6">
                                     <div class="form-group">
-                                        <label for="payment_type"><b>Registration fees Rs.2000/- paid by</b>
+                                        <label for="payment_type"><b>Registration fees Rs.1000/- paid by</b>
                                         </label>&nbsp<span class="red-text">*</span>
                                         <select class="form-control" id="payment_type" name="payment_type"
                                             onchange="payment_type(this.value)" disabled>

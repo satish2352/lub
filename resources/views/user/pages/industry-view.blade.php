@@ -169,7 +169,7 @@
 
                                 <div class="col-lg-6 col-md-6 col-sm-6">
                                     <div class="form-group">
-                                        <label for="payment_type"><b>Registration fees Rs.1000/- paid by</b>
+                                        <label for="payment_type"><b>Registration fees Rs.2000/- paid by</b>
                                         </label>&nbsp<span class="red-text">*</span>
                                         <select class="form-control" id="payment_type" name="payment_type"
                                             onchange="payment_type(this.value)" disabled>
@@ -231,7 +231,7 @@
                                                 <div class="modal-body">
                                                     <div class="form-group">
                                                         <img style="width: 100%;height: 260px;"
-                                                            src="{{ env('APP_URL') . '/storage/all_web_data/images/payment_proof/' . $user_data['payment_proof'] }}">
+                                                            src="{{ env('APP_URL') . '/storage/all_web_data/industry/images/payment_proof/' . $user_data['payment_proof'] }}">
 
                                                     </div>
                                                 </div>
@@ -245,7 +245,7 @@
                                     </div>
                                     <!-- <div class="form-group">
                                                                                                                                                                                                                                                                         <img style="width: 250px;height: 260px;"
-                                                                                                                                                                                                                                                                            src="{{ env('APP_URL') . '/storage/all_web_data/images/payment_proof/' . $user_data['payment_proof'] }}">
+                                                                                                                                                                                                                                                                            src="{{ env('APP_URL') . '/storage/all_web_data/industry/images/payment_proof/' . $user_data['payment_proof'] }}">
 
                                                                                                                                                                                                                                                                     </div> -->
                                 </div>
@@ -253,7 +253,7 @@
                                 <div class="col-lg-6 col-md-6 col-sm-6">
                                     <div class="form-group">
                                         <a class="btn btn-primary mb-3" target="_blank"
-                                            href="{{ env('APP_URL') . '/storage/all_web_data/project_docs/' . $user_data['project_presentation'] }}">
+                                            href="{{ env('APP_URL') . '/storage/all_web_data/industry/project_docs/' . $user_data['project_presentation'] }}">
                                             View Presentation </a>
                                     </div>
                                 </div>
@@ -279,7 +279,7 @@
                                                     <td> {{ $data['m_name'] }}</td>
                                                     <td> {{ $data['l_name'] }}</td>
                                                     <td> <img style="width: 70px;height: 120px;"
-                                                            src="{{ env('APP_URL') . '/storage/all_web_data/images/userPassportPhoto/' . $data['passport_photo'] }}">
+                                                            src="{{ env('APP_URL') . '/storage/all_web_data/industry/images/userPassportPhoto/' . $data['passport_photo'] }}">
                                                     </td>
                                                 <tr>
                                                 @empty
