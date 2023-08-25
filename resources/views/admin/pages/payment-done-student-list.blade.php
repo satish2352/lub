@@ -131,7 +131,7 @@
                     buttons: [{
                         extend: 'excel',
                         className: 'btn btn-info text-light', // Add Bootstrap button classes
-                        title: 'ETS2023_CLG_' + getCurrentDateTime() // Set the Excel file name dynamically
+                        title: 'ETS2023_CLG' + getCurrentDateTime() // Set the Excel file name dynamically
                     }, ]
                 });
             });
@@ -145,7 +145,7 @@
         var minutes = now.getMinutes().toString().padStart(2, '0');
         var seconds = now.getSeconds().toString().padStart(2, '0');
         
-        return `${year}-${month}-${day}_${hours}-${minutes}-${seconds}`;
+        return `-${year}-${month}-${day}_${hours}-${minutes}-${seconds}`;
     }
         </script>
 
