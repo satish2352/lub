@@ -67,6 +67,10 @@ class IndustryController extends Controller
                 '3' => 'Small',
                 '4' => 'Micro',
             ];
+            $paymentModeNames = [
+                'neft' => 'NEFT',
+                'qr_code' => 'QR Code',
+            ];
             $project_data = IndustryDetails::join('participant_industry_details', function($join) {
                 $join->on('industry_details.user_id', '=', 'participant_industry_details.user_id');
             })
@@ -80,6 +84,7 @@ class IndustryController extends Controller
                       'industry_details.product_type',
                       'industry_details.industry_code',
                       'industry_details.payment_type',
+                      'industry_details.transaction_details',
                       'participant_industry_details.created_at as start_date',
                       'users.u_email',
                       'users.mobile_no',
@@ -91,7 +96,7 @@ class IndustryController extends Controller
                       ->get();
         
             // dd($project_data);
-            return view('admin.pages.payment-done-industry-list', compact('project_data', 'industryTypeNames'));
+            return view('admin.pages.payment-done-industry-list', compact('project_data', 'industryTypeNames', 'paymentModeNames'));
         }  
     public function viewDetailsForParticipant(Request $request) {
         $user_id = $request['show_id'];

@@ -34,24 +34,19 @@
                                             <thead>
                                                 <tr>
                                                     <th>Sr. No.</th>
-                                                    <th>Email</th>
-                                                    <th>Mobile No.</th>
+                                                    <th>Registartion Date</th>
+                                                    <th>Project Code</th>
                                                     <th>Project Title</th>
-                                                    <th>Participant Name</th>
-                                                    <th>Academic Year</th>
+                                                    <th>Student Name</th>
+                                                    <th>Email Address</th>
+                                                    <th>Contact No</th>
                                                     <th>Qualification</th>
-                                                    <th>Institute</th>
+                                                    <th>Academic Year</th>
+                                                    <th>Institite</th>
                                                     <th>Branch</th>
-                                                    <th>industry_code</th>
-                                                    <th>Registration fees</th>
-                                                    <th>Project Status</th>
-                                                    <th>Payment Status</th>
+                                                    <th>Mode Of Payment</th>
+                                                    <th>UTR Code</th>
                                                     {{-- <th>Action</th> --}}
-
-
-                                                    <th>Date</th>
-
-
                                                 </tr>
                                             </thead>
                                             <tbody>
@@ -61,30 +56,34 @@
                                                 @foreach ($project_data as $item)
                                                     <tr>
                                                         <td>{{ $serialNumber }}</td>
-                                                        <td>{{ $item->u_email }}</td>
-                                                        <td>{{ $item->mobile_no }}</td>
-                                                        <td>{{ $item->project_title }}</td>
-                                                        <td>{{ $item->f_name }} {{ $item->m_name }} {{ $item->l_name }}</td>
-                                                        <td>{{ $academicYearNames[$item->academic_year] }}</td>
-                                                        <td>{{ $qualificationNames[$item->education_type] }}</td>
-                                                        <td>{{ $item->institute_name }}</td>
-                                                        <td>{{ $branchNames[$item->branch_details] }}</td>
-                                                        <td>
+                                                        <td>{{ $item->start_date }}</td>
+                                                         <td>
                                                             <h6 style="color:red">{{ $item->project_code }}</h6>
                                                         </td>
-                                                        <td>{{ $item->payment_type }}</td>
-                                                        <td>
+                                                        <td>{{ $item->project_title }}</td>
+                                                          <td>{{ $item->f_name }} {{ $item->m_name }} {{ $item->l_name }}</td>
+                                                        <td>{{ $item->u_email }}</td>
+                                                        <td>{{ $item->mobile_no }}</td>
+                                                        <td>{{ $qualificationNames[$item->education_type] }}</td>
+                                                        <td>{{ $academicYearNames[$item->academic_year] }}</td>
+                                                        <td>{{ $item->institute_name }}</td>
+                                                        <td>{{ $branchNames[$item->branch_details] }}</td>
+                                                        <td>{{ $paymentModeNames[$item->payment_type] }}</td>
+                                                        <td>{{ $item->transaction_details }}</td>
+                                                        
+                                                        
+                                                        {{-- <td>
                                                             @if ($item->user_is_project_uploaded == 1)
                                                                 <button type="button" class="btn btn-success btn-sm">
                                                                     Details Filled
                                                                 </button>
-                                                                {{-- @if ($item->user_registration_type == 0 && $item->user_is_project_uploaded == 1 && $item->user_is_payment_done == 1)
+                                                                @if ($item->user_registration_type == 0 && $item->user_is_project_uploaded == 1 && $item->user_is_payment_done == 1)
                                                                 <button type="button" class="btn btn-primary btn-sm " style="font-size: 18px;">
                                                                     {{ $item->project_code }}
                                                                 </button>
                                                                 @else
                                                                 
-                                                                @endif --}}
+                                                                @endif
                                                             @else
                                                                 <button type="button" class="btn btn-danger btn-sm">Yet to
                                                                     upload</button>
@@ -98,8 +97,8 @@
                                                                 <button type="button" class="btn btn-danger btn-sm">Not
                                                                     Confirmed</button>
                                                             @endif
-                                                        </td>
-                                                        <td>{{ $item->start_date }}</td>
+                                                        </td> --}}
+                                                        
                                                         {{-- Add more columns here as needed --}}
                                                     </tr>
                                                     @php
@@ -132,8 +131,23 @@
                     buttons: [{
                         extend: 'excel',
                         className: 'btn btn-info text-light', // Add Bootstrap button classes
+                        title: 'excel_' + getCurrentDateTime() // Set the Excel file name dynamically
                     }, ]
                 });
             });
+
+            function getCurrentDateTime() {
+        var now = new Date();
+        var year = now.getFullYear();
+        var month = (now.getMonth() + 1).toString().padStart(2, '0');
+        var day = now.getDate().toString().padStart(2, '0');
+        var hours = now.getHours().toString().padStart(2, '0');
+        var minutes = now.getMinutes().toString().padStart(2, '0');
+        var seconds = now.getSeconds().toString().padStart(2, '0');
+        
+        return `${year}-${month}-${day}_${hours}-${minutes}-${seconds}`;
+    }
         </script>
+
+        
     @endsection

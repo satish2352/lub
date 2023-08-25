@@ -32,23 +32,17 @@
                                             <thead>
                                                 <tr>
                                                     <th>Sr. No.</th>
-                                                    <th>Email</th>
-                                                    <th>Mobile No.</th>
+                                                    <th>Registartion Date</th>
+                                                    <th>Industry Code</th>
                                                     <th>Project Title</th>
-                                                    <th>Participant Name</th>
+                                                    <th>Student Name</th>
+                                                    <th>Email Address</th>
+                                                    <th>Contact No</th>
                                                     <th>Industry Type</th>
                                                     <th>Industry Name</th>
                                                     <th>Product Type</th>
-                                                    <th>industry_code</th>
-                                                    <th>Registration fees</th>
-                                                    <th>Project Status</th>
-                                                    <th>Payment Status</th>
-                                                    {{-- <th>Action</th> --}}
-
-
-                                                    <th>Date</th>
-
-
+                                                    <th>Mode Of Payment</th>
+                                                    <th>UTR Code</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
@@ -58,46 +52,19 @@
                                                 @foreach ($project_data as $item)
                                                     <tr>
                                                         <td>{{ $serialNumber }}</td>
-                                                        <td>{{ $item->u_email }}</td>
-                                                        <td>{{ $item->mobile_no }}</td>
-                                                        <td>{{ $item->project_title }}</td>
-                                                        <td>{{ $item->f_name }} {{ $item->m_name }} {{ $item->l_name }}</td>
-                                                        {{-- <td>{{ $item->industry_type }}</td> --}}
-                                                        <td>{{ $industryTypeNames[$item->industry_type] }}</td>
-                                                        <td>{{ $item->industry_name }}</td>
-                                                        <td>{{ $item->product_type }}</td>
-                                                        <td>
-                                                            <h6 style="color:red">{{ $item->industry_code }}</h6>
-                                                        </td>
-                                                        <td>{{ $item->payment_type }}</td>
-                                                        <td>
-                                                            @if ($item->user_is_project_uploaded == 1)
-                                                                <button type="button" class="btn btn-success btn-sm">
-                                                                    Details Filled
-                                                                </button>
-                                                                {{-- @if ($item->user_registration_type == 1 && $item->user_is_project_uploaded == 1 && $item->user_is_payment_done == 1)
-                                                                <button type="button" class="btn btn-primary btn-sm " style="font-size: 18px;">
-                                                                    {{ $item->industry_code }}
-                                                                </button>
-                                                                @else
-                                                                
-                                                                @endif --}}
-                                                            @else
-                                                                <button type="button" class="btn btn-danger btn-sm">Yet to
-                                                                    upload</button>
-                                                            @endif
-                                                        </td>
-                                                        <td>
-                                                            @if ($item->user_is_payment_done == 1)
-                                                                <button type="button"
-                                                                    class="btn btn-success btn-sm">Confirmed</button>
-                                                            @else
-                                                                <button type="button" class="btn btn-danger btn-sm">Not
-                                                                    Confirmed</button>
-                                                            @endif
-                                                        </td>
                                                         <td>{{ $item->start_date }}</td>
-                                                        {{-- Add more columns here as needed --}}
+                                                        <td>
+                                                           <h6 style="color:red">{{ $item->industry_code }}</h6>
+                                                       </td>
+                                                       <td>{{ $item->project_title }}</td>
+                                                         <td>{{ $item->f_name }} {{ $item->m_name }} {{ $item->l_name }}</td>
+                                                       <td>{{ $item->u_email }}</td>
+                                                       <td>{{ $item->mobile_no }}</td>
+                                                       <td>{{ $industryTypeNames[$item->industry_type] }}</td>
+                                                       <td>{{ $item->industry_name }}</td>
+                                                       <td>{{ $item->product_type }}</td>
+                                                       <td>{{ $paymentModeNames[$item->payment_type] }}</td>
+                                                       <td>{{ $item->transaction_details }}</td>
                                                     </tr>
                                                     @php
                                                         $serialNumber++; // Increment the serial number counter
@@ -129,8 +96,21 @@
                     buttons: [{
                         extend: 'excel',
                         className: 'btn btn-info text-light', // Add Bootstrap button classes
+                        title: 'excel_' + getCurrentDateTime() // Set the Excel file name dynamically
                     }, ]
                 });
             });
+
+            function getCurrentDateTime() {
+        var now = new Date();
+        var year = now.getFullYear();
+        var month = (now.getMonth() + 1).toString().padStart(2, '0');
+        var day = now.getDate().toString().padStart(2, '0');
+        var hours = now.getHours().toString().padStart(2, '0');
+        var minutes = now.getMinutes().toString().padStart(2, '0');
+        var seconds = now.getSeconds().toString().padStart(2, '0');
+        
+        return `${year}-${month}-${day}_${hours}-${minutes}-${seconds}`;
+    }
         </script>
     @endsection

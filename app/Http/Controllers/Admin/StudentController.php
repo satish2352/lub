@@ -57,6 +57,10 @@ class StudentController extends Controller
             '5' => 'Other',
             
         ];
+        $paymentModeNames = [
+            'neft' => 'NEFT',
+            'qr_code' => 'QR Code',
+        ];
         $branchNames = [
             '1' => 'Artificial Intelligence(AI)and Data Science',
             '2' => 'Artificial Intelligence(AI)and Machine Learning',
@@ -125,6 +129,7 @@ class StudentController extends Controller
               'project_details.branch_details',
               'project_details.other_branch_details',
               'project_details.project_code',
+              'project_details.transaction_details',
               'participant_details.created_at as start_date',
               'users.u_email',
               'users.mobile_no',
@@ -137,7 +142,7 @@ class StudentController extends Controller
 
 // dd($project_data);
 
-        return view('admin.pages.payment-done-student-list', compact('project_data', 'academicYearNames', 'qualificationNames', 'branchNames'));
+        return view('admin.pages.payment-done-student-list', compact('project_data', 'academicYearNames', 'qualificationNames', 'branchNames', 'paymentModeNames'));
     }
     public function viewDetailsForParticipant(Request $request) {
         $user_id = $request['show_id'];
