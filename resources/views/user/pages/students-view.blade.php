@@ -63,12 +63,12 @@
                             </div>
                             <div class="col-lg-4 col-md-4 col-sm-4 d-flex justify-content-center align-items-center ">
                                 @if ($user_data['registration_type'] == 1 && $user_data['is_project_uploaded'] == 1 && $user_data['is_payment_done'] == 1)
-                               <a href="{{ env('FILE_VIEW') }}/all_web_data/images/{{ $project_data['project_code'] }}.zip" target="_blank"
+                               <a href="{{ env('FILE_VIEW') }}all_web_data/images/certificate/{{ $project_data['project_code'] }}.zip" target="_blank"
                                class="mr-4 font-weight-medium auth-form-btn d-flex align-items-center" style="font-size:18px ">
                              Click Here to Download Certificate
                                </a>
                                @else
-                               <a href="{{ env('FILE_VIEW') }}/all_web_data/images/{{ $project_data['project_code'] }}.zip" target="_blank"
+                               <a href="{{ env('FILE_VIEW') }}all_web_data/images/certificate/{{ $project_data['project_code'] }}.zip" target="_blank"
                                class="mr-4 font-weight-medium auth-form-btn d-flex align-items-center" style="font-size:18px ">
                              Click Here to Download Certificate
                                </a>
