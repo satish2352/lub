@@ -36,7 +36,7 @@
          $userType = session('user_type');
      @endphp
      
-     @if ($userType === 1)
+     @if ($userType == 1)
        <li class="nav-item">
                  <a class="nav-link active" href="{{ route('industry-list') }}">
                      <i class="fa fa-th-large menu-icon"></i>
@@ -51,7 +51,14 @@
                     <i class="menu-arrow"></i>
                 </a>
             </li>
-            @elseif ($userType === 0)
+             <li class="nav-item">
+                <a class="nav-link active" href="{{ route('industry-project-details-list') }}">
+                    <i class="fa fa-th-large menu-icon"></i>
+                    <span class="menu-title">Industry Project Presentation</span>
+                    <i class="menu-arrow"></i>
+                </a>
+            </li>
+            @elseif ($userType == 0)
             <li class="nav-item">
                 <a class="nav-link active" href="{{ route('register-users') }}">
                     <i class="fa fa-th-large menu-icon"></i>
@@ -66,6 +73,13 @@
                    <i class="menu-arrow"></i>
                </a>
            </li>
+            <li class="nav-item">
+            <a class="nav-link active" href="{{ route('student-project-details-list') }}">
+                <i class="fa fa-th-large menu-icon"></i>
+                <span class="menu-title">Student Project Presentation</span>
+                <i class="menu-arrow"></i>
+            </a>
+        </li>
              @endif
      </ul>
  </nav>

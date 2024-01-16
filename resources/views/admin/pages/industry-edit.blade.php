@@ -15,7 +15,7 @@
             /* display: none; */
         }
     </style>
-    <?php //dd($project_data); ?>
+   
     <div class="main-panel">
         <div class="content-wrapper mt-6">
             <div class="page-header">
@@ -69,32 +69,33 @@
                                 </div>
                                 <div class="col-lg-6 col-md-6 col-sm-6">
                                     <div class="form-group">
-                                        <label for="industry_type">Select Industry Type </label>&nbsp<span
+                                        <label for="education_type">Select Academic Year </label>&nbsp<span
                                             class="red-text">*</span>
                                         <select class="form-control" id="industry_type" name="industry_type" disabled>
                                             <option value="">Select</option>
                                             <option value="1"
-                                            @if (old('industry_type') == '1' || $project_data['industry_type'] == '1') {{ 'selected' }} @endif>
-                                            Large
-                                        </option>
-                                        <option value="2"
-                                            @if (old('industry_type') == '2' || $project_data['industry_type'] == '2') {{ 'selected' }} @endif>
-                                            Medium
-                                        </option>
-                                        <option value="3"
-                                            @if (old('industry_type') == '3' || $project_data['industry_type'] == '3') {{ 'selected' }} @endif>
-                                            Small
-                                        </option>
-                                        <option value="4"
-                                        @if (old('industry_type') == '4' || $project_data['industry_type'] == '3') {{ 'selected' }} @endif>
-                                        Micro
-                                    </option>                                             
+                                                @if (old('industry_type') == '1' || $project_data['industry_type'] == '1') {{ 'selected' }} @endif>
+                                                Large
+                                            </option>
+                                            <option value="2"
+                                                @if (old('industry_type') == '2' || $project_data['industry_type'] == '2') {{ 'selected' }} @endif>
+                                                Medium
+                                            </option>
+                                            <option value="3"
+                                                @if (old('industry_type') == '3' || $project_data['industry_type'] == '3') {{ 'selected' }} @endif>
+                                                Small
+                                            </option>
+                                            <option value="4"
+                                                @if (old('industry_type') == '4' || $project_data['industry_type'] == '4') {{ 'selected' }} @endif>
+                                                Micro
+                                            </option>
+                                           
                                         </select>
                                         @if ($errors->has('industry_type'))
                                             <span class="red-text"><?php echo $errors->first('industry_type', ':message'); ?></span>
                                         @endif
                                     </div>
-                                </div>  
+                                </div> 
                                 <div class="col-lg-6 col-md-6 col-sm-6">
                                     <div class="form-group">
                                         <label for="industry_name">Name of Industry</label>&nbsp<span
@@ -186,12 +187,12 @@
                                                 <div class="modal-body">
                                                     <div class="form-group">
                                                         <img style="width: 100%;height: 260px;"
-                                                            src="{{ env('APP_URL') . '/storage/all_web_data/images/payment_proof/' . $user_data['payment_proof'] }}">
+                                                            src="{{ env('APP_URL') . '/storage/all_web_data/industry/images/payment_proof/' . $user_data['payment_proof'] }}">
 
                                                     </div>
                                                 </div>
                                                 <div class="modal-footer img-modal-footer">
-                                                    <button type="button" class="btn btn-secondary"
+                                                    <button type="button" class="btn btn-primary"
                                                         data-dismiss="modal">Close</button>
                                                     <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
                                                 </div>
@@ -200,7 +201,7 @@
                                     </div>
                                     <!-- <div class="form-group">
                                                                                                                             <img style="width: 250px;height: 260px;"
-                                                                                                                                src="{{ env('APP_URL') . '/storage/all_web_data/images/payment_proof/' . $user_data['payment_proof'] }}">
+                                                                                                                                src="{{ env('APP_URL') . '/storage/all_web_data/industry/images/payment_proof/' . $user_data['payment_proof'] }}">
 
                                                                                                                         </div> -->
                                 </div>
@@ -208,7 +209,7 @@
                                 <div class="col-lg-6 col-md-6 col-sm-6">
                                     <div class="form-group">
                                         <a class="btn btn-primary mb-3" target="_blank"
-                                            href="{{ env('APP_URL') . '/storage/all_web_data/project_docs/' . $user_data['project_presentation'] }}">
+                                            href="{{ env('APP_URL') . '/storage/all_web_data/industry/project_docs/' . $user_data['project_presentation'] }}">
                                             View Presentation </a>
                                     </div>
                                 </div>
@@ -234,7 +235,7 @@
                                                     <td> {{ $data['m_name'] }}</td>
                                                     <td> {{ $data['l_name'] }}</td>
                                                     <td> <img style="width: 70px;height: 120px;"
-                                                            src="{{ env('APP_URL') . '/storage/all_web_data/images/userPassportPhoto/' . $data['passport_photo'] }}">
+                                                            src="{{ env('APP_URL') . '/storage/all_web_data/industry/images/userPassportPhoto/' . $data['passport_photo'] }}">
                                                     </td>
                                                 <tr>
                                                 @empty

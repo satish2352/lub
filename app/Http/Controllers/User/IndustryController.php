@@ -38,7 +38,7 @@ class IndustryController extends Controller
                 $project_data = IndustryDetails::where('user_id', $user_id)->select('*')->first();
                 $commincation_messege = CommincationMesseges::where(['user_id' => $user_id])->select('*')->get()->toArray();
 
-                return view('user.pages.student-edit', compact('user_data', 'participant_data', 'project_data', 'commincation_messege', 'user_id'));
+                return view('user.pages.industry-edit', compact('user_data', 'participant_data', 'project_data', 'commincation_messege', 'user_id'));
             }
         } else {
             return view('user.pages.industry-reg', compact('user_data'));
@@ -46,7 +46,16 @@ class IndustryController extends Controller
     }
 
 
-
+  public function generateIndustryCode($industryName) {
+        // Use the 'count' function instead of fetching and counting records
+        $count = IndustryDetails::count();
+        
+        // Increment the count for the new industry code
+        $newCount = $count + 1;
+        $industryCode = 'D' . $newCount;
+        
+        return $industryCode;
+    }
   
 
 
@@ -60,10 +69,12 @@ class IndustryController extends Controller
             'industry_type' => 'required',
             'industry_name' => 'required',
             'product_type' => 'required',
-            'project_presentation' => 'required|mimes:pdf,excel,ppt,pptx,doc,docx|max:25600',
+            'project_presentation' => 'required|mimes:pdf,excel,ppt,pptx,doc,docx|max:25600|min:1',
             'payment_type' => 'required',
             'transaction_details' => 'required|max:255',
-            'payment_proof' => 'required|image|mimes:jpeg,png,jpg,JPEG,PNG,JPG|max:1024|min:1',
+            // 'payment_proof' => 'required|image|mimes:jpeg,png,jpg,JPEG,PNG,JPG|max:1024|min:1',
+            'payment_proof' => 'required|mimes:jpeg,png,jpg,JPEG,PNG,JPG|max:10240|min:1',
+
            
 
         ];
@@ -142,20 +153,17 @@ class IndustryController extends Controller
                     ->withInput()
                     ->withErrors($validation);
             } else {
-                $industryName = $request->industry_name;
-$industryCode = $this->generateIndustryCode($industryName);
+                  $industryCode = $this->generateIndustryCode($request->id);
                 
                 //  dd($industryCode);
                 IndustryDetails::insert(
                     [
                         'user_id' => $request->session()->get('user_id'),
                         'project_title' => $request->project_title,
-
                         'industry_type' => $request->industry_type,
                         'industry_name' => $request->industry_name,
                         'product_type' => $request->product_type,
                         'industry_code' => $industryCode,
-                        
                         'payment_type' => $request->payment_type,
                         'transaction_details' => $request->transaction_details,
                         
@@ -188,7 +196,7 @@ $industryCode = $this->generateIndustryCode($industryName);
                         $all_user_details_added->save();
                         $last_id = $all_user_details_added->id;
 
-                        $path = "/all_web_data/images/userPassportPhoto/";
+                        $path = "/all_web_data/industry/images/userPassportPhoto/";
                         $name = $request->session()->get('user_id') . "_" . $last_id . "." . $request->$photo->extension();
 
                         if (!file_exists(storage_path() . $path)) {
@@ -206,7 +214,7 @@ $industryCode = $this->generateIndustryCode($industryName);
 
 
 
-                $path = "/all_web_data/images/payment_proof/";
+                $path = "/all_web_data/industry/images/payment_proof/";
                 $user_payment_details_file_name = $request->session()->get('user_id') . "_payment_proof." . $request->payment_proof->extension();
 
                 if (!file_exists(storage_path() . $path)) {
@@ -221,7 +229,7 @@ $industryCode = $this->generateIndustryCode($industryName);
 
                 // Project Docs
 
-                $path_project_presentation = "/all_web_data/project_docs/";
+                $path_project_presentation = "/all_web_data/industry/project_docs/";
                 $project_presentation_file_name = $request->session()->get('user_id') . "_project_doc." . $request->project_presentation->extension();
 
                 if (!file_exists(storage_path() . $path)) {
@@ -260,8 +268,7 @@ $industryCode = $this->generateIndustryCode($industryName);
         }
     }
 
-
-    public function registered_update(Request $request)
+public function registered_update(Request $request)
     {
         // dd($request->hasFile('payment_proof'));
         $rules = [
@@ -288,57 +295,126 @@ $industryCode = $this->generateIndustryCode($industryName);
         }
 
         try {
-            $validation = Validator::make($request->all(), $rules, $messages);
-
-            if ($validation->fails()) {
-                return redirect()->back()
-                    ->withInput()
-                    ->withErrors($validation);
-            } else {
-               
-                $project_data = IndustryDetails::where('user_id', $request->id)->update(
-                    [
-                        
-                        'payment_type' => $request['payment_type'],
-                        'transaction_details' => $request['transaction_details'],
-
-                    ]
-                );
-
-                if ($request->hasFile('payment_proof')) {
-                
-                    $path = "/all_web_data/images/payment_proof/";
-                    $user_payment_details_file_name = $request->session()->get('user_id') . "_payment_proof." . $request->payment_proof->extension();
-
-                    if (!file_exists(storage_path() . $path)) {
-                        File::makeDirectory(storage_path() . '/' . $path, 0777, true);
-                    }
-                    if ($request->payment_proof !== null) {
-                        $base64_encoded = base64_encode(file_get_contents($request->payment_proof));
-                        $base64_decoded_content = base64_decode($base64_encoded);
-                        $path2 = storage_path() . $path . $user_payment_details_file_name;
-                        file_put_contents($path2, $base64_decoded_content);
-                    }
-
-                    $all_user_details_added = Users::where('id', $request->session()->get('user_id'))->update(
-                        [
-                            'payment_proof' => $user_payment_details_file_name,
-
-                        ]
-                    );
-
+            // Get the user's existing payment proof file name
+            $existingPaymentProof = Users::where('id', $request->session()->get('user_id'))->value('payment_proof');
+    
+            // Delete the old payment proof image if it exists
+            if (!empty($existingPaymentProof)) {
+                $oldImagePath = storage_path("/all_web_data/industry/images/payment_proof/{$existingPaymentProof}");
+                if (file_exists($oldImagePath)) {
+                    unlink($oldImagePath);
                 }
-
-                $msg = 'Information saved successfully';
-                $status = 'success';   
-                return redirect('user/add-industry-data')->with(compact('msg', 'status'));
             }
+    
+            $project_data = IndustryDetails::where('user_id', $request->id)->update([
+                'payment_type' => $request->input('payment_type'),
+                'transaction_details' => $request->input('transaction_details'),
+            ]);
+    
+            if ($request->hasFile('payment_proof')) {
+                $path = "/all_web_data/industry/images/payment_proof/";
+                $user_payment_details_file_name = $request->session()->get('user_id') . "_payment_proof." . $request->payment_proof->getClientOriginalExtension();
+    
+                if (!file_exists(storage_path($path))) {
+                    File::makeDirectory(storage_path($path), 0777, true);
+                }
+    
+                $payment_proof_path = storage_path($path . $user_payment_details_file_name);
+                $request->file('payment_proof')->move(storage_path($path), $user_payment_details_file_name);
+    
+                $all_user_details_added = Users::where('id', $request->session()->get('user_id'))->update([
+                    'payment_proof' => $user_payment_details_file_name,
+                ]);
+            }
+    
+            $msg = 'Information saved successfully';
+            $status = 'success';
+            return redirect('user/add-industry-data')->with(compact('msg', 'status'));
         } catch (Exception $e) {
             return redirect()->back()
                 ->withInput()
                 ->with(['msg' => $e->getMessage(), 'status' => 'error']);
         }
     }
+
+    // public function registered_update(Request $request)
+    // {
+    //     // dd($request->hasFile('payment_proof'));
+    //     $rules = [
+           
+    //         'payment_type' => 'required',
+    //         'transaction_details' => 'required|max:255',
+            
+    //     ];
+
+    //     $messages = [
+         
+    //         'payment_type.required' => 'Please select payment type.',
+    //         'transaction_details.required' => 'Please enter confirmation code/id.',
+    //     ];
+
+    //     if ($request->hasFile('payment_proof')) {
+    //         $rules['payment_proof'] = 'required|image|mimes:jpeg,png,jpg,JPEG,PNG,JPG|max:1024|min:1';
+
+    //         $rulemessagess['payment_proof.required'] = 'Please upload payment proof.';
+    //         $rulemessagess['payment_proof.image'] = 'The image must be a valid image file.';
+    //         $rulemessagess['payment_proof.mimes'] = 'The image must be in JPEG, PNG, JPG format.';
+    //         $rulemessagess['payment_proof.max'] = 'The image size must not exceed 1 MB .';
+    //         $rulemessagess['payment_proof.min'] = 'The image size must not be less than 1 KB .';
+    //     }
+
+    //     try {
+    //         $validation = Validator::make($request->all(), $rules, $messages);
+
+    //         if ($validation->fails()) {
+    //             return redirect()->back()
+    //                 ->withInput()
+    //                 ->withErrors($validation);
+    //         } else {
+               
+    //             $project_data = IndustryDetails::where('user_id', $request->id)->update(
+    //                 [
+                        
+    //                     'payment_type' => $request['payment_type'],
+    //                     'transaction_details' => $request['transaction_details'],
+
+    //                 ]
+    //             );
+
+    //             if ($request->hasFile('payment_proof')) {
+                
+    //                 $path = "/all_web_data/industry/images/payment_proof/";
+    //                 $user_payment_details_file_name = $request->session()->get('user_id') . "_payment_proof." . $request->payment_proof->extension();
+
+    //                 if (!file_exists(storage_path() . $path)) {
+    //                     File::makeDirectory(storage_path() . '/' . $path, 0777, true);
+    //                 }
+    //                 if ($request->payment_proof !== null) {
+    //                     $base64_encoded = base64_encode(file_get_contents($request->payment_proof));
+    //                     $base64_decoded_content = base64_decode($base64_encoded);
+    //                     $path2 = storage_path() . $path . $user_payment_details_file_name;
+    //                     file_put_contents($path2, $base64_decoded_content);
+    //                 }
+
+    //                 $all_user_details_added = Users::where('id', $request->session()->get('user_id'))->update(
+    //                     [
+    //                         'payment_proof' => $user_payment_details_file_name,
+
+    //                     ]
+    //                 );
+
+    //             }
+
+    //             $msg = 'Information saved successfully';
+    //             $status = 'success';   
+    //             return redirect('user/add-industry-data')->with(compact('msg', 'status'));
+    //         }
+    //     } catch (Exception $e) {
+    //         return redirect()->back()
+    //             ->withInput()
+    //             ->with(['msg' => $e->getMessage(), 'status' => 'error']);
+    //     }
+    // }
 
     public function uploadDocs($request, $requestContent, $path, $name) {
 
@@ -351,44 +427,5 @@ $industryCode = $this->generateIndustryCode($industryName);
         }
         return "ok";
     }   
-    // public function generateIndustryCode($IndustryCode)
-    // {
-    //     // Get the count of students with the same education type
-    //     $count = IndustryDetails::where('industry_type', $IndustryCode)->count();
-    
-    //     // Increment the count by 1 for the new student
-    //     $count++;
-    
-    //     // Generate the project code based on education type
-    //     switch ($IndustryCode) {
-    //         case '1':
-    //             $IndustryCode = 'D' . $count;
-    //             break;
-    //         default:
-    //             // Handle other education types if needed
-    //             $IndustryCode = 'null';
-    //     }
-    
-    //     return $IndustryCode;
-    // }
 
-//     public function generateIndustryCode($IndustryCode){
-//     $count = IndustryDetails::where('industry_name', $IndustryCode)->count();
-//     $count++;
-//     $IndustryCode = 'D' . $count;
-// // dd($IndustryCode);
-//     return $IndustryCode;
-// }
-
-public function generateIndustryCode($industryName) {
-    $count = IndustryDetails::where('industry_name', $industryName)->count();
-    $count++; // Increment the count for the new industry code
-    $industryCode = 'D' . $count;
-    return $industryCode;
-}
-
-// Usage example:
-
-
-    
 }

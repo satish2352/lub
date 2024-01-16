@@ -60,14 +60,14 @@
                             48, Deen Dayal Upadhyay Marg,
                             Rouse Avenue,
                             New Delhi – 110002<br>
-                            <b>
-                                <i class="fa fa-envelope-o"></i>
-                            </b>
-                            headoffice@lubindia.com<br> <b>
-                                <i class="fa fa-envelope-o"></i>
-                            </b>lubheadoffice@gmail.com<br>
-                            Phone: 011-23238582<br>
-                            Tel. Fax: 011-23525052
+                            <!--<b>-->
+                            <!--    <i class="fa fa-envelope-o"></i>-->
+                            <!--</b>-->
+                            <!--headoffice@lubindia.com<br> <b>-->
+                            <!--    <i class="fa fa-envelope-o"></i>-->
+                            <!--</b>lubheadoffice@gmail.com<br>-->
+                            <!--Phone: 011-23238582<br>-->
+                            <!--Tel. Fax: 011-23525052-->
 
                         </div><!-- /.footer-section-body -->
                     </div><!-- /.footer-section -->

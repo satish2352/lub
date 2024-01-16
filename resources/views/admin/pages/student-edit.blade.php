@@ -1,4 +1,4 @@
-@extends('user.layout.master')
+@extends('admin.layout.master')
 @section('content')
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
@@ -315,7 +315,7 @@
                                 </div>
                                 <div class="col-lg-6 col-md-6 col-sm-6">
                                     <div class="form-group">
-                                        <label for="payment_type"><b>Registration fees Rs.2000/- paid by</b>
+                                        <label for="payment_type"><b>Registration fees Rs.1000/- paid by</b>
                                         </label>&nbsp<span class="red-text">*</span>
                                         <select class="form-control" id="payment_type" name="payment_type"
                                             onchange="payment_type(this.value)" disabled>
@@ -382,7 +382,7 @@
                                                     </div>
                                                 </div>
                                                 <div class="modal-footer img-modal-footer">
-                                                    <button type="button" class="btn btn-secondary"
+                                                    <button type="button" class="btn btn-primary"
                                                         data-dismiss="modal">Close</button>
                                                     <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
                                                 </div>
@@ -448,7 +448,9 @@
                                     Is Payment Done
                                 </div>
                                 <div class="row d-flex justify-content-center">
+                                     <div class="col-lg-2 col-md-2 col-sm-2">
                                     <button type="submit" class="btn btn-success">Submit</button>
+                                    </div>
                                 </div>
                             </form>
 

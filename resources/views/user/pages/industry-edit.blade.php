@@ -104,34 +104,35 @@
                                             @endif
                                         </div>
                                     </div>
-                                     <div class="col-lg-6 col-md-6 col-sm-6">
+                                    <div class="col-lg-6 col-md-6 col-sm-6">
                                         <div class="form-group">
-                                            <label for="industry_type">Select Industry Type </label>&nbsp<span
+                                            <label for="education_type">Select Industry Type </label>&nbsp<span
                                                 class="red-text">*</span>
                                             <select class="form-control" id="industry_type" name="industry_type" disabled>
                                                 <option value="">Select</option>
                                                 <option value="1"
-                                                @if (old('industry_type') == '1' || $project_data['industry_type'] == '1') {{ 'selected' }} @endif>
-                                                Large
-                                            </option>
-                                            <option value="2"
-                                                @if (old('industry_type') == '2' || $project_data['industry_type'] == '2') {{ 'selected' }} @endif>
-                                                Medium
-                                            </option>
-                                            <option value="3"
-                                                @if (old('industry_type') == '3' || $project_data['industry_type'] == '3') {{ 'selected' }} @endif>
-                                                Small
-                                            </option>
-                                            <option value="4"
-                                            @if (old('industry_type') == '4' || $project_data['industry_type'] == '3') {{ 'selected' }} @endif>
-                                            Micro
-                                        </option>                                             
+                                                    @if (old('industry_type') == '1' || $project_data['industry_type'] == '1') {{ 'selected' }} @endif>
+                                                    Large
+                                                </option>
+                                                <option value="2"
+                                                    @if (old('industry_type') == '2' || $project_data['industry_type'] == '2') {{ 'selected' }} @endif>
+                                                    Medium
+                                                </option>
+                                                <option value="3"
+                                                    @if (old('industry_type') == '3' || $project_data['industry_type'] == '3') {{ 'selected' }} @endif>
+                                                    Small
+                                                </option>
+                                                <option value="4"
+                                                    @if (old('industry_type') == '4' || $project_data['industry_type'] == '4') {{ 'selected' }} @endif>
+                                                    Micro
+                                                </option>
+                                               
                                             </select>
                                             @if ($errors->has('industry_type'))
                                                 <span class="red-text"><?php echo $errors->first('industry_type', ':message'); ?></span>
                                             @endif
                                         </div>
-                                    </div>  
+                                    </div> 
                                     <div class="col-lg-6 col-md-6 col-sm-6">
                                         <div class="form-group">
                                             <label for="industry_name">Name of Industry</label>&nbsp<span
@@ -158,7 +159,7 @@
 
                                     <div class="col-lg-6 col-md-6 col-sm-6">
                                         <div class="form-group">
-                                            <label for="payment_type"><b>Registration fees Rs.1000/- paid by</b>
+                                            <label for="payment_type"><b>Registration fees Rs.2000/- paid by</b>
                                             </label>&nbsp<span class="red-text">*</span>
                                             <select class="form-control" id="payment_type" name="payment_type"
                                                 onchange="payment_type(this.value)">
@@ -222,65 +223,51 @@
                                 <div class="row">
                                     <div class="col-lg-6 col-md-6 col-sm-6">
                                         <div class="form-group">
-                                            <label for="payment_proof">Upload Payment proof in
-                                                jpeg,png,jpg format with size 1 Mb*</label>&nbsp<span
-                                                class="red-text">*</span><br>
-                                            <input type="file" name="payment_proof" id="payment_proof"
-                                                accept="image/*" value="{{ $project_data['payment_proof'] }}"><br>
+                                            <label for="payment_proof">Upload Payment proof in jpeg, png, jpg format with size 1 Mb*</label>
+                                            <span class="red-text">*</span><br>
+                                            <input type="file" name="payment_proof" id="payment_proof" accept="image/*"
+                                                   value="{{ $project_data['payment_proof'] }}"><br>
                                             @if ($errors->has('payment_proof'))
                                                 <span class="red-text"><?php echo $errors->first('payment_proof', ':message'); ?></span>
                                             @endif
                                         </div>
-
-
                                     </div>
-
+                                    
                                     <div class="col-lg-6 col-md-6 col-sm-6">
                                         <!-- Button trigger modal -->
-                                        <button type="button" class="btn btn-primary mb-3" data-toggle="modal"
-                                            data-target="#exampleModal">
+                                        <button type="button" class="btn btn-primary mb-3" data-toggle="modal" data-target="#exampleModal">
                                             View payment receipt
                                         </button>
-
+                                    
                                         <!-- Modal -->
-                                        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog"
-                                            aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+                                             aria-hidden="true">
                                             <div class="modal-dialog" role="document">
                                                 <div class="modal-content">
                                                     <div class="modal-header img-modal-header">
-                                                        <h5 class="modal-title" id="exampleModalLabel">Payment receipt
-                                                        </h5>
-                                                        <button type="button" class="close" data-dismiss="modal"
-                                                            aria-label="Close">
+                                                        <h5 class="modal-title" id="exampleModalLabel">Payment receipt</h5>
+                                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                                             <span aria-hidden="true">&times;</span>
                                                         </button>
                                                     </div>
                                                     <div class="modal-body">
                                                         <div class="form-group">
-                                                            <img style="width: 100%;height: 260px;"
-                                                                src="{{ env('APP_URL') . '/storage/all_web_data/images/payment_proof/' . $user_data['payment_proof'] }}">
-
+                                                            <img style="width: 100%; height: 260px;" id="modalImage"
+                                                                 src="{{ env('APP_URL') . '/storage/all_web_data/industry/images/payment_proof/' . $user_data['payment_proof'] }}">
                                                         </div>
                                                     </div>
                                                     <div class="modal-footer img-modal-footer">
-                                                        <button type="button" class="btn btn-secondary"
-                                                            data-dismiss="modal">Close</button>
-                                                        <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
+                                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
-                                        <!-- <div class="form-group">
-                                                                                                                                                                                                                                                                                                                                                                                                                            <img style="width: 250px;height: 260px;"
-                                                                                                                                                                                                                                                                                                                                                                                                                                src="{{ env('APP_URL') . '/storage/all_web_data/images/payment_proof/' . $user_data['payment_proof'] }}">
-
-                                                                                                                                                                                                                                                                                                                                                                                                                        </div> -->
                                     </div>
 
                                     <div class="col-lg-6 col-md-6 col-sm-6">
                                         <div class="form-group">
-                                            <label for="project_presentation"> Upload project presentation only pdf
-                                                format with 5 Mb*</label>&nbsp<span class="red-text">*</span><br>
+                                            <label for="project_presentation"> Upload project presentation pdf, ppt, word
+                                                format with 25 MB*</label>&nbsp<span class="red-text">*</span><br>
                                             <input type="file" name="project_presentation" id="project_presentation"
                                                 accept="image/*" value="{{ old('project_presentation') }}" disabled><br>
                                             @if ($errors->has('project_presentation'))
@@ -293,7 +280,7 @@
                                     <div class="col-lg-6 col-md-6 col-sm-6">
                                         <div class="form-group">
                                             <a class="btn btn-primary mb-3" target="_blank"
-                                                href="{{ env('APP_URL') . '/storage/all_web_data/project_docs/' . $user_data['project_presentation'] }}">
+                                                href="{{ env('APP_URL') . '/storage/all_web_data/industry/project_docs/' . $user_data['project_presentation'] }}">
                                                 View Presentation </a>
                                         </div>
 
@@ -409,7 +396,7 @@
                                                             </div>
                                                             @if (isset($participant_data[$index]['passport_photo']))
                                                                 <img style="width: 70px;height: 120px;"
-                                                                    src="{{ env('APP_URL') . '/storage/all_web_data/images/userPassportPhoto/' . $participant_data[$index]['passport_photo'] }}">
+                                                                    src="{{ env('APP_URL') . '/storage/all_web_data/industry/images/userPassportPhoto/' . $participant_data[$index]['passport_photo'] }}">
                                                             @endif
 
                                                         </td>
@@ -564,4 +551,23 @@
             }
         }
     </script>
+    
+<script>
+    const paymentProofInput = document.getElementById('payment_proof');
+    const modalImage = document.getElementById('modalImage');
+    const modal = new bootstrap.Modal(document.getElementById('exampleModal'));
+    const openModalButton = document.getElementById('openModalButton'); // Change this to the actual ID of your button
+
+    paymentProofInput.addEventListener('change', (event) => {
+        const file = event.target.files[0];
+        if (file) {
+            const imageURL = URL.createObjectURL(file);
+            modalImage.src = imageURL;
+        }
+    });
+
+    openModalButton.addEventListener('click', () => {
+        modal.show();
+    });
+</script>
 @endsection

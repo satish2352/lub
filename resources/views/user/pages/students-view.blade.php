@@ -52,7 +52,7 @@
                 <div class="col-12 grid-margin">
                     <div class="card">
                         <div class="row">
-                            <div class="col-lg-5 col-md-5 col-sm-5 p-3">
+                            <div class="col-lg-4 col-md-4 col-sm-4 p-3">
                                 <button type="button" class="btn btn-primary  float-left" style="font-size: 18px;">
                                     @if ($user_data['registration_type'] == 1 && $user_data['is_project_uploaded'] == 1 && $user_data['is_payment_done'] == 1)
                                     Your Industry Code is: {{ $project_data['industry_code'] }}
@@ -60,12 +60,21 @@
                                         Your Project Code is: {{ $project_data['project_code'] }}
                                     @endif
                                 </button>
-
                             </div>
-                            <div class="col-lg-2 col-md-2 col-sm-2 ">
-
+                            <div class="col-lg-4 col-md-4 col-sm-4 d-flex justify-content-center align-items-center ">
+                                @if ($user_data['registration_type'] == 1 && $user_data['is_project_uploaded'] == 1 && $user_data['is_payment_done'] == 1)
+                               <a href="{{ env('FILE_VIEW') }}/all_web_data/images/{{ $project_data['project_code'] }}.zip" target="_blank"
+                               class="mr-4 font-weight-medium auth-form-btn d-flex align-items-center" style="font-size:18px ">
+                             Click Here to Download Certificate
+                               </a>
+                               @else
+                               <a href="{{ env('FILE_VIEW') }}/all_web_data/images/{{ $project_data['project_code'] }}.zip" target="_blank"
+                               class="mr-4 font-weight-medium auth-form-btn d-flex align-items-center" style="font-size:18px ">
+                             Click Here to Download Certificate
+                               </a>
+                                  @endif
                             </div>
-                            <div class="col-lg-5 col-md-5 col-sm-5 p-3">
+                            <div class="col-lg-4 col-md-4 col-sm-4 p-3">
                                 <button type="button" class="btn float-right verify_msg">
                                     @if ($user_data['is_project_uploaded'] == 1 && $user_data['is_payment_done'] == 1)
                                         <div class="verify_msg">

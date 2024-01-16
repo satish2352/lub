@@ -80,5 +80,8 @@ Route::group(['prefix' => 'admin'], function() {
         Route::get('/industry-list', ['as' => 'industry-list', 'uses' => 'App\Http\Controllers\Admin\IndustryController@indexIndustry']);
         Route::get('/payment-done-industry-list', ['as' => 'payment-done-industry-list', 'uses' => 'App\Http\Controllers\Admin\IndustryController@getPaymentIndustry']);
         Route::post('/update-industry', ['as' => 'update-industry', 'uses' => 'App\Http\Controllers\Admin\IndustryController@update']);
+        
+         Route::get('/student-project-details-list', ['as' => 'student-project-details-list', 'uses' => 'App\Http\Controllers\Admin\StudentController@getProjectStudent']);
+        Route::get('/industry-project-details-list', ['as' => 'industry-project-details-list', 'uses' => 'App\Http\Controllers\Admin\IndustryController@getProjectIndustry']);
     });
 });

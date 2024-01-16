@@ -5,12 +5,12 @@
         <div class="content-wrapper mt-7">
             <div class="page-header">
                 <h3 class="page-title">
-                    Student List
+                    Student Presentation List
                 </h3>
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item"><a href="#">Student</a></li>
-                        <li class="breadcrumb-item active" aria-current="page"> Student List </li>
+                        <li class="breadcrumb-item active" aria-current="page"> Student Presentation List </li>
                     </ol>
                 </nav>
             </div>
@@ -35,9 +35,11 @@
                                                     <th>Sr. No.</th>
                                                     <th>Email </th>
                                                     <th>Mobile No.</th>
-                                                    <th>Project Status</th>
-                                                    <th>Payment Status</th>
-                                                    <th>Action</th>
+                                                    <th>Project Name</th>
+                                                    <th>Project Code</th>
+                                                    <th>Project</th>
+                                                    <!--<th>Payment Proof</th>-->
+                                                    
                                                 </tr>
                                             </thead>
                                             <tbody>
@@ -50,33 +52,35 @@
                                                     <td>{{ $serialNumber }}</td>
                                                     <td>{{ $item->u_email }}</td>
                                                     <td>{{ $item->mobile_no }}</td>
-                            
+                                                    <td>{{ $item->project_title }}</td>
                                                     <td>
-                                                        @if ($item->is_project_uploaded == 1)
-                                                            <button type="button" class="btn btn-success btn-sm">
-                                                                Details Filled
-                                                            </button>
-                                                        @else
-                                                            <button type="button" class="btn btn-danger btn-sm">Yet to upload</button>
-                                                        @endif
+                                                        <h6 style="color:red">{{ $item->project_code }}</h6>
                                                     </td>
-                                                    <td>
-                                                        @if ($item->is_payment_done == 1)
-                                                            <button type="button" class="btn btn-success btn-sm">Confirmed</button>
-                                                        @else
-                                                            <button type="button" class="btn btn-danger btn-sm">Not Confirmed</button>
-                                                        @endif
-                                                    </td>
-                            
-                                                    <td class="d-flex">
-                                                        @if ($item->is_project_uploaded == 1)
-                                                            <a data-id="{{ $item->id }}" class="show-btn btn btn-sm btn-outline-primary m-1">
-                                                                <i class="fas fa-eye"></i>
-                                                            </a>
-                                                        @else
-                                                            {{ 'No Project Details Uploaded Yet' }}
-                                                        @endif
-                                                    </td>
+                                                <td>
+                                                    <div class="col-lg-6 col-md-6 col-sm-6">
+                                                        <div class="form-group">
+                                                            <a class="btn btn-primary py-2" target="_blank"
+                                                                href="{{ env('APP_URL') . '/storage/all_web_data/project_docs/' . $item['project_presentation'] }}">
+                                                                View Presentation </a>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                               <!-- <td>-->
+                                               <!--     <div class="col-lg-6 col-md-6 col-sm-6 ">-->
+                                               <!--         <div class="form-group d-flex justify-content-center align-items-center">-->
+                                               <!--             <img style="width: 70px; height: 70px;"-->
+                                               <!--                 src="{{ env('APP_URL') . '/storage/all_web_data/images/payment_proof/' . $item['payment_proof'] }}">-->
+                                                           
+                                               <!--                 <div class="ml-2">-->
+                                               <!--                     <button class="btn btn-success download-image py-2"-->
+                                               <!--                     data-image="{{ env('APP_URL') . '/storage/all_web_data/industry/images/payment_proof/' . $item['payment_proof'] }}">-->
+                                               <!--                     Download-->
+                                               <!--                 </button>-->
+                                               <!--                 </div>-->
+                                               <!--         </div>-->
+                                               <!--     </div>-->
+                                               <!--</td>-->
+                                                   
                                                 </tr>
                                                 @php
                                                 $serialNumber++; // Increment the serial number counter
@@ -102,7 +106,7 @@
             <input type="hidden" name="show_id" id="show_id" value="">
         </form>
         <!-- content-wrapper ends -->
-         <script>
+        <script>
             jQuery(document).ready(function($) {
                 $('#example').DataTable({
                     dom: 'Bfrtip',

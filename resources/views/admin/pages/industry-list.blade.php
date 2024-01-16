@@ -29,7 +29,7 @@
 
 
                                     <div class="table-responsive">
-                                        <table id="order-listing" class="table table-bordered">
+                                        <table id="example" class="table table-bordered">
                                             <thead>
                                                 <tr>
                                                     <th>Sr. No.</th>
@@ -108,4 +108,43 @@
             <input type="hidden" name="show_id" id="show_id" value="">
         </form>
         <!-- content-wrapper ends -->
+         <script>
+            jQuery(document).ready(function($) {
+                $('#example').DataTable({
+                    dom: 'Bfrtip',
+                    buttons: [{
+                        extend: 'excel',
+                        className: 'btn btn-info text-light', // Add Bootstrap button classes
+                        title: 'ETS2023_IND' + getCurrentDateTime() // Set the Excel file name dynamically
+                    }, ]
+                });
+            });
+
+            function getCurrentDateTime() {
+        var now = new Date();
+        var year = now.getFullYear();
+        var month = (now.getMonth() + 1).toString().padStart(2, '0');
+        var day = now.getDate().toString().padStart(2, '0');
+        var hours = now.getHours().toString().padStart(2, '0');
+        var minutes = now.getMinutes().toString().padStart(2, '0');
+        var seconds = now.getSeconds().toString().padStart(2, '0');
+        
+        return `-${year}-${month}-${day}_${hours}-${minutes}-${seconds}`;
+    }
+
+     // Add click event handler for the image download button
+     $('#example').on('click', '.download-image', function() {
+            var imageUrl = $(this).data('image');
+            downloadImage(imageUrl);
+        });
+
+        function downloadImage(imageUrl) {
+        var a = document.createElement('a');
+        a.href = imageUrl;
+        a.download = 'image.jpg'; // You can specify a custom file name here
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+    }
+        </script>
     @endsection

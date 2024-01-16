@@ -54,20 +54,70 @@ class IndustryController extends Controller
 
         return view('admin.pages.industry-list', compact('project_data'));
     }
-
-    public function getPaymentIndustry()
+     public function getProjectIndustry()
     {
-    // dd($project_data);
-        // Joining users table with industry_details table
         $project_data = IndustryDetails::join('users', 'industry_details.user_id', '=', 'users.id')
-            ->select('industry_details.*', 'users.u_email as user_email','users.mobile_no as user_mobile_no','users.is_project_uploaded as user_is_project_uploaded','users.is_payment_done as user_is_payment_done','users.registration_type as user_registration_type') // Add other fields from industry_details if needed
-            ->where('industry_details.is_active', true)
-            ->where('users.is_payment_done', true)
-            ->get();
-            // dd($project_data);
-    // dd($project_data);
-        return view('admin.pages.payment-done-industry-list', compact('project_data'));
+        ->select('industry_details.project_title',
+        'industry_details.payment_type',
+        'industry_details.industry_code',
+        'users.u_email',
+        'users.mobile_no',
+        'users.project_presentation',
+        'users.payment_proof',
+        'users.is_project_uploaded',
+        'users.is_payment_done',
+        'users.registration_type')
+        ->where('industry_details.is_active', true)
+        ->where('users.is_payment_done', true)
+        ->get();
+        // dd($project_data);
+
+        return view('admin.pages.industry-project-pdf', compact('project_data'));
     }
+
+    public function getPaymentIndustry() {
+        //$project_data = IndustryDetails::join('users', 'industry_details.user_id', '=', 'users.id')
+        //         ->select('industry_details.*', 'users.u_email as user_email','users.mobile_no as user_mobile_no','users.is_project_uploaded as user_is_project_uploaded','users.is_payment_done as user_is_payment_done','users.registration_type as user_registration_type') // Add other fields from industry_details if needed
+        //         ->where('industry_details.is_active', true)
+        //         ->where('users.is_payment_done', true)
+        //         ->get();
+            $industryTypeNames = [
+                '1' => 'Large',
+                '2' => 'Medium',
+                '3' => 'Small',
+                '4' => 'Micro',
+            ];
+            $paymentModeNames = [
+                'neft' => 'NEFT',
+                'qr_code' => 'QR Code',
+            ];
+            $project_data = IndustryDetails::join('participant_industry_details', function($join) {
+                $join->on('industry_details.user_id', '=', 'participant_industry_details.user_id');
+            })
+            ->join('users', 'industry_details.user_id', '=', 'users.id')
+            ->select('participant_industry_details.f_name',
+                      'participant_industry_details.m_name',
+                      'participant_industry_details.l_name',
+                      'industry_details.project_title',
+                      'industry_details.industry_type',
+                      'industry_details.industry_name',
+                      'industry_details.product_type',
+                      'industry_details.industry_code',
+                      'industry_details.payment_type',
+                      'industry_details.transaction_details',
+                      'participant_industry_details.created_at as start_date',
+                      'users.u_email',
+                      'users.mobile_no',
+                      'users.is_project_uploaded as user_is_project_uploaded',
+                      'users.is_payment_done as user_is_payment_done',
+                      'users.registration_type as user_registration_type')
+                      ->where('industry_details.is_active', true)
+                      ->where('users.is_payment_done', true)
+                      ->get();
+        
+            // dd($project_data);
+            return view('admin.pages.payment-done-industry-list', compact('project_data', 'industryTypeNames', 'paymentModeNames'));
+        }  
     public function viewDetailsForParticipant(Request $request) {
         $user_id = $request['show_id'];
         $user_data = Users::where('id', $user_id)->select('*')->first();
