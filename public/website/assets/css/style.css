@@ -597,14 +597,27 @@ video {
 	border:1px solid #fff;
 	margin:10px auto;
 }
-
-#gallery-sec{
-	display:block;
+#ecsection{
+    display:block;
 	width:100%;
 	margin:60px 0;
 }
+#ecsection h1{
+    display:block;
+	width:100%;
+	margin:60px 0;
+}
+#ecsection hr{
+	width:150px; border:2px solid #2f3191;
+}
+#ecsection p{
+	margin:15px 0 0 0;
+}
+#gallery-sec{
+    color: #f26166;
+}
 #gallery-sec h1{
-	color: #ec1d25;
+    color: #f26166;
 }
 #gallery-sec hr{
 	width:150px; border:2px solid #2f3191;

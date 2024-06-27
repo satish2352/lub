@@ -18,6 +18,13 @@
     <link href="{{ asset('website/assets/css/style1.css') }}" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('website/assets/css/swipebox.css') }}">
 
+    <link rel="stylesheet" href="https://cdn.datatables.net/2.0.8/css/dataTables.dataTables.css" />
+  
+   <script src="https://cdn.datatables.net/2.0.8/js/dataTables.js"></script>
+   <link rel="stylesheet" href="https://cdn.datatables.net/2.0.8/css/dataTables.dataTables.css" />
+  
+   <script src="https://cdn.datatables.net/2.0.8/js/dataTables.js"></script>
+
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
 </head>
 

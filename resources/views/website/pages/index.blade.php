@@ -30,7 +30,7 @@
 
             <marquee id="myMarquee" behavior="scroll" direction="left" onmouseover="toggleMarquee()"
                 onmouseout="toggleMarquee()">
-                <p class="p-1">Registration for the Engineering Talent Search 2023 is now closed for Colleges !</p>
+                <p class="p-1">Registration for the Engineering Talent Search 2024 is now closed for Colleges !</p>
             </marquee>
         </div>
         <div id="carousel-example-generic" class="carousel slide carousel-fade">

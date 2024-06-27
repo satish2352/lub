@@ -1,5 +1,12 @@
 @extends('website.layout.master')
 @section('content')
+<style>
+    .box{
+  padding: 20px 10px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+    </style>
     <section id="inner-banner">
         <div class="overlay">
             <div class="container">
@@ -83,6 +90,189 @@
         </div>
     </section>
 
+    <section id="ecsection">
+        <div class="container">
+            <div class="row ">
+        <h1>EC 24-26</h1>
+        <div class="table-reponsive box">
+            <table id="example" class="table table-striped table-bordered">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Designation</th>
+                            <th>Factory Name</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Nikhil Tapadia</td>
+                            <td>President</td>
+                            <td>NSK Fab & Weld</td>
+                        </tr>
+                        <tr>
+                            <td>Yogesh Joshi</td>
+                            <td>Gen. Secretary</td>
+                            <td>Devam Udyog </td>
+                        </tr>
+                        <tr>
+                            <td>Dhanlaxmi Patwardhan</td>
+                            <td>Treasurer</td>
+                            <td>The Link</td>
+                        </tr>
+                        <tr>
+                            <td>Avinash Marathe</td>
+                            <td>Vice President</td>
+                            <td>Power Control Engineers & Contractors</td>
+                        </tr>
+                        <tr>
+                            <td>Vina Majgaonkar</td>
+                            <td>Vice President</td>
+                            <td>Armstrong Machine Builders Pvt Ltd</td>
+                        </tr>
+                        <tr>
+                            <td>Vijay Anikevi</td>
+                            <td>Jt. Secretary</td>
+                            <td>Jt. Secretary</td>
+                        </tr>
+                        <tr>
+                            <td>Atul Deshmukh</td>
+                            <td>Jt. Treasurer</td>
+                            <td>Niraj Engineering</td>
+                        </tr>
+                        <tr>
+                            <td>Waman Bhanose</td>
+                            <td>EC Member</td>
+                            <td>Matrix Engineers </td>
+                        </tr>
+                        <tr>
+                            <td>Prashant Kulkarni </td>
+                            <td>EC Member</td>
+                            <td>Shri Shriniwas Coats </td>
+                        </tr>
+                        <tr>
+                            <td>Ruta Pandit </td>
+                            <td>EC Member</td>
+                            <td>Devam Udyog </td>
+                        </tr>
+                        <tr>
+                            <td>Prasen Kapadiya </td>
+                            <td>EC Member</td>
+                            <td>Shalaka Enterpises</td>
+                        </tr>
+                        <tr>
+                            <td>Supriya Deoghare</td>
+                            <td>EC Member</td>
+                            <td>Sanjay Enterprises </td>
+                        </tr>
+                        <tr>
+                            <td>Sujata Bachhav</td>
+                            <td>EC Member</td>
+                            <td>Kaleidoscope Advertising</td>
+                        </tr>
+                        <tr>
+                            <td>Vijay Pawar</td>
+                            <td>EC Member</td>
+                            <td>Aarya Technologies </td>
+                        </tr>
+                        <tr>
+                            <td>Pramod Maheshwari</td>
+                            <td>EC Member</td>
+                            <td>Film & Drama Production Company</td>
+                        </tr>
+                        <tr>
+                            <td>Urvish Joshi </td>
+                            <td>EC Member</td>
+                            <td>Maheshwari Hot Dip Galvanizers</td>
+                        </tr>
+                        <tr>
+                            <td>Sarang Attarde </td>
+                            <td>EC Member</td>
+                            <td>Taraba Tech Solutions Pvt. Ltd.</td>
+                        </tr>
+                        <tr>
+                            <td>Tushar Birari </td>
+                            <td>EC Member</td>
+                            <td>Saniyo Electrofeb Pvt. Ltd.</td>
+                        </tr>
+                        <tr>
+                            <td>Manjiri Joshi</td>
+                            <td>EC Member</td>
+                            <td>Tushar Papers</td>
+                        </tr>
+                        <tr>
+                            <td>Kunal Shikare</td>
+                            <td>EC Member</td>
+                            <td>FOOD  N  U</td>
+                        </tr>
+                        <tr>
+                            <td>Alok Jha</td>
+                            <td>EC Member</td>
+                            <td>LALIT  HYDRAULIC  SYSTEMS</td>
+                        </tr>
+                        <tr>
+                            <td> Paresh Parashare</td>
+                            <td>EC Member</td>
+                            <td>ZIGMA  PAINTS  PVT.  LTD.</td>
+                        </tr>
+                        <tr>
+                            <td>Rohit Shahane</td>
+                            <td>EC Member</td>
+                            <td>Trupti Automation </td>
+                        </tr>
+                        <tr>
+                            <td>Manohar Shewale</td>
+                            <td>EC Member</td>
+                            <td>Swayam Industry</td>
+                        </tr>
+                        <tr>
+                            <td>Durgesh Puranik</td>
+                            <td>EC Member</td>
+                            <td>Sai Enterprises</td>
+                        </tr>
+                        <tr>
+                            <td>Ambar Pradhan</td>
+                            <td>EC Member</td>
+                            <td>DESIGNER  CONCRETE  PVT.  LTD. </td>
+                        </tr>
+
+                        <tr>
+                            <td>Raosaheb Rakibe</td>
+                            <td>EC Member</td>
+                            <td>Slidewell Meilleur Tech Pvt Ltd </td>
+                        </tr>
+                        <tr>
+                            <td>Mangesh Bhanage</td>
+                            <td>EC Member</td>
+                            <td>Praj Electrical Services</td>
+                        </tr>
+                        <tr>
+                            <td>Jayant Pawar</td>
+                            <td>EC Member</td>
+                            <td>HRRDC Private Limited</td>
+                        </tr>
+                        <tr>
+                            <td>Vivek Kapadnis</td>
+                            <td>EC Member</td>
+                            <td>National Enterprises</td>
+                        </tr>
+                        <tr>
+                            <td>Kiran  Wagh</td>
+                            <td>EC Member</td>
+                            <td>Alligo Horizon Pvt. Ltd</td>
+                        </tr>
+                        <tr>
+                            <td>Pooja Mahajan </td>
+                            <td>EC Member</td>
+                            <td>Pooja  Industrial Training Center</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            </div>
+        </div>
+    </section>
+
+
     <section id="gallery-sec">
         <div class="container">
             <div class="row ">
@@ -111,4 +301,9 @@
             </div>
         </div>
     </section>
+    <script>
+        $(document).ready(function() {
+    $('#example').DataTable();
+} );
+        </script>
 @endsection

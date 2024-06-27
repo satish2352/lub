@@ -29,7 +29,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-sm-6">
-                        <h1>Registration for Engineering Talent Search 2023</h1>
+                        <h1>Registration for Engineering Talent Search 2024</h1>
                     </div>
                     <div class="col-sm-6">
                         <h6 class="breadcrumb"><a href="index.html">Home</a> / Registration</h6>
@@ -120,7 +120,7 @@
                         <div class=" select_option regist_type">
                             <select class="form-control" id="registration_type" name="registration_type">
                                 <option value="">Select Type Of Registration</option>
-                                <option value="0" disabled>Student</option>
+                                <option value="0">Student</option>
                                 <option value="1">Industry</option>
                             </select>
                             <div class="select_arrow"></div>
