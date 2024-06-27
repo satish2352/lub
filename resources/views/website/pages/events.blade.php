@@ -26,7 +26,7 @@
     <section id="pro-sec">
         <div class="container-fluid" style="padding: 10px 100px;">
             <div class="row text-center">
-                <div class="col-lg-3 col-md-3">
+                <div class="col-lg-4 col-md-4">
                     <div class="grid-image"><img src="{{ asset('website/assets/images/Event24/ETS_23_Judges_Panel.jpg') }}"
                             height="200"></div>
                     <div class="post-content">
@@ -38,7 +38,7 @@
                     </div>
 
                 </div>
-                <div class="col-lg-3 col-md-3">
+                <div class="col-lg-4 col-md-4">
                     <div class="grid-image"><img src="{{ asset('website/assets/images/Event24/ETS_23_Audience.jpg') }}"
                             height="200"></div>
                     <div class="post-content">
@@ -49,7 +49,7 @@
                     </div>
 
                 </div>
-                <div class="col-lg-3 col-md-3">
+                <div class="col-lg-4 col-md-4">
                     <div class="grid-image"><img src="{{ asset('website/assets/images/Event24/ETS_23_Colllge_1_st_winner.jpg') }}"
                             height="200"></div>
                     <div class="post-content">
@@ -60,7 +60,9 @@
                         {{-- <a href="donate.html" title="">Donate Now</a> --}}
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-3">
+            </div>
+            <div class="row text-center d-flex justify-content-center" style="display: flex; justify-content: center; padding-top:60px;">
+                 <div class="col-lg-4 col-md-4">
                     <div class="grid-image"><img src="{{ asset('website/assets/images/Event24/ETS_23_Industry_1st_winner.jpg') }}"
                             height="200"></div>
                     <div class="post-content">
@@ -72,10 +74,9 @@
                     </div>
 
                 </div>
-            </div>
+            
                 {{-- ============== --}}
-                <div class="row text-center d-flex justify-content-center" style="display: flex; justify-content: center; padding-top:60px;">
-                <div class="col-lg-3 col-md-3">
+                <div class="col-lg-4 col-md-4">
                     <div class="grid-image"><img src="{{ asset('website/assets/images/Events/Picture1.png') }}"
                             height="200"></div>
                     <div class="post-content">
@@ -89,7 +90,7 @@
                     </div>
 
                 </div>
-                <div class="col-lg-3 col-md-3">
+                <div class="col-lg-4 col-md-4">
                     <div class="grid-image"><img src="{{ asset('website/assets/images/Events/Picture2.png') }}"
                             height="200"></div>
                     <div class="post-content">
@@ -104,7 +105,10 @@
                             {{-- <a href="donate.html" title="">Donate Now</a> --}}
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-3">
+            </div>
+            <div class="row text-center d-flex justify-content-center" style="display: flex; justify-content: center; padding-top:60px;">
+
+                <div class="col-lg-4 col-md-4">
                     <div class="grid-image"><img src="{{ asset('website/assets/images/Events/Picture4.png') }}"
                             height="200">
                     </div>
