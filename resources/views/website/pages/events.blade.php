@@ -31,7 +31,7 @@
             <div class="row text-center">
                 <div class="col-lg-4 col-md-4">
                     <div class="grid-image"><img src="{{ asset('website/assets/images/Event24/ETS_23_Judges_Panel.jpg') }}"
-                            height="200"></div>
+                            height="300"></div>
                     <div class="post-content cardheight1">
                         <h3>इंजीनियरिंग टैलेंट सर्च - 2023</h3>
                         <hr>
@@ -43,7 +43,7 @@
                 </div>
                 <div class="col-lg-4 col-md-4">
                     <div class="grid-image"><img src="{{ asset('website/assets/images/Event24/ETS_23_Audience.jpg') }}"
-                            height="200"></div>
+                            height="300"></div>
                     <div class="post-content cardheight1">
                         <h3>इंजीनियरिंग टैलेंट सर्च - 2023</h3>
                         <hr>
@@ -54,7 +54,7 @@
                 </div>
                 <div class="col-lg-4 col-md-4">
                     <div class="grid-image"><img src="{{ asset('website/assets/images/Event24/ETS_23_Colllge_1_st_winner.jpg') }}"
-                            height="200"></div>
+                            height="300"></div>
                     <div class="post-content cardheight1">
                         <h3>इंजीनियरिंग टैलेंट सर्च - 2023</h3>
                         <hr>
@@ -67,7 +67,7 @@
             <div class="row text-center d-flex justify-content-center" style="display: flex; justify-content: center; padding-top:60px;">
                  <div class="col-lg-4 col-md-4">
                     <div class="grid-image"><img src="{{ asset('website/assets/images/Event24/ETS_23_Industry_1st_winner.jpg') }}"
-                            height="200"></div>
+                            height="300"></div>
                     <div class="post-content cardheight">
                         <h3>इंजीनियरिंग टैलेंट सर्च - 2023</h3>
                         <hr>
@@ -81,7 +81,7 @@
                 {{-- ============== --}}
                 <div class="col-lg-4 col-md-4">
                     <div class="grid-image"><img src="{{ asset('website/assets/images/Events/Picture1.png') }}"
-                            height="200"></div>
+                            height="300"></div>
                     <div class="post-content cardheight">
                         <h3>उद्यमी सम्मेलन व प्रदेश कार्यकारिणी की वार्षिक सभा</h3>
                         <hr>
@@ -95,7 +95,7 @@
                 </div>
                 <div class="col-lg-4 col-md-4">
                     <div class="grid-image"><img src="{{ asset('website/assets/images/Events/Picture2.png') }}"
-                            height="200"></div>
+                            height="300"></div>
                     <div class="post-content cardheight">
                         <h3>जीएसटी काउंसिल एडवाइजरी</h3>
                         <hr>
@@ -113,7 +113,7 @@
 
                 <div class="col-lg-4 col-md-4">
                     <div class="grid-image"><img src="{{ asset('website/assets/images/Events/Picture4.png') }}"
-                            height="200">
+                            height="300">
                     </div>
                     <div class="post-content cardheight">
                         <h3>बैठक प्रान्त सचिव श्रीमती बिंदु जी जैन के सानिध्य में आमंत्रित की गई।</h3>
