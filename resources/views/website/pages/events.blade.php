@@ -1,10 +1,10 @@
 @extends('website.layout.master')
 @section('content')
 <style>
-     .post-content1{
-        height: 270px !important;
+      .cardheight1{
+        height: 250px !important;
     }
-    .post-content{
+    .cardheight{
         height: 300px !important;
     }
     .discription{
@@ -32,7 +32,7 @@
                 <div class="col-lg-4 col-md-4">
                     <div class="grid-image"><img src="{{ asset('website/assets/images/Event24/ETS_23_Judges_Panel.jpg') }}"
                             height="200"></div>
-                    <div class="post-content1">
+                    <div class="post-content cardheight1">
                         <h3>इंजीनियरिंग टैलेंट सर्च - 2023</h3>
                         <hr>
                         <p class="discription">लघु उद्योग भारती, नासिक ने बुधवार, दिनांक 12.03.2023 को "इंजीनियरिंग टैलेंट सर्च - 2023" का पुरस्कार वितरण समारोह
@@ -44,7 +44,7 @@
                 <div class="col-lg-4 col-md-4">
                     <div class="grid-image"><img src="{{ asset('website/assets/images/Event24/ETS_23_Audience.jpg') }}"
                             height="200"></div>
-                    <div class="post-content1">
+                    <div class="post-content cardheight1">
                         <h3>इंजीनियरिंग टैलेंट सर्च - 2023</h3>
                         <hr>
                         <p class="discription">इस अवसर पर श्री विलास शिंदे, अध्यक्ष, सह्याद्रि फार्म, डिंडोरी, नासिक, श्री. डॉ। गोरक्ष गरजे, संयुक्त निदेशक उच्च तकनीकी शिक्षा एवं प्राचार्य शासकीय तकनीकी शिक्षा नासिक। लघु उद्योग भारती नासिक के अध्यक्ष श्री. विवेक कुलकर्णी एवं अभिनय श्री. मंच पर निखिल तापड़िया मौजूद थे. </p>
@@ -55,7 +55,7 @@
                 <div class="col-lg-4 col-md-4">
                     <div class="grid-image"><img src="{{ asset('website/assets/images/Event24/ETS_23_Colllge_1_st_winner.jpg') }}"
                             height="200"></div>
-                    <div class="post-content1">
+                    <div class="post-content cardheight1">
                         <h3>इंजीनियरिंग टैलेंट सर्च - 2023</h3>
                         <hr>
                         <p class="discription">नामित उद्यमी, शिक्षा क्षेत्र के अधिकारी, इंजीनियर, NIMA के पदाधिकारी, AIMA औद्योगिक संघ, लघु उद्योग भारती कार्यकारिणी के सदस्य आदि। 
@@ -68,7 +68,7 @@
                  <div class="col-lg-4 col-md-4">
                     <div class="grid-image"><img src="{{ asset('website/assets/images/Event24/ETS_23_Industry_1st_winner.jpg') }}"
                             height="200"></div>
-                    <div class="post-content">
+                    <div class="post-content cardheight">
                         <h3>इंजीनियरिंग टैलेंट सर्च - 2023</h3>
                         <hr>
                         <p class="discription">भारत सरकार के सड़क परिवहन, राजमार्ग मंत्री माननीय श्री नितिन गडकरी ने कार्यक्रम में अपना दस मिनट का विशेष शुभकामना संदेश भेजा। उन्होंने लघु उद्योग 
@@ -82,7 +82,7 @@
                 <div class="col-lg-4 col-md-4">
                     <div class="grid-image"><img src="{{ asset('website/assets/images/Events/Picture1.png') }}"
                             height="200"></div>
-                    <div class="post-content">
+                    <div class="post-content cardheight">
                         <h3>उद्यमी सम्मेलन व प्रदेश कार्यकारिणी की वार्षिक सभा</h3>
                         <hr>
                         <p class="discription">lub_छत्तीसगढ़ द्वारा रायपुर मे आयोजित "उद्यमी सम्मेलन व प्रदेश कार्यकारिणी की वार्षिक सभा" बड़े
@@ -96,7 +96,7 @@
                 <div class="col-lg-4 col-md-4">
                     <div class="grid-image"><img src="{{ asset('website/assets/images/Events/Picture2.png') }}"
                             height="200"></div>
-                    <div class="post-content">
+                    <div class="post-content cardheight">
                         <h3>जीएसटी काउंसिल एडवाइजरी</h3>
                         <hr>
                         <p class="discription">जीएसटी काउंसिल एडवाइजरी कमेटी के सदस्य श्री ओ पी मित्तल ( निवर्तमान राष्ट्रीय अध्यक्ष)
@@ -115,7 +115,7 @@
                     <div class="grid-image"><img src="{{ asset('website/assets/images/Events/Picture4.png') }}"
                             height="200">
                     </div>
-                    <div class="post-content">
+                    <div class="post-content cardheight">
                         <h3>बैठक प्रान्त सचिव श्रीमती बिंदु जी जैन के सानिध्य में आमंत्रित की गई।</h3>
                         <hr>
                         <p class="discription">lub_हनुमानगढ़ जिला इकाई, #हनुमानगढ़जंक्शन #हनुमानगढ़टाउन बैठक प्रान्त सचिव श्रीमती बिंदु जी जैन
