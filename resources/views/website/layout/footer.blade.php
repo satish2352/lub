@@ -110,7 +110,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-6 copyright">
-                    <div class="left-text">Copyright &copy; Sumago Infotech Pvt. Ltd. © 2023 All Right Reserved</div>
+                    <div class="left-text">Copyright &copy; Sumago Infotech Pvt. Ltd. © 2024 All Right Reserved</div>
                 </div>
             </div>
         </div>
