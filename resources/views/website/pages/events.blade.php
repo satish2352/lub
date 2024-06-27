@@ -2,7 +2,7 @@
 @section('content')
 <style>
      .post-content1{
-        height: 250px !important;
+        height: 270px !important;
     }
     .post-content{
         height: 300px !important;
