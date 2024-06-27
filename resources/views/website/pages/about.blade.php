@@ -132,133 +132,133 @@
                         <tr>
                             <td>Vijay Anikevi</td>
                             <td>Jt. Secretary</td>
-                            <td>Jt. Secretary</td>
+                            <td>Niraj Engineering</td>
                         </tr>
                         <tr>
                             <td>Atul Deshmukh</td>
                             <td>Jt. Treasurer</td>
-                            <td>Niraj Engineering</td>
+                            <td>Matrix Engineers </td>
                         </tr>
                         <tr>
                             <td>Waman Bhanose</td>
                             <td>EC Member</td>
-                            <td>Matrix Engineers </td>
+                            <td>Shri Shriniwas Coats </td>
                         </tr>
                         <tr>
                             <td>Prashant Kulkarni </td>
                             <td>EC Member</td>
-                            <td>Shri Shriniwas Coats </td>
+                            <td>Devam Udyog</td>
                         </tr>
                         <tr>
                             <td>Ruta Pandit </td>
                             <td>EC Member</td>
-                            <td>Devam Udyog </td>
+                            <td> Shalaka Enterpises</td>
                         </tr>
                         <tr>
                             <td>Prasen Kapadiya </td>
                             <td>EC Member</td>
-                            <td>Shalaka Enterpises</td>
+                            <td>Sanjay Enterprises </td>
                         </tr>
                         <tr>
                             <td>Supriya Deoghare</td>
                             <td>EC Member</td>
-                            <td>Sanjay Enterprises </td>
+                            <td>Kaleidoscope Advertising</td>
                         </tr>
                         <tr>
                             <td>Sujata Bachhav</td>
                             <td>EC Member</td>
-                            <td>Kaleidoscope Advertising</td>
+                            <td>Aarya Technologies</td>
                         </tr>
                         <tr>
                             <td>Vijay Pawar</td>
                             <td>EC Member</td>
-                            <td>Aarya Technologies </td>
+                            <td>Film & Drama Production Company</td>
                         </tr>
                         <tr>
                             <td>Pramod Maheshwari</td>
                             <td>EC Member</td>
-                            <td>Film & Drama Production Company</td>
+                            <td>Maheshwari Hot Dip Galvanizers</td>
                         </tr>
                         <tr>
                             <td>Urvish Joshi </td>
                             <td>EC Member</td>
-                            <td>Maheshwari Hot Dip Galvanizers</td>
+                            <td>Taraba Tech Solutions Pvt. Ltd.</td>
                         </tr>
                         <tr>
                             <td>Sarang Attarde </td>
                             <td>EC Member</td>
-                            <td>Taraba Tech Solutions Pvt. Ltd.</td>
+                            <td>Saniyo Electrofeb Pvt. Ltd.</td>
                         </tr>
                         <tr>
                             <td>Tushar Birari </td>
                             <td>EC Member</td>
-                            <td>Saniyo Electrofeb Pvt. Ltd.</td>
+                            <td>Tushar Papers</td>
                         </tr>
                         <tr>
                             <td>Manjiri Joshi</td>
                             <td>EC Member</td>
-                            <td>Tushar Papers</td>
+                            <td>FOOD  N  U</td>
                         </tr>
                         <tr>
                             <td>Kunal Shikare</td>
                             <td>EC Member</td>
-                            <td>FOOD  N  U</td>
+                            <td>LALIT  HYDRAULIC  SYSTEMS</td>
                         </tr>
                         <tr>
                             <td>Alok Jha</td>
                             <td>EC Member</td>
-                            <td>LALIT  HYDRAULIC  SYSTEMS</td>
+                            <td>ZIGMA  PAINTS  PVT.  LTD.</td>
                         </tr>
                         <tr>
                             <td> Paresh Parashare</td>
                             <td>EC Member</td>
-                            <td>ZIGMA  PAINTS  PVT.  LTD.</td>
+                            <td>Trupti Automation</td>
                         </tr>
                         <tr>
                             <td>Rohit Shahane</td>
                             <td>EC Member</td>
-                            <td>Trupti Automation </td>
+                            <td>Swayam Industry</td>
                         </tr>
                         <tr>
                             <td>Manohar Shewale</td>
                             <td>EC Member</td>
-                            <td>Swayam Industry</td>
+                            <td>Sai Enterprises</td>
                         </tr>
                         <tr>
                             <td>Durgesh Puranik</td>
                             <td>EC Member</td>
-                            <td>Sai Enterprises</td>
+                            <td>DESIGNER  CONCRETE  PVT.  LTD.</td>
                         </tr>
                         <tr>
                             <td>Ambar Pradhan</td>
                             <td>EC Member</td>
-                            <td>DESIGNER  CONCRETE  PVT.  LTD. </td>
+                            <td>Slidewell Meilleur Tech Pvt Ltd</td>
                         </tr>
 
                         <tr>
                             <td>Raosaheb Rakibe</td>
                             <td>EC Member</td>
-                            <td>Slidewell Meilleur Tech Pvt Ltd </td>
+                            <td>Praj Electrical Services</td>
                         </tr>
                         <tr>
                             <td>Mangesh Bhanage</td>
                             <td>EC Member</td>
-                            <td>Praj Electrical Services</td>
+                            <td>HRRDC Private Limited</td>
                         </tr>
                         <tr>
                             <td>Jayant Pawar</td>
                             <td>EC Member</td>
-                            <td>HRRDC Private Limited</td>
+                            <td>National Enterprises</td>
                         </tr>
                         <tr>
                             <td>Vivek Kapadnis</td>
                             <td>EC Member</td>
-                            <td>National Enterprises</td>
+                            <td>Alligo Horizon Pvt. Ltd</td>
                         </tr>
                         <tr>
                             <td>Kiran  Wagh</td>
                             <td>EC Member</td>
-                            <td>Alligo Horizon Pvt. Ltd</td>
+                            <td>Vastushree Entra Project Pvt Ltd.</td>
                         </tr>
                         <tr>
                             <td>Pooja Mahajan </td>
