@@ -1,6 +1,9 @@
 @extends('website.layout.master')
 @section('content')
 <style>
+     .post-content1{
+        height: 250px !important;
+    }
     .post-content{
         height: 300px !important;
     }
@@ -29,7 +32,7 @@
                 <div class="col-lg-4 col-md-4">
                     <div class="grid-image"><img src="{{ asset('website/assets/images/Event24/ETS_23_Judges_Panel.jpg') }}"
                             height="200"></div>
-                    <div class="post-content">
+                    <div class="post-content1">
                         <h3>इंजीनियरिंग टैलेंट सर्च - 2023</h3>
                         <hr>
                         <p class="discription">लघु उद्योग भारती, नासिक ने बुधवार, दिनांक 12.03.2023 को "इंजीनियरिंग टैलेंट सर्च - 2023" का पुरस्कार वितरण समारोह
@@ -41,7 +44,7 @@
                 <div class="col-lg-4 col-md-4">
                     <div class="grid-image"><img src="{{ asset('website/assets/images/Event24/ETS_23_Audience.jpg') }}"
                             height="200"></div>
-                    <div class="post-content">
+                    <div class="post-content1">
                         <h3>इंजीनियरिंग टैलेंट सर्च - 2023</h3>
                         <hr>
                         <p class="discription">इस अवसर पर श्री विलास शिंदे, अध्यक्ष, सह्याद्रि फार्म, डिंडोरी, नासिक, श्री. डॉ। गोरक्ष गरजे, संयुक्त निदेशक उच्च तकनीकी शिक्षा एवं प्राचार्य शासकीय तकनीकी शिक्षा नासिक। लघु उद्योग भारती नासिक के अध्यक्ष श्री. विवेक कुलकर्णी एवं अभिनय श्री. मंच पर निखिल तापड़िया मौजूद थे. </p>
@@ -52,7 +55,7 @@
                 <div class="col-lg-4 col-md-4">
                     <div class="grid-image"><img src="{{ asset('website/assets/images/Event24/ETS_23_Colllge_1_st_winner.jpg') }}"
                             height="200"></div>
-                    <div class="post-content">
+                    <div class="post-content1">
                         <h3>इंजीनियरिंग टैलेंट सर्च - 2023</h3>
                         <hr>
                         <p class="discription">नामित उद्यमी, शिक्षा क्षेत्र के अधिकारी, इंजीनियर, NIMA के पदाधिकारी, AIMA औद्योगिक संघ, लघु उद्योग भारती कार्यकारिणी के सदस्य आदि। 
