@@ -2,7 +2,7 @@
 @section('content')
 <style>
     .post-content{
-        height: 370px !important;
+        height: 300px !important;
     }
     .discription{
         font-size: 15px;
