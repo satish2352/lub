@@ -10,7 +10,6 @@
             line-height: 27px;
             padding: 10px;
         }
-
         .marqueeMain p {
             margin: 0px;
         }
@@ -33,7 +32,7 @@
                 <p class="p-1">Registration for the Engineering Talent Search 2024 is now closed for Colleges !</p>
             </marquee>
 
-            
+
         </div>
         <div id="carousel-example-generic" class="carousel slide carousel-fade">
             <!-- Indicators -->

@@ -124,7 +124,6 @@
                                 <option value="1">Industry</option>
                             </select>
                             <div class="select_arrow"></div>
-
                         </div>
                         @if ($errors->has('registration_type'))
                             <span class="red-text"><?php echo $errors->first('registration_type', ':message'); ?></span>

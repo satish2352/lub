@@ -59,7 +59,6 @@
                             उपस्थित थे। इस कार्यक्रम की खास बात युवा इंजीनियरों की उपस्थिति और जबरदस्त प्रतिक्रिया है।</p>
                         {{-- <a href="donate.html" title="">Donate Now</a> --}}
                     </div>
-
                 </div>
                 <div class="col-lg-3 col-md-3">
                     <div class="grid-image"><img src="{{ asset('website/assets/images/Event24/ETS_23_Industry_1st_winner.jpg') }}"
