@@ -95,8 +95,8 @@
                                     <b>
                                         <i class="fa fa-envelope-o"></i>
                                     </b>
-
-                                    lubnsk@gmail.com
+                                    <a href="mailto:lubnsk@gmail.com">lubnsk@gmail.com</a>
+                                    
                                 </p>
                             </div><!-- /.footer-contacts -->
                         </div><!-- /.footer-section-body -->
@@ -110,7 +110,8 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-6 copyright">
-                    <div class="left-text">Copyright &copy; Sumago Infotech Pvt. Ltd. © 2024 All Right Reserved</div>
+                    <div class="left-text">Copyright &copy;<a class="footerdetail" href="https://sumagoinfotech.com/" target="_blank" style="color:#878C92;
+}"> Sumago Infotech Pvt. Ltd. </a>© 2024 All Right Reserved</div>
                 </div>
             </div>
         </div>

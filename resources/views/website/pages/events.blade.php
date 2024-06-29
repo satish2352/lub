@@ -10,6 +10,25 @@
     .discription{
         font-size: 15px;
     }
+    .row-first{
+        padding: 10px 100px;
+        margin-bottom: 20px
+    }
+    .row-second{
+        display: flex;
+         justify-content: center;
+          padding-top:30px 100px 10px 100px;
+    }
+    @media screen and (max-width: 767px) {
+        .row-first{
+        padding: 0px;
+    }
+    .row-second{
+        display: grid !important
+         justify-content: center;
+          padding-top:20px;
+    }
+    }
     </style>
     <section id="inner-banner">
         <div class="overlay">
@@ -27,8 +46,8 @@
     </section>
 
     <section id="pro-sec">
-        <div class="container-fluid" style="padding: 10px 100px;">
-            <div class="row text-center">
+        <div class="container-fluid">
+            <div class="row text-center row-first">
                 <div class="col-lg-4 col-md-4">
                     <div class="grid-image"><img src="{{ asset('website/assets/images/Event24/ETS_23_Judges_Panel.jpg') }}"
                             height="300"></div>
@@ -64,7 +83,7 @@
                     </div>
                 </div>
             </div>
-            <div class="row text-center d-flex justify-content-center" style="display: flex; justify-content: center; padding-top:60px;">
+            <div class="row text-center row-first">
                  <div class="col-lg-4 col-md-4">
                     <div class="grid-image"><img src="{{ asset('website/assets/images/Event24/ETS_23_Industry_1st_winner.jpg') }}"
                             height="300"></div>
@@ -109,7 +128,7 @@
                     </div>
                 </div>
             </div>
-            <div class="row text-center d-flex justify-content-center" style="display: flex; justify-content: center; padding-top:60px;">
+            <div class="row text-center row-second row-first">
 
                 <div class="col-lg-4 col-md-4">
                     <div class="grid-image"><img src="{{ asset('website/assets/images/Events/Picture4.png') }}"

@@ -10,7 +10,7 @@
     <meta name="robots" content="index,follow">
 
     <title>LUB NASHIK</title>
-
+    <link rel="icon" type="image/x-icon" href="{{ asset('website/assets/images/logo_fav.png') }}">
     <link href="{{ asset('website/assets/css/font-awesome.min.css') }}" rel="stylesheet">
     <link href="{{ asset('website/assets/css/animate.css') }}" rel="stylesheet">
     <link href="{{ asset('website/assets/css/bootsnav.css') }}" rel="stylesheet">
@@ -36,7 +36,7 @@
                     <i class="fa fa-phone"></i> <span>Call Us :</span> <strong>+1-310-341-3870</strong>
                 </div> --}}
                 <div class="bar-mail">
-                    <i class="fa fa-envelope"></i> <span></span> <strong>lubnsk@gmail.com
+                    <i class="fa fa-envelope"></i> <span></span> <strong> <a href="mailto:lubnsk@gmail.com" style="color: #fff;">lubnsk@gmail.com</a> 
                     </strong>
                 </div>
                 <div class="header-social">
