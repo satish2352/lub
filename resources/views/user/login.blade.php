@@ -44,12 +44,12 @@
         <div class="container-fluid page-body-wrapper full-page-wrapper">
             <div class="content-wrapper d-flex align-items-stretch auth auth-img-bg">
                 <div class="row flex-grow">
-                    <div class="col-lg-6 d-flex align-items-center justify-content-center">
+                    <div class="col-lg-7 d-flex align-items-center justify-content-center">
                         <div class="auth-form-transparent text-left p-3">
                             <!--  Brand Logo -->
                             <div class="brand-logo d-flex justify-content-center">
-                                <img src="{{ asset('website/assets/images/logo.jpg') }}" alt="logo"
-                                    style="width: 150px">
+                                <a href="{{ url('/') }}"><img src="{{ asset('website/assets/images/logo.jpg') }}" alt="logo"
+                                    style="width: 150px"></a>
                             </div>
                             <!--  Login Form -->
 
@@ -143,7 +143,7 @@
                         </div>
                     </div>
                     <!--  Copyright text -->
-                    <div class="col-lg-6 login-half-bg d-flex flex-row">
+                    <div class="col-lg-5 login-half-bg d-flex flex-row">
                         <!--  <img src="{{ asset('website_files\images\home\slide3.jpeg') }}" alt="logo"> -->
                         {{-- <p class="text-white font-weight-medium text-center flex-grow align-self-end">Copyright ©
                             {{ date('Y') }}.
